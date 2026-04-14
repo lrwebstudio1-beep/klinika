@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politika e Privatësisë — Klinika Vera Virhov</title>
+<meta name="description" content="Politika e Privatësisë së Klinikës Vera Virhov. Mësoni si i mbrojmë dhe i përdorim të dhënat tuaja personale në përputhje me GDPR.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:      #0e1117;
+  --ink-mid:  #1c2333;
+  --slate:    #2d3a4f;
+  --cobalt:   #1b3a6b;
+  --cobalt-l: #245492;
+  --sky:      #4c82c4;
+  --cream:    #f7f4ef;
+  --warm:     #ede9e1;
+  --gold:     #b8965a;
+  --gold-l:   #d4b07a;
+  --teal:     #0797b0;
+  --white:    #ffffff;
+  --muted:    #8a8f9a;
+  --border:   rgba(14,17,23,0.08);
+  --ease:     cubic-bezier(0.4,0,0.2,1);
+  --ease-out: cubic-bezier(0,0,0.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CURSOR */
+.cursor {
+  width: 8px; height: 8px;
+  background: var(--cobalt);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s;
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(27,58,107,0.35);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform 0.18s var(--ease-out), width 0.4s var(--ease), height 0.4s var(--ease), opacity 0.3s;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 500;
+  height: 76px;
+  display: flex; align-items: center;
+  padding: 0 5%;
+  background: rgba(247,244,239,0.96);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--border);
+  transition: background 0.4s, box-shadow 0.4s;
+}
+.nav-inner {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  display: flex; align-items: baseline; gap: 3px;
+  text-decoration: none; line-height: 1;
+}
+.logo-word {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem; font-weight: 500;
+  color: var(--ink); letter-spacing: -0.01em;
+}
+.logo-word em { font-style: italic; color: var(--cobalt); }
+.logo-sep {
+  width: 1px; height: 22px;
+  background: #d4b07a; margin: 0 10px; opacity: 0.6;
+}
+.logo-sub {
+  font-size: 0.68rem; font-weight: 400; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #d4b07a;
+}
+.nav-menu {
+  display: flex; align-items: center; gap: 36px; list-style: none;
+}
+.nav-menu a {
+  font-size: 0.82rem; font-weight: 400; letter-spacing: 0.8px;
+  text-transform: uppercase; color: var(--teal);
+  text-decoration: none; position: relative;
+  transition: color 0.2s;
+}
+.nav-menu a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0; right: 100%;
+  height: 1px; background: var(--teal);
+  transition: right 0.3s var(--ease);
+}
+.nav-menu a:hover::after { right: 0; }
+.nav-book {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--white);
+  text-decoration: none;
+  background: var(--teal);
+  padding: 11px 24px; border-radius: 2px;
+  transition: background 0.25s, transform 0.2s;
+}
+.nav-book:hover { background: var(--cobalt-l); transform: translateY(-1px); }
+.hamburger {
+  display: none; background: none; border: none; cursor: pointer;
+  flex-direction: column; gap: 6px; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 26px; height: 1.5px;
+  background: var(--ink); transition: 0.35s var(--ease);
+}
+
+/* ─── HERO ─── */
+.pp-hero {
+  padding-top: 76px;
+  background: var(--teal);
+  position: relative; overflow: hidden;
+}
+.pp-hero-inner {
+  max-width: 1260px; margin: 0 auto;
+  padding: 100px 5% 80px;
+  position: relative; z-index: 2;
+}
+.pp-hero-bg-text {
+  position: absolute; bottom: -30px; right: -2%;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(80px, 14vw, 160px);
+  font-weight: 700; font-style: italic;
+  color: rgba(255,255,255,0.04);
+  white-space: nowrap; pointer-events: none;
+  letter-spacing: -0.04em;
+}
+.eyebrow {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+}
+.eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
+.eyebrow-text {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold-l);
+}
+.pp-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  font-weight: 400; line-height: 1.08;
+  color: var(--white); letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.pp-hero h1 em { font-style: italic; color: var(--gold-l); }
+.pp-hero-meta {
+  display: flex; align-items: center; gap: 24px;
+  font-size: 0.8rem; color: rgba(255,255,255,0.45);
+  letter-spacing: 0.3px; font-weight: 300;
+}
+.pp-hero-meta-dot { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; }
+
+/* ─── TOC STRIP ─── */
+.toc-strip {
+  background: var(--cobalt);
+  padding: 0 5%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.toc-strip::-webkit-scrollbar { display: none; }
+.toc-inner {
+  max-width: 1260px; margin: 0 auto;
+  display: flex; align-items: stretch; gap: 0;
+}
+.toc-item {
+  display: flex; align-items: center;
+  padding: 18px 24px;
+  font-size: 0.72rem; font-weight: 400; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.45);
+  text-decoration: none; white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s, background 0.2s;
+  gap: 10px;
+}
+.toc-item:first-child { border-left: 1px solid rgba(255,255,255,0.06); }
+.toc-item:hover { color: var(--gold-l); background: rgba(255,255,255,0.03); }
+.toc-num {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 0.8rem;
+  color: var(--gold); opacity: 0.6;
+}
+
+/* ─── MAIN LAYOUT ─── */
+.pp-layout {
+  max-width: 1260px; margin: 0 auto;
+  padding: 80px 5% 120px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ─── SIDEBAR ─── */
+.pp-sidebar {
+  position: sticky; top: 100px;
+}
+.sidebar-label {
+  font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 20px; font-weight: 500;
+}
+.sidebar-nav { list-style: none; }
+.sidebar-nav li { }
+.sidebar-nav a {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.84rem; color: var(--muted);
+  text-decoration: none; font-weight: 300;
+  transition: color 0.2s;
+}
+.sidebar-nav a:hover { color: var(--teal); }
+.sidebar-nav a.active { color: var(--ink); font-weight: 500; }
+.sidebar-nav a.active .s-num { color: var(--gold); }
+.s-num {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 0.75rem;
+  color: rgba(14,17,23,0.2); flex-shrink: 0; width: 20px;
+}
+.sidebar-badge {
+  margin-top: 32px;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  padding: 24px;
+}
+.sb-label {
+  font-size: 0.62rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 10px;
+}
+.sb-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; color: var(--ink); line-height: 1.5;
+}
+.sb-val em { font-style: italic; color: var(--cobalt); }
+.sidebar-contact {
+  margin-top: 16px;
+  background: var(--teal);
+  padding: 24px;
+}
+.sc-label {
+  font-size: 0.62rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); margin-bottom: 10px;
+}
+.sc-val {
+  font-size: 0.85rem; color: rgba(255,255,255,0.85);
+  line-height: 1.7; font-weight: 300;
+}
+.sc-val a { color: var(--gold-l); text-decoration: none; }
+.sc-val a:hover { color: var(--white); }
+
+/* ─── CONTENT ─── */
+.pp-content { min-width: 0; }
+
+.pp-section {
+  padding-bottom: 64px;
+  margin-bottom: 64px;
+  border-bottom: 1px solid var(--border);
+}
+.pp-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0; padding-bottom: 0;
+}
+
+.section-header {
+  display: flex; align-items: baseline; gap: 20px;
+  margin-bottom: 32px;
+}
+.section-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 400; line-height: 1;
+  color: var(--warm); letter-spacing: -0.04em;
+  flex-shrink: 0;
+}
+.section-h {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem; font-weight: 400; line-height: 1.2;
+  color: var(--ink); letter-spacing: -0.02em;
+}
+.section-h em { font-style: italic; color: var(--teal); }
+
+.pp-p {
+  font-size: 0.95rem; line-height: 1.9;
+  color: #4a5060; font-weight: 300;
+  margin-bottom: 20px;
+}
+.pp-p:last-child { margin-bottom: 0; }
+.pp-p strong { font-weight: 500; color: var(--ink); }
+
+.pp-list {
+  list-style: none;
+  margin: 20px 0;
+  display: flex; flex-direction: column; gap: 0;
+}
+.pp-list li {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem; line-height: 1.7;
+  color: #4a5060; font-weight: 300;
+}
+.pp-list li:first-child { border-top: 1px solid var(--border); }
+.li-dot {
+  width: 5px; height: 5px; background: var(--gold);
+  border-radius: 50%; flex-shrink: 0; margin-top: 9px;
+}
+
+.pp-box {
+  background: var(--warm);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--teal);
+  padding: 28px 32px;
+  margin: 28px 0;
+}
+.pp-box-label {
+  font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--teal); font-weight: 500; margin-bottom: 10px;
+}
+.pp-box p {
+  font-size: 0.88rem; line-height: 1.8;
+  color: #4a5060; font-weight: 300;
+}
+.pp-box p strong { color: var(--ink); font-weight: 500; }
+
+.pp-highlight {
+  background: var(--cobalt);
+  padding: 32px 36px;
+  margin: 28px 0;
+}
+.pp-highlight p {
+  font-size: 0.9rem; line-height: 1.8;
+  color: rgba(255,255,255,0.6); font-weight: 300;
+}
+.pp-highlight strong { color: var(--white); font-weight: 500; }
+
+.rights-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border);
+  margin: 28px 0;
+}
+.right-item {
+  background: var(--white);
+  padding: 24px 28px;
+}
+.right-icon { font-size: 1.3rem; margin-bottom: 12px; display: block; }
+.right-title {
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--ink); margin-bottom: 6px;
+}
+.right-desc {
+  font-size: 0.8rem; line-height: 1.7;
+  color: var(--muted); font-weight: 300;
+}
+
+.table-wrap { overflow-x: auto; margin: 28px 0; }
+.pp-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.pp-table th {
+  background: var(--cobalt); color: rgba(255,255,255,0.75);
+  font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 400; padding: 14px 20px; text-align: left;
+}
+.pp-table td {
+  padding: 14px 20px; border-bottom: 1px solid var(--border);
+  color: #4a5060; font-weight: 300; line-height: 1.6;
+  vertical-align: top;
+}
+.pp-table tr:last-child td { border-bottom: none; }
+.pp-table tr:nth-child(even) td { background: var(--warm); }
+.td-label { font-weight: 500; color: var(--ink); font-size: 0.84rem; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--teal);
+  padding: 60px 5% 36px;
+}
+.footer-top {
+  display: grid; grid-template-columns: 3fr 1.5fr 1.5fr 1.5fr;
+  gap: 60px; margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand-word {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 500;
+  color: var(--white); margin-bottom: 14px;
+}
+.footer-brand-word em { font-style: italic; color: var(--gold); }
+.footer-desc {
+  font-size: 0.82rem; line-height: 1.8;
+  color: rgba(255,255,255,0.3); font-weight: 300; max-width: 300px;
+  margin-bottom: 28px;
+}
+.footer-col h5 {
+  font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.25); margin-bottom: 18px; font-weight: 400;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul li a {
+  font-size: 0.84rem; color: rgba(255,255,255,0.38);
+  text-decoration: none; font-weight: 300; transition: color 0.2s;
+}
+.footer-col ul li a:hover { color: rgba(255,255,255,0.75); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.73rem; color: rgba(255,255,255,0.2);
+}
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a {
+  color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.2s;
+}
+.footer-legal a:hover { color: rgba(255,255,255,0.5); }
+
+/* ─── SCROLL REVEAL ─── */
+.rw {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.rw.vis { opacity: 1; transform: none; }
+.rw-d1 { transition-delay: 0.1s; }
+.rw-d2 { transition-delay: 0.2s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .pp-layout { grid-template-columns: 1fr; gap: 48px; }
+  .pp-sidebar { position: static; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .rights-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .nav-menu, .nav-book { display: none; }
+  .hamburger { display: flex; }
+  .toc-strip { display: none; }
+  .footer-top { grid-template-columns: 1fr; }
+  .section-n { font-size: 2rem; }
+  .pp-hero h1 { font-size: 2.4rem; }
+}
+
+/* ─── GDPR BANNER ─── */
+.gdpr {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
+  background: var(--cobalt);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 5%;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  font-size: 0.8rem; color: rgba(255,255,255,0.45);
+  transition: transform 0.4s var(--ease);
+}
+.gdpr.hidden { transform: translateY(100%); }
+.gdpr-btns { display: flex; gap: 12px; flex-shrink: 0; }
+.gdpr-acc {
+  background: var(--gold); border: none; color: white;
+  padding: 9px 20px; font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  font-family: 'Jost', sans-serif; cursor: pointer; border-radius: 1px;
+  transition: background 0.2s;
+}
+.gdpr-acc:hover { background: var(--gold-l); }
+.gdpr-dec {
+  background: transparent; border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.5); padding: 9px 20px;
+  font-size: 0.75rem; font-family: 'Jost', sans-serif;
+  cursor: pointer; border-radius: 1px; transition: border-color 0.2s;
+}
+.gdpr-dec:hover { border-color: rgba(255,255,255,0.4); }
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-word">Klinika <em>Vera - Virhov</em></span>
+      <span class="logo-sep"></span>
+      <span class="logo-sub">Tiranë</span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html#sherbimet">Shërbimet</a></li>
+      <li><a href="index.html#stafi">Stafi</a></li>
+      <li><a href="index.html#testimoniale">Testimoniale</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="index.html#rezervo" class="nav-book">Rezervo Vizitë</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pp-hero">
+  <div class="pp-hero-inner">
+    <div class="eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-text">Dokument Ligjor · GDPR</span>
+    </div>
+    <h1>Politika e<br><em>Privatësisë</em></h1>
+    <div class="pp-hero-meta">
+      <span>Klinika Vera Virhov</span>
+      <span class="pp-hero-meta-dot"></span>
+      <span>Tiranë, Shqipëri</span>
+      <span class="pp-hero-meta-dot"></span>
+      <span>Hyrë në fuqi: Janar 2025</span>
+      <span class="pp-hero-meta-dot"></span>
+      <span>Versioni 1.0</span>
+    </div>
+  </div>
+  <div class="pp-hero-bg-text">Privatësia</div>
+</section>
+
+<!-- TOC STRIP -->
+<div class="toc-strip">
+  <div class="toc-inner">
+    <a class="toc-item" href="#hyrje"><span class="toc-num">i.</span> Hyrje</a>
+    <a class="toc-item" href="#te-dhenat"><span class="toc-num">ii.</span> Të dhënat</a>
+    <a class="toc-item" href="#perdorimi"><span class="toc-num">iii.</span> Përdorimi</a>
+    <a class="toc-item" href="#shperndarja"><span class="toc-num">iv.</span> Shpërndarja</a>
+    <a class="toc-item" href="#ruajtja"><span class="toc-num">v.</span> Ruajtja</a>
+    <a class="toc-item" href="#te-drejtat"><span class="toc-num">vi.</span> Të drejtat</a>
+    <a class="toc-item" href="#cookies"><span class="toc-num">vii.</span> Cookies</a>
+    <a class="toc-item" href="#siguria"><span class="toc-num">viii.</span> Siguria</a>
+    <a class="toc-item" href="#ndryshimet"><span class="toc-num">ix.</span> Ndryshimet</a>
+    <a class="toc-item" href="#kontakt"><span class="toc-num">x.</span> Kontakt</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="pp-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="pp-sidebar">
+    <div class="sidebar-label">Përmbajtja</div>
+    <ul class="sidebar-nav">
+      <li><a href="#hyrje" class="active"><span class="s-num">i.</span> Hyrje</a></li>
+      <li><a href="#te-dhenat"><span class="s-num">ii.</span> Të dhënat që mbledhim</a></li>
+      <li><a href="#perdorimi"><span class="s-num">iii.</span> Si i përdorim të dhënat</a></li>
+      <li><a href="#shperndarja"><span class="s-num">iv.</span> Shpërndarja e të dhënave</a></li>
+      <li><a href="#ruajtja"><span class="s-num">v.</span> Ruajtja e të dhënave</a></li>
+      <li><a href="#te-drejtat"><span class="s-num">vi.</span> Të drejtat e përdoruesit</a></li>
+      <li><a href="#cookies"><span class="s-num">vii.</span> Cookies</a></li>
+      <li><a href="#siguria"><span class="s-num">viii.</span> Siguria e të dhënave</a></li>
+      <li><a href="#ndryshimet"><span class="s-num">ix.</span> Ndryshimet në politikë</a></li>
+      <li><a href="#kontakt-pp"><span class="s-num">x.</span> Kontakt</a></li>
+    </ul>
+
+    <div class="sidebar-badge">
+      <div class="sb-label">Kontrollues i të Dhënave</div>
+      <div class="sb-val"><em>Klinika Vera Virhov</em><br>Tiranë, Shqipëri</div>
+    </div>
+
+    <div class="sidebar-contact">
+      <div class="sc-label">Pyetje mbi privatësinë?</div>
+      <div class="sc-val">
+        📧 <a href="mailto:info@klinikavera-virhov.com">info@klinikavera-virhov.com</a><br>
+        📞 <a href="tel:+355686064320">+355 68 606 4320</a><br><br>
+        E Hënë – E Premte<br>08:00 – 18:00
+      </div>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="pp-content">
+
+    <!-- 1. HYRJE -->
+    <section class="pp-section rw" id="hyrje">
+      <div class="section-header">
+        <span class="section-n">01</span>
+        <h2 class="section-h">Hyrje</h2>
+      </div>
+
+      <p class="pp-p">
+        <strong>Klinika Vera Virhov</strong>, me seli në Tiranë, Shqipëri, e merr shumë seriozisht mbrojtjen e të dhënave personale të pacientëve, vizitorëve dhe çdo personi që ndërvepron me shërbimet tona.
+      </p>
+      <p class="pp-p">
+        Kjo Politikë Privatësie shpjegon se çfarë të dhënash personale mbledhim, si i përdorim, kujt mund t'i komunikojmë dhe cilat janë të drejtat tuaja në lidhje me to. Ky dokument është hartuar në përputhje me <strong>Rregulloren e Përgjithshme të Mbrojtjes së të Dhënave (GDPR – Rregullorja BE 2016/679)</strong> dhe legjislacionin shqiptar në fuqi.
+      </p>
+      <p class="pp-p">
+        Duke aksesuar faqen tonë të internetit, duke na kontaktuar ose duke përdorur shërbimet tona mjekësore, ju pranoni kushtet e kësaj politike. Ju lutemi lexoni këtë dokument me kujdes.
+      </p>
+
+      <div class="pp-box">
+        <div class="pp-box-label">Kontrollues i të Dhënave</div>
+        <p>
+          <strong>Klinika Vera Virhov</strong> është kontrollues i të dhënave tuaja personale sipas kuptimit të GDPR-it. Për çdo pyetje ose kërkesë lidhur me të dhënat tuaja, mund të na kontaktoni në adresën e emailit <strong>info@klinikavera-virhov.com</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. TË DHËNAT -->
+    <section class="pp-section rw" id="te-dhenat">
+      <div class="section-header">
+        <span class="section-n">02</span>
+        <h2 class="section-h">Të dhënat që <em>mbledhim</em></h2>
+      </div>
+
+      <p class="pp-p">
+        Mbledhim vetëm të dhënat e nevojshme për të ofruar shërbimet mjekësore dhe administrative të klinikës. Të dhënat mund të mblidhen drejtpërdrejt nga ju ose automatikisht gjatë përdorimit të faqes tonë.
+      </p>
+
+      <div class="table-wrap">
+        <table class="pp-table">
+          <thead>
+            <tr>
+              <th>Kategoria</th>
+              <th>Shembuj të dhënash</th>
+              <th>Mënyra e mbledhjes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-label">Të dhëna identifikuese</td>
+              <td>Emri, mbiemri, data e lindjes, gjinia</td>
+              <td>Direkt nga pacienti</td>
+            </tr>
+            <tr>
+              <td class="td-label">Të dhëna kontakti</td>
+              <td>Numri i telefonit, adresa e emailit, adresa postare</td>
+              <td>Formular, telefon, email</td>
+            </tr>
+            <tr>
+              <td class="td-label">Të dhëna shëndetësore</td>
+              <td>Historia mjekësore, diagnoza, rezultate analizash, ilaçe</td>
+              <td>Vizita klinike, laborator</td>
+            </tr>
+            <tr>
+              <td class="td-label">Të dhëna rezervimi</td>
+              <td>Data dhe ora e vizitës, specialiteti i zgjedhur</td>
+              <td>Formulari online, telefon</td>
+            </tr>
+            <tr>
+              <td class="td-label">Të dhëna teknike</td>
+              <td>Adresa IP, lloji i shfletuesit, cookies, sjellja në faqe</td>
+              <td>Automatikisht, me cookies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pp-box">
+        <div class="pp-box-label">Kategori Speciale të Dhënash</div>
+        <p>
+          Të dhënat shëndetësore konsiderohen <strong>kategori speciale e të dhënave personale</strong> sipas GDPR-it dhe gëzojnë mbrojtje të shtuar. I përpunojmë vetëm kur është e nevojshme për ofrimin e kujdesit mjekësor ose me pëlqimin tuaj të shprehur.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. PËRDORIMI -->
+    <section class="pp-section rw" id="perdorimi">
+      <div class="section-header">
+        <span class="section-n">03</span>
+        <h2 class="section-h">Si i <em>përdorim</em> të dhënat</h2>
+      </div>
+
+      <p class="pp-p">
+        Të dhënat tuaja personale përdoren vetëm për qëllimet e parashikuara më poshtë dhe gjithmonë në bazë të një baze ligjore të vlefshme sipas GDPR-it.
+      </p>
+
+      <ul class="pp-list">
+        <li><span class="li-dot"></span>Ofrimi i shërbimeve mjekësore, diagnostike dhe terapeutike të klinikës</li>
+        <li><span class="li-dot"></span>Menaxhimi i rezervimeve, orareve dhe komunikimit me pacientët</li>
+        <li><span class="li-dot"></span>Dërgimi i konfirmimeve, kujtesave dhe informacioneve administrative</li>
+        <li><span class="li-dot"></span>Përpilimi i dosjes mjekësore dhe historisë klinike të pacientit</li>
+        <li><span class="li-dot"></span>Faturimi dhe menaxhimi financiar i shërbimeve të ofruara</li>
+        <li><span class="li-dot"></span>Plotësimi i detyrimeve ligjore ndaj autoriteteve shëndetësore shqiptare</li>
+        <li><span class="li-dot"></span>Përmirësimi i cilësisë së shërbimeve dhe analizat statistikore të anonimizuara</li>
+        <li><span class="li-dot"></span>Funksionimi teknik dhe siguria e faqes sonë të internetit</li>
+      </ul>
+
+      <div class="pp-highlight">
+        <p><strong>Baza ligjore e përpunimit:</strong> Të dhënat shëndetësore i përpunojmë në bazë të nenit 9(2)(h) të GDPR-it (kujdes shëndetësor), nenit 6(1)(b) (ekzekutim kontrate) dhe nenit 6(1)(c) (detyrim ligjor). Për komunikime marketingu, mbështetemi vetëm në <strong>pëlqimin tuaj të shprehur</strong>, të cilin mund ta tërhiqni në çdo moment.</p>
+      </div>
+    </section>
+
+    <!-- 4. SHPËRNDARJA -->
+    <section class="pp-section rw" id="shperndarja">
+      <div class="section-header">
+        <span class="section-n">04</span>
+        <h2 class="section-h">Shpërndarja e <em>të dhënave</em></h2>
+      </div>
+
+      <p class="pp-p">
+        <strong>Klinika Vera Virhov nuk shet dhe nuk tregton të dhënat tuaja personale.</strong> Të dhënat mund të ndahen me palë të treta vetëm në rastet e parashikuara më poshtë dhe gjithmonë me garanci të mjaftueshme mbrojtjeje.
+      </p>
+
+      <ul class="pp-list">
+        <li><span class="li-dot"></span><strong>Personeli mjekësor i klinikës</strong> — vetëm ata profesionistë të cilët kanë nevojë për to për ofrimin e trajtimit tuaj</li>
+        <li><span class="li-dot"></span><strong>Laboratorë partnerë</strong> — për analiza të specializuara që nuk kryhen brenda klinikës, me garanci konfidencialiteti</li>
+        <li><span class="li-dot"></span><strong>Autoritetet shëndetësore dhe ligjore</strong> — kur kërkohet nga ligji shqiptar ose rregulloret në fuqi</li>
+        <li><span class="li-dot"></span><strong>Ofruesit e shërbimeve teknike</strong> — si platformat e rezervimit online ose emailit, të cilët veprojnë si përpunues të të dhënave nën kontratë dhe nuk kanë të drejtë t'i përdorin ato për qëllime të tjera</li>
+        <li><span class="li-dot"></span><strong>Klinika ose spitale referuese</strong> — vetëm me autorizimin tuaj shprehur, kur referoheni tek një specialist tjetër</li>
+      </ul>
+
+      <div class="pp-box">
+        <div class="pp-box-label">Transferta Ndërkombëtare</div>
+        <p>
+          Të dhënat tuaja <strong>nuk transferohen jashtë Shqipërisë ose Zonës Ekonomike Europiane (ZEE)</strong> pa garanci mbrojtëse të mjaftueshme. Çdo transfertë e mundshme bëhet vetëm me vendime adekuatshmërie ose mekanizma mbrojtëse sipas GDPR-it.
+        </p>
+      </div>
+    </section>
+
+    <!-- 5. RUAJTJA -->
+    <section class="pp-section rw" id="ruajtja">
+      <div class="section-header">
+        <span class="section-n">05</span>
+        <h2 class="section-h">Ruajtja e <em>të dhënave</em></h2>
+      </div>
+
+      <p class="pp-p">
+        Ruajmë të dhënat tuaja personale vetëm për aq kohë sa është e nevojshme për qëllimet për të cilat janë mbledhur, ose sipas kërkesave ligjore në fuqi.
+      </p>
+
+      <div class="table-wrap">
+        <table class="pp-table">
+          <thead>
+            <tr>
+              <th>Lloji i të dhënave</th>
+              <th>Periudha e ruajtjes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-label">Dosja mjekësore e pacientit</td>
+              <td>10 vjet pas vizitës së fundit (sipas ligjit shqiptar të shëndetësisë)</td>
+            </tr>
+            <tr>
+              <td class="td-label">Të dhënat e rezervimit</td>
+              <td>3 vjet pas datës së rezervimit</td>
+            </tr>
+            <tr>
+              <td class="td-label">Të dhënat financiare / faturat</td>
+              <td>7 vjet (sipas legjislacionit tatimor)</td>
+            </tr>
+            <tr>
+              <td class="td-label">Korrespondenca me email</td>
+              <td>3 vjet pas komunikimit të fundit</td>
+            </tr>
+            <tr>
+              <td class="td-label">Të dhënat e cookies analitike</td>
+              <td>Deri në 13 muaj</td>
+            </tr>
+            <tr>
+              <td class="td-label">Të dhënat e marketingut (me pëlqim)</td>
+              <td>Deri në tërheqjen e pëlqimit</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="pp-p">
+        Pas skadimit të periudhës së ruajtjes, të dhënat fshihen në mënyrë të sigurt ose anonomizohen, në mënyrë që të mos jenë më të identifikueshme.
+      </p>
+    </section>
+
+    <!-- 6. TË DREJTAT -->
+    <section class="pp-section rw" id="te-drejtat">
+      <div class="section-header">
+        <span class="section-n">06</span>
+        <h2 class="section-h">Të drejtat e <em>përdoruesit</em></h2>
+      </div>
+
+      <p class="pp-p">
+        Sipas GDPR-it, ju gëzoni një sërë të drejtash në lidhje me të dhënat tuaja personale. I respektojmë plotësisht këto të drejta dhe do t'ju japim përgjigje brenda <strong>30 ditëve</strong> nga marrja e kërkesës suaj.
+      </p>
+
+      <div class="rights-grid">
+        <div class="right-item">
+          <span class="right-icon">👁️</span>
+          <div class="right-title">E drejta e aksesit</div>
+          <div class="right-desc">Keni të drejtë të kërkoni një kopje të të dhënave personale që mbajmë për ju.</div>
+        </div>
+        <div class="right-item">
+          <span class="right-icon">✏️</span>
+          <div class="right-title">E drejta e korrigjimit</div>
+          <div class="right-desc">Nëse të dhënat tuaja janë të pasakta ose të pakompletuara, keni të drejtë të kërkoni korrigjimin e tyre.</div>
+        </div>
+        <div class="right-item">
+          <span class="right-icon">🗑️</span>
+          <div class="right-title">E drejta e fshirjes</div>
+          <div class="right-desc">Keni të drejtë të kërkoni fshirjen e të dhënave tuaja, kur nuk ekziston bazë ligjore për ruajtjen e tyre.</div>
+        </div>
+        <div class="right-item">
+          <span class="right-icon">⏸️</span>
+          <div class="right-title">E drejta e kufizimit</div>
+          <div class="right-desc">Mund të kërkoni kufizimin e përpunimit të të dhënave tuaja në raste të caktuara të parashikuara nga GDPR-i.</div>
+        </div>
+        <div class="right-item">
+          <span class="right-icon">📦</span>
+          <div class="right-title">E drejta e portabilitetit</div>
+          <div class="right-desc">Keni të drejtë të merrni të dhënat tuaja në format të lexueshëm nga makina dhe t'i transferoni tek një kontrollues tjetër.</div>
+        </div>
+        <div class="right-item">
+          <span class="right-icon">🚫</span>
+          <div class="right-title">E drejta e kundërshtimit</div>
+          <div class="right-desc">Keni të drejtë të kundërshtoni përpunimin e të dhënave tuaja, veçanërisht kur bazë ligjore është interesi legjitim ose marketingu.</div>
+        </div>
+        <div class="right-item">
+          <span class="right-icon">↩️</span>
+          <div class="right-title">Tërheqja e pëlqimit</div>
+          <div class="right-desc">Kur përpunimi bazohet në pëlqimin tuaj, mund ta tërhiqni në çdo moment pa ndikuar në ligjshmërinë e përpunimit të mëparshëm.</div>
+        </div>
+        <div class="right-item">
+          <span class="right-icon">⚖️</span>
+          <div class="right-title">E drejta e ankesës</div>
+          <div class="right-desc">Keni të drejtë të paraqisni ankesë tek Komisioneri për të Drejtën e Informimit dhe Mbrojtjen e të Dhënave Personale (KDIMDP) në Shqipëri.</div>
+        </div>
+      </div>
+
+      <div class="pp-box">
+        <div class="pp-box-label">Si të ushtroni të drejtat tuaja</div>
+        <p>Për të ushtruar cilëndo nga të drejtat e mësipërme, na kontaktoni me email në <strong>info@klinikavera-virhov.com</strong> ose me telefon në <strong>+355 68 606 4320</strong>. Do t'ju kërkojmë të konfirmoni identitetin tuaj përpara se të procesojmë kërkesën, për sigurinë tuaj.</p>
+      </div>
+    </section>
+
+    <!-- 7. COOKIES -->
+    <section class="pp-section rw" id="cookies">
+      <div class="section-header">
+        <span class="section-n">07</span>
+        <h2 class="section-h">Cookies dhe <em>teknologjitë e gjurmimit</em></h2>
+      </div>
+
+      <p class="pp-p">
+        Faqja jonë e internetit përdor cookies dhe teknologji të ngjashme për të siguruar funksionimin e saj, për të analizuar trafikun dhe për të përmirësuar përvojën tuaj si vizitor.
+      </p>
+
+      <ul class="pp-list">
+        <li>
+          <span class="li-dot"></span>
+          <div>
+            <strong>Cookies esenciale</strong> — Të domosdoshme për funksionimin bazë të faqes (p.sh. sesioni i formularit të rezervimit). Nuk kërkojnë pëlqim.
+          </div>
+        </li>
+        <li>
+          <span class="li-dot"></span>
+          <div>
+            <strong>Cookies analitike</strong> — Na ndihmojnë të kuptojmë si e përdorin vizitorët faqen tonë (p.sh. Google Analytics). Aktivizohen vetëm me pëlqimin tuaj.
+          </div>
+        </li>
+        <li>
+          <span class="li-dot"></span>
+          <div>
+            <strong>Cookies funksionale</strong> — Kujtojnë preferencat tuaja (p.sh. gjuha, zona juaj) për të personalizuar përvojën. Aktivizohen me pëlqimin tuaj.
+          </div>
+        </li>
+        <li>
+          <span class="li-dot"></span>
+          <div>
+            <strong>Cookies marketingu</strong> — Përdoren për reklama të personalizuara. Ne aktualisht <strong>nuk i përdorim</strong> cookies marketingu në faqen tonë.
+          </div>
+        </li>
+      </ul>
+
+      <p class="pp-p">
+        Mund të menaxhoni preferencat tuaja të cookies në çdo moment nëpërmjet pandelit të cookies që shfaqet në vizitën tuaj të parë, ose nëpërmjet cilësimeve të shfletuesit tuaj. Vini re se çaktivizimi i cookies esenciale mund të ndikojë negativisht në funksionimin e faqes.
+      </p>
+    </section>
+
+    <!-- 8. SIGURIA -->
+    <section class="pp-section rw" id="siguria">
+      <div class="section-header">
+        <span class="section-n">08</span>
+        <h2 class="section-h">Siguria e <em>të dhënave</em></h2>
+      </div>
+
+      <p class="pp-p">
+        Zbatojmë masa teknike dhe organizative të përshtatshme për të mbrojtur të dhënat tuaja personale nga humbja, aksesi i paautorizuar, ndryshimi ose shpërndarja e paligjshme.
+      </p>
+
+      <ul class="pp-list">
+        <li><span class="li-dot"></span>Enkriptim SSL/TLS për të gjitha komunikimet në faqen tonë të internetit</li>
+        <li><span class="li-dot"></span>Kontrolle të rrepta të aksesit — vetëm personeli i autorizuar ka qasje në të dhëna shëndetësore</li>
+        <li><span class="li-dot"></span>Trajnim i rregullt i stafit mbi mbrojtjen e të dhënave dhe konfidencialitetin mjekësor</li>
+        <li><span class="li-dot"></span>Backup i rregullt dhe i sigurt i të dhënave me enkriptim</li>
+        <li><span class="li-dot"></span>Monitorim i vazhdueshëm i sistemeve për aktivitet të dyshimtë</li>
+        <li><span class="li-dot"></span>Procedura të dokumentuara për menaxhimin e incidenteve të sigurisë</li>
+      </ul>
+
+      <div class="pp-box">
+        <div class="pp-box-label">Incident i Sigurisë</div>
+        <p>
+          Në rast të ndonjë shkeljeje të sigurisë që mund të ndikojë në të dhënat tuaja, do t'ju njoftojmë <strong>brenda 72 orësh</strong> (sipas GDPR-it) dhe do të marrim të gjitha masat e nevojshme për të minimizuar dëmin e mundshëm.
+        </p>
+      </div>
+    </section>
+
+    <!-- 9. NDRYSHIMET -->
+    <section class="pp-section rw" id="ndryshimet">
+      <div class="section-header">
+        <span class="section-n">09</span>
+        <h2 class="section-h">Ndryshimet në <em>këtë politikë</em></h2>
+      </div>
+
+      <p class="pp-p">
+        Klinika Vera Virhov rezervon të drejtën të azhurnojë këtë Politikë Privatësie herë pas here, në mënyrë që të pasqyrojë ndryshimet në praktikat tona, shërbimet e reja të ofruara, ose kërkesat ligjore në ndryshim.
+      </p>
+      <p class="pp-p">
+        Çdo ndryshim i rëndësishëm do t'ju komunikohet nëpërmjet faqes sonë të internetit ose me email, nëse kemi adresën tuaj të regjistruar. Data e hyrjes në fuqi e versionit aktual është shënuar në krye të këtij dokumenti.
+      </p>
+      <p class="pp-p">
+        Ju inkurajojmë të rishikoni periodikisht këtë politikë për të qëndruar të informuar rreth mënyrës se si i mbrojmë të dhënat tuaja. Vazhdimi i përdorimit të shërbimeve tona pas publikimit të ndryshimeve konsiderohet pranim i tyre.
+      </p>
+    </section>
+
+    <!-- 10. KONTAKT -->
+    <section class="pp-section rw" id="kontakt-pp">
+      <div class="section-header">
+        <span class="section-n">10</span>
+        <h2 class="section-h">Na <em>kontaktoni</em></h2>
+      </div>
+
+      <p class="pp-p">
+        Nëse keni pyetje, shqetësime ose kërkesa në lidhje me mbrojtjen e të dhënave tuaja personale, stafi ynë është i disponueshëm për t'ju ndihmuar.
+      </p>
+
+      <div class="table-wrap">
+        <table class="pp-table">
+          <thead>
+            <tr>
+              <th>Mënyra e kontaktit</th>
+              <th>Detajet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-label">📧 Email</td>
+              <td><a href="mailto:info@klinikavera-virhov.com" style="color:var(--teal);text-decoration:none;">info@klinikavera-virhov.com</a></td>
+            </tr>
+            <tr>
+              <td class="td-label">📞 Telefon</td>
+              <td><a href="tel:+355686064320" style="color:var(--teal);text-decoration:none;">+355 68 606 4320</a> / <a href="tel:+355682031903" style="color:var(--teal);text-decoration:none;">+355 68 203 1903</a></td>
+            </tr>
+            <tr>
+              <td class="td-label">📍 Adresa</td>
+              <td>Rruga "Islam Alla", Tiranë, Shqipëri</td>
+            </tr>
+            <tr>
+              <td class="td-label">🕐 Orari</td>
+              <td>E Hënë – E Premte: 08:00 – 18:00 · E Shtunë: 09:00 – 13:00</td>
+            </tr>
+            <tr>
+              <td class="td-label">⚖️ Autoriteti mbikëqyrës</td>
+              <td>Komisioneri për të Drejtën e Informimit dhe Mbrojtjen e të Dhënave Personale (KDIMDP)<br><a href="https://www.idp.al" target="_blank" style="color:var(--teal);text-decoration:none;">www.idp.al</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pp-highlight">
+        <p><strong>Data e hyrjes në fuqi:</strong> Janar 2025 · <strong>Versioni:</strong> 1.0<br><br>Ky dokument është hartuar në gjuhën shqipe dhe është versioni zyrtar. Çdo version i përkthyer ka vetëm vlerë informative.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-word">Klinika <em>Vera - Virhov</em></div>
+      <p class="footer-desc">Klinikë private me standarde të larta, e dedikuar shëndetit dhe mirëqenies tuaj që nga viti 2009. Rruga "Islam Alla", Tiranë.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Shërbimet</h5>
+      <ul>
+        <li><a href="index.html#sherbimet">Laboratori i Analizave</a></li>
+        <li><a href="index.html#sherbimet">Gjenetikë</a></li>
+        <li><a href="index.html#sherbimet">Pediatri</a></li>
+        <li><a href="index.html#sherbimet">Ekografi</a></li>
+        <li><a href="index.html#sherbimet">Gjinekologji</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Klinika</h5>
+      <ul>
+        <li><a href="index.html#rreth">Filozofia Jonë</a></li>
+        <li><a href="index.html#stafi">Stafi Mjekësor</a></li>
+        <li><a href="index.html#rezervo">Rezervo Vizitë</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Ligjore</h5>
+      <ul>
+        <li><a href="#">Politika e Privatësisë</a></li>
+        <li><a href="#">Kushtet e Shërbimit</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">GDPR</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Klinika Vera Virhov. Të gjitha të drejtat e rezervuara.</span>
+    <div class="footer-legal">
+      <a href="#">Privatësia</a>
+      <a href="#">Kushtet</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- GDPR -->
+<div class="gdpr" id="gdpr">
+  <span>Përdorim cookies esenciale dhe analitike për të përmirësuar përvojën tuaj. <a href="#" style="color:var(--gold-l);">Politika e Cookies.</a></span>
+  <div class="gdpr-btns">
+    <button class="gdpr-acc" onclick="acceptGdpr()">Pranoj të gjitha</button>
+    <button class="gdpr-dec" onclick="acceptGdpr()">Vetëm esenciale</button>
+  </div>
+</div>
+
+<script>
+// CURSOR
+const cur = document.getElementById('cur');
+const curRing = document.getElementById('curRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animCursor() {
+  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  curRing.style.left = rx + 'px'; curRing.style.top = ry + 'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cur.style.width = '16px'; cur.style.height = '16px';
+    cur.style.background = '#b8965a';
+    curRing.style.width = '52px'; curRing.style.height = '52px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cur.style.width = '8px'; cur.style.height = '8px';
+    cur.style.background = '#1b3a6b';
+    curRing.style.width = '36px'; curRing.style.height = '36px';
+  });
+});
+
+// SCROLL REVEAL
+const rws = document.querySelectorAll('.rw');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+rws.forEach(r => obs.observe(r));
+
+// ACTIVE SIDEBAR NAV
+const sections = document.querySelectorAll('.pp-section');
+const sideLinks = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 130) current = s.id;
+  });
+  sideLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}, { passive: true });
+
+// GDPR
+function acceptGdpr() {
+  document.getElementById('gdpr').classList.add('hidden');
+  sessionStorage.setItem('gdpr','1');
+}
+if (sessionStorage.getItem('gdpr')) document.getElementById('gdpr').classList.add('hidden');
+
+// HAMBURGER
+document.getElementById('ham').addEventListener('click', () => {
+  alert('Menu mobile — lidhe me drawer-in e faqes kryesore.');
+});
+</script>
+</body>
+</html>
