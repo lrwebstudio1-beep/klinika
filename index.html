@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init('4_mRESX4XIIFZDeHN');</script>
 <style>
 :root {
   --ink:      #0e1117;
@@ -510,6 +512,14 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   border: 1px solid var(--border); color: var(--slate); border-radius: 1px;
 }
 .doc-card:hover .doc-photo { box-shadow: 0 20px 60px rgba(27,58,107,0.15); }
+/* Doctor photo image */
+.doc-photo-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block; z-index: 2;
+}
+.doc-photo-img[src=""] { display: none; }
 
 /* ─── TESTIMONIALS ─── */
 .testi-bg { background: var(--warm); }
@@ -1155,79 +1165,75 @@ footer {
         <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">Stafi Mjekësor</span></div>
         <h2 class="h2">Mjekët tanë,<br><em>ekspertiza juaj</em></h2>
       </div>
-      <a href="#" class="doctors-link">Shiko të gjithë specialistët →</a>
+      <a href="stafi.html" class="doctors-link">Shiko të gjithë specialistët →</a>
     </div>
     <div class="docs-grid">
       <div class="doc-card rw">
         <div class="doc-photo">
           <div class="doc-photo-inner">
+            <img class="doc-photo-img" src="Dr. Genta.jpeg" alt="Dr. Genta" title="Vendosni foton e Dr. Genta">
             <div class="doc-silhouette" style="background:linear-gradient(170deg,#1b3a6b,#0a1628);">
               <div class="doc-initial">A</div>
             </div>
           </div>
           <div class="doc-photo-overlay"></div>
-          <div class="doc-spec-tag">Kardiologji</div>
+          <div class="doc-spec-tag"></div>
         </div>
-        <div class="doc-name">Dr. Artan Hoxha</div>
-        <div class="doc-title">Kardiolog Interventional · MD, PhD</div>
+        <div class="doc-name">Dr. Genta Dedej</div>
+        <div class="doc-title">Drejtuese e Klinikës</div>
         <div class="doc-tags">
-          <span class="doc-tag">Ekokardiografi 3D</span>
-          <span class="doc-tag">Aritmologji</span>
-          <span class="doc-tag">ESC Member</span>
+         
         </div>
       </div>
       <div class="doc-card rw rw-d1">
         <div class="doc-photo">
           <div class="doc-photo-inner">
+            <img class="doc-photo-img" src="Dr. Edi Tushe (1).jpeg" alt="Dr. Edi Tushe" title="Vendosni foton e Dr. Edi Tushe">
             <div class="doc-silhouette" style="background:linear-gradient(170deg,#4a1942,#1a0a1a);">
               <div class="doc-initial">B</div>
             </div>
           </div>
           <div class="doc-photo-overlay"></div>
-          <div class="doc-spec-tag">Neurologji</div>
+          <div class="doc-spec-tag"></div>
         </div>
-        <div class="doc-name">Dr. Besa Malaj</div>
-        <div class="doc-title">Neurologe · Specialiste e Lartë</div>
+        <div class="doc-name">Dr. Edi Tushe</div>
         <div class="doc-tags">
-          <span class="doc-tag">Migrenë Kronike</span>
-          <span class="doc-tag">Epilepsi</span>
-          <span class="doc-tag">Humboldt Fellow</span>
+          <div class="doc-title">Pediatër</div>
+  
         </div>
       </div>
       <div class="doc-card rw rw-d2">
         <div class="doc-photo">
           <div class="doc-photo-inner">
+            <img class="doc-photo-img" src="Dr. Elton Qeli.jpeg" alt="Dr. Elton Qeli" title="Vendosni foton e Dr. Erion Çela">
             <div class="doc-silhouette" style="background:linear-gradient(170deg,#0f3d2b,#051a10);">
               <div class="doc-initial">E</div>
             </div>
           </div>
           <div class="doc-photo-overlay"></div>
-          <div class="doc-spec-tag">Ortopedi</div>
+          <div class="doc-spec-tag">Kardiolog</div>
         </div>
-        <div class="doc-name">Dr. Erion Çela</div>
-        <div class="doc-title">Ortoped-Traumatolog · FRCS</div>
+        <div class="doc-name">Dr. Elton Qeli</div>
+        <div class="doc-title">Kardiolog</div>
         <div class="doc-tags">
-          <span class="doc-tag">Artroskopi</span>
-          <span class="doc-tag">Endoproteza</span>
-          <span class="doc-tag">EFFORT Member</span>
+          
         </div>
       </div>
       <div class="doc-card rw rw-d3">
         <div class="doc-photo">
           <div class="doc-photo-inner">
+            <img class="doc-photo-img" src="Dr. Moza Keta.jpeg" alt="Dr. Moza Keta" title="Vendosni foton e Dr. Moza Keta">
             <div class="doc-silhouette" style="background:linear-gradient(170deg,#4a3000,#1a1000);">
               <div class="doc-initial">L</div>
             </div>
           </div>
           <div class="doc-photo-overlay"></div>
-          <div class="doc-spec-tag">Oftalmologji</div>
+          <div class="doc-spec-tag">Gjinekologe</div>
         </div>
-        <div class="doc-name">Dr. Lira Gjoka</div>
-        <div class="doc-title">Oftalologe · Kirurge Lazer</div>
+        <div class="doc-name">Dr. Moza Keta</div>
+        <div class="doc-title">Gjinekologe</div>
         <div class="doc-tags">
-          <span class="doc-tag">LASIK / LASEK</span>
-          <span class="doc-tag">Kataraktë</span>
-          <span class="doc-tag">ESCRS Certified</span>
+          
         </div>
       </div>
     </div>
@@ -1382,7 +1388,7 @@ footer {
         <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">Blog & Edukim</span></div>
         <h2 class="h2">Njihni shëndetin tuaj<br>nga <em>specialistët</em></h2>
       </div>
-      <a href="#" class="doctors-link">Të gjitha artikujt →</a>
+      <a href="blog.html" class="doctors-link">Të gjitha artikujt →</a>
     </div>
     <div class="blog-grid rw">
       <a class="blog-feat" href="#">
@@ -1477,17 +1483,17 @@ footer {
           <p class="sub">Përgjigja brenda 2 orësh gjatë orarit të punës.</p>
           <div class="f-group">
             <label class="f-label-dark">Emri & Mbiemri</label>
-            <input class="f-input-light" type="text" placeholder="Emri juaj i plotë">
+            <input class="f-input-light" type="text" id="contact-name" placeholder="Emri juaj i plotë">
           </div>
           <div class="f-group">
             <label class="f-label-dark">Telefon ose Email</label>
-            <input class="f-input-light" type="text" placeholder="+355...">
+            <input class="f-input-light" id="contact-contact" type="text" placeholder="+355...">
           </div>
           <div class="f-group">
             <label class="f-label-dark">Mesazhi</label>
-            <textarea class="f-input-light" style="min-height:140px;resize:vertical;" placeholder="Si mund t'ju ndihmojmë?"></textarea>
+            <textarea class="f-input-light" style="min-height:140px;resize:vertical;" id="contact-message" placeholder="Si mund t'ju ndihmojmë?"></textarea>
           </div>
-          <button class="f-btn-dark" onclick="showToast('📩','Mesazhi u dërgua!','Do t\'ju kontaktojmë brenda 2 orësh.')">Dërgo Mesazhin</button>
+          <button class="f-btn-dark" onclick="sendContactEmail()">Dërgo Mesazhin</button>
         </div>
       </div>
     </div>
@@ -1544,9 +1550,7 @@ footer {
   <div class="footer-bottom">
     <span>© 2025 Klinika Centrale. Të gjitha të drejtat e rezervuara.</span>
     <div class="footer-legal">
-      <a href="#">Privatësia</a>
-      <a href="#">Kushtet</a>
-      <a href="#">Cookies</a>
+      <a href="politika-e-privatesise.html">Privacy Policy</a>
     </div>
   </div>
 </footer>
@@ -1559,7 +1563,7 @@ footer {
 
 <!-- GDPR -->
 <div class="gdpr" id="gdpr">
-  <span>Përdorim cookies esenciale dhe analitike për të përmirësuar përvojën tuaj. <a href="#">Politika e Cookies.</a></span>
+  <span>Përdorim cookies esenciale dhe analitike për të përmirësuar përvojën tuaj. <a href="politika-e-privatesise.html">Politika e Cookies.</a></span>
   <div class="gdpr-btns">
     <button class="gdpr-acc" onclick="acceptGdpr()">Pranoj të gjitha</button>
     <button class="gdpr-dec" onclick="acceptGdpr()">Vetëm esenciale</button>
@@ -1662,6 +1666,38 @@ window.addEventListener('load', () => {
     }, 80));
   });
 });
+
+// CONTACT EMAIL
+function sendContactEmail() {
+  const name    = document.getElementById('contact-name').value.trim();
+  const contact = document.getElementById('contact-contact').value.trim();
+  const message = document.getElementById('contact-message').value.trim();
+  if (!name || !contact || !message) {
+    showToast('⚠️','Plotësoni të gjitha fushat!','Emri, kontakti dhe mesazhi janë të detyrueshme.');
+    return;
+  }
+  const btn = document.querySelector('.f-btn-dark');
+  btn.textContent = 'Duke dërguar...';
+  btn.disabled = true;
+  emailjs.send('service_bsi6loc', 'template_8vgdcjs', {
+    from_name: name, from_contact: contact, message: message
+  })
+  .then(() => {
+    showToast('📩','Mesazhi u dërgua!','Do t\'ju kontaktojmë brenda 2 orësh.');
+    document.getElementById('contact-name').value = '';
+    document.getElementById('contact-contact').value = '';
+    document.getElementById('contact-message').value = '';
+    btn.textContent = 'Dërgo Mesazhin'; btn.disabled = false;
+  })
+  .catch(() => {
+    showToast('❌','Dërgimi dështoi!','Provoni sërisht ose na kontaktoni me telefon.');
+    btn.textContent = 'Dërgo Mesazhin'; btn.disabled = false;
+  });
+}
 </script>
 </body>
 </html>
+
+
+
+
