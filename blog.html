@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog & Edukim — Klinika Vera Virhov</title>
+<meta name="description" content="Artikuj shëndetësorë dhe këshilla mjekësore nga specialistët e Klinikës Vera Virhov, Tiranë.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:      #0e1117;
+  --ink-mid:  #1c2333;
+  --slate:    #2d3a4f;
+  --cobalt:   #1b3a6b;
+  --cobalt-l: #245492;
+  --sky:      #4c82c4;
+  --cream:    #f7f4ef;
+  --warm:     #ede9e1;
+  --gold:     #b8965a;
+  --gold-l:   #d4b07a;
+  --white:    #ffffff;
+  --muted:    #8a8f9a;
+  --border:   rgba(14,17,23,0.08);
+  --ease:     cubic-bezier(0.4,0,0.2,1);
+  --ease-out: cubic-bezier(0,0,0.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CURSOR */
+.cursor {
+  width: 8px; height: 8px; background: var(--cobalt); border-radius: 50%;
+  position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s;
+}
+.cursor-ring {
+  width: 36px; height: 36px; border: 1px solid rgba(27,58,107,0.35); border-radius: 50%;
+  position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform 0.18s var(--ease-out), width 0.4s var(--ease), height 0.4s var(--ease), opacity 0.3s;
+}
+
+/* NAV */
+nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 500;
+  height: 76px; display: flex; align-items: center; padding: 0 5%;
+  transition: background 0.4s, box-shadow 0.4s;
+  background: rgba(247,244,239,0.96);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--border);
+}
+.nav-inner { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: baseline; gap: 3px; text-decoration: none; line-height: 1; }
+.logo-word { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
+.logo-word em { font-style: italic; color: var(--cobalt); }
+.logo-sep { width: 1px; height: 22px; background: #d4b07a; margin: 0 10px; opacity: 0.6; }
+.logo-sub { font-size: 0.68rem; font-weight: 400; letter-spacing: 2.5px; text-transform: uppercase; color: #d4b07a; }
+.nav-menu { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-menu a {
+  font-size: 0.82rem; font-weight: 400; letter-spacing: 0.8px;
+  text-transform: uppercase; color: #0797b0;
+  text-decoration: none; position: relative; transition: color 0.2s;
+}
+.nav-menu a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0; right: 100%;
+  height: 1px; background: #0797b0; transition: right 0.3s var(--ease);
+}
+.nav-menu a:hover::after { right: 0; }
+.nav-menu a.active { color: var(--gold); }
+.nav-menu a.active::after { background: var(--gold); right: 0; }
+.nav-book {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--white); text-decoration: none;
+  background: #0797b0; padding: 11px 24px; border-radius: 2px;
+  transition: background 0.25s, transform 0.2s;
+}
+.nav-book:hover { background: var(--cobalt-l); transform: translateY(-1px); }
+.hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 6px; padding: 4px; }
+.hamburger span { display: block; width: 26px; height: 1.5px; background: var(--ink); transition: 0.35s var(--ease); }
+
+/* DRAWER */
+.drawer {
+  position: fixed; inset: 0; z-index: 490; background: #0797b0;
+  display: flex; flex-direction: column; padding: 100px 8% 60px;
+  transform: translateX(100%); transition: transform 0.5s var(--ease);
+}
+.drawer.open { transform: none; }
+.drawer-link {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 6vw, 3rem); font-weight: 400; font-style: italic;
+  color: rgba(255,255,255,0.15); text-decoration: none;
+  padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: color 0.2s; letter-spacing: -0.01em;
+}
+.drawer-link:hover { color: rgba(255,255,255,0.8); }
+.drawer-link:last-of-type { border: none; }
+.drawer-cta {
+  margin-top: 40px; display: inline-flex; align-items: center; gap: 10px;
+  background: var(--gold); color: #ffffff;
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; text-decoration: none;
+  padding: 16px 32px; width: fit-content;
+}
+
+/* PAGE HERO */
+.page-hero {
+  background: #0797b0;
+  padding: 140px 5% 80px;
+  position: relative; overflow: hidden;
+}
+.page-hero::after {
+  content: 'Blog';
+  position: absolute; right: 5%; bottom: -30px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(80px, 14vw, 160px);
+  font-weight: 700; font-style: italic;
+  color: rgba(255,255,255,0.04);
+  pointer-events: none; letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+.page-hero-inner { max-width: 1260px; margin: 0 auto; }
+.eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
+.eyebrow-text { font-size: 0.7rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #d4b07a; }
+.page-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 400; line-height: 1.1; color: var(--white);
+  letter-spacing: -0.02em; margin-bottom: 24px;
+}
+.page-h1 em { font-style: italic; color: var(--gold-l); }
+.page-desc { font-size: 0.95rem; color: rgba(255,255,255,0.5); font-weight: 300; max-width: 520px; line-height: 1.85; }
+
+/* FILTER BAR */
+.filter-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5%;
+  position: sticky; top: 76px; z-index: 100;
+}
+.filter-inner {
+  max-width: 1260px; margin: 0 auto;
+  display: flex; align-items: center; gap: 0;
+  overflow-x: auto; scrollbar-width: none;
+}
+.filter-inner::-webkit-scrollbar { display: none; }
+.filter-btn {
+  flex-shrink: 0;
+  background: none; border: none; cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem; font-weight: 400; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted);
+  padding: 18px 20px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.filter-btn:hover { color: var(--ink); }
+.filter-btn.active { color: #0797b0; border-bottom-color: #0797b0; font-weight: 500; }
+
+/* SECTION */
+.section { padding: 80px 5%; }
+.container { max-width: 1260px; margin: 0 auto; }
+
+/* FEATURED ARTICLE */
+.feat-article {
+  display: grid; grid-template-columns: 5fr 3fr;
+  gap: 0; border: 1px solid var(--border);
+  margin-bottom: 3px;
+  text-decoration: none; color: inherit;
+  transition: box-shadow 0.3s;
+}
+.feat-article:hover { box-shadow: 0 20px 60px rgba(14,17,23,0.08); }
+.feat-art-body { padding: 52px 56px; background: var(--white); }
+.feat-art-visual {
+  background: linear-gradient(150deg, #1fa1b7 0%, #0e6070 50%, #0a4a58 100%);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; min-height: 340px;
+}
+.feat-art-visual-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(120px, 16vw, 200px);
+  font-weight: 700; font-style: italic;
+  color: rgba(255,255,255,0.06);
+  position: absolute; line-height: 1;
+}
+.feat-art-visual-icon { font-size: 4rem; z-index: 1; }
+.feat-art-visual-tag {
+  position: absolute; bottom: 28px; left: 28px;
+  background: var(--gold); color: white;
+  font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase;
+  padding: 6px 14px; font-weight: 500;
+}
+.blog-cat {
+  font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); font-weight: 500; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.blog-cat::before { content: ''; width: 16px; height: 1px; background: var(--gold); }
+.blog-h {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem; font-weight: 500; line-height: 1.25;
+  color: var(--ink); margin-bottom: 18px; letter-spacing: -0.02em;
+}
+.blog-excerpt {
+  font-size: 0.88rem; line-height: 1.85; color: var(--muted);
+  font-weight: 300; margin-bottom: 32px;
+}
+.blog-meta {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 0.72rem; color: var(--muted);
+}
+.blog-meta-sep { width: 3px; height: 3px; background: var(--muted); border-radius: 50%; }
+.blog-read-more {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #0797b0;
+  margin-top: 28px; transition: gap 0.2s;
+}
+.feat-article:hover .blog-read-more,
+.art-card:hover .blog-read-more { gap: 14px; }
+
+/* ARTICLES GRID */
+.articles-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 3px; margin-bottom: 3px;
+}
+.art-card {
+  background: var(--white); border: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+  transition: box-shadow 0.3s, transform 0.3s;
+  position: relative; overflow: hidden;
+}
+.art-card:hover { box-shadow: 0 16px 48px rgba(14,17,23,0.1); transform: translateY(-3px); }
+.art-card-visual {
+  height: 180px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.art-card-visual-icon { font-size: 2.8rem; z-index: 1; }
+.art-card-visual-num {
+  position: absolute; font-family: 'Playfair Display', serif;
+  font-size: 120px; font-weight: 700; font-style: italic;
+  color: rgba(255,255,255,0.06); line-height: 1;
+}
+.art-card-body { padding: 32px 32px 36px; flex: 1; display: flex; flex-direction: column; }
+.art-card .blog-h { font-size: 1.15rem; margin-bottom: 12px; }
+.art-card .blog-excerpt { font-size: 0.83rem; flex: 1; }
+
+/* WIDE CARD — 2 col */
+.articles-wide { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+.art-wide {
+  background: var(--white); border: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  text-decoration: none; color: inherit;
+  transition: box-shadow 0.3s;
+}
+.art-wide:hover { box-shadow: 0 16px 48px rgba(14,17,23,0.1); }
+.art-wide-visual {
+  min-height: 220px; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.art-wide-visual-icon { font-size: 3rem; z-index: 1; }
+.art-wide-visual-num {
+  position: absolute; font-family: 'Playfair Display', serif;
+  font-size: 120px; font-weight: 700; font-style: italic;
+  color: rgba(255,255,255,0.06); line-height: 1;
+}
+.art-wide-body { padding: 36px 36px 40px; display: flex; flex-direction: column; justify-content: center; }
+.art-wide .blog-h { font-size: 1.2rem; margin-bottom: 12px; }
+
+/* NEWSLETTER */
+.newsletter-strip {
+  background: var(--ink); padding: 72px 5%;
+}
+.newsletter-inner {
+  max-width: 1260px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.nl-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400; color: var(--white); line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.nl-h em { font-style: italic; color: var(--gold-l); }
+.nl-desc { font-size: 0.88rem; color: rgba(255,255,255,0.4); font-weight: 300; margin-top: 16px; line-height: 1.8; }
+.nl-form { display: flex; gap: 0; }
+.nl-input {
+  flex: 1; padding: 15px 20px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-right: none; color: white; font-family: 'Jost', sans-serif;
+  font-size: 0.9rem; font-weight: 300; outline: none;
+  transition: border-color 0.25s;
+}
+.nl-input::placeholder { color: rgba(255,255,255,0.2); }
+.nl-input:focus { border-color: var(--gold); }
+.nl-btn {
+  padding: 15px 28px; background: var(--gold); border: none;
+  font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase; color: white; cursor: pointer;
+  transition: background 0.25s; flex-shrink: 0;
+}
+.nl-btn:hover { background: var(--gold-l); }
+.nl-note { font-size: 0.7rem; color: rgba(255,255,255,0.2); margin-top: 12px; }
+
+/* SIDEBAR LIST (popular) */
+.blog-layout { display: grid; grid-template-columns: 1fr 340px; gap: 48px; }
+.sidebar { }
+.sidebar-block { background: var(--white); border: 1px solid var(--border); padding: 32px; margin-bottom: 16px; }
+.sidebar-block h4 {
+  font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 24px; font-weight: 500;
+}
+.pop-list { display: flex; flex-direction: column; gap: 0; }
+.pop-item {
+  display: flex; gap: 16px; padding: 18px 0;
+  border-bottom: 1px solid var(--border); text-decoration: none; color: inherit;
+  align-items: flex-start; transition: background 0.2s;
+}
+.pop-item:last-child { border-bottom: none; padding-bottom: 0; }
+.pop-item:first-child { padding-top: 0; }
+.pop-num {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.4rem; color: var(--warm); font-weight: 700;
+  line-height: 1; flex-shrink: 0; width: 28px;
+}
+.pop-item:hover .pop-num { color: var(--gold); }
+.pop-title { font-size: 0.85rem; color: var(--ink); line-height: 1.5; font-weight: 400; }
+.pop-item:hover .pop-title { color: #0797b0; }
+.pop-cat { font-size: 0.68rem; color: var(--muted); margin-top: 4px; }
+
+.cat-list { display: flex; flex-direction: column; gap: 8px; }
+.cat-pill {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 14px; background: var(--cream); cursor: pointer;
+  font-size: 0.8rem; color: var(--slate); transition: background 0.2s, color 0.2s;
+  border: none; font-family: 'Jost', sans-serif; text-align: left; width: 100%;
+}
+.cat-pill:hover, .cat-pill.active { background: #0797b0; color: white; }
+.cat-count { font-size: 0.7rem; opacity: 0.6; }
+
+/* PAGINATION */
+.pagination { display: flex; align-items: center; gap: 4px; margin-top: 48px; }
+.page-btn {
+  width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border); background: var(--white);
+  font-size: 0.82rem; color: var(--muted); cursor: pointer;
+  font-family: 'Jost', sans-serif; transition: background 0.2s, color 0.2s, border-color 0.2s;
+  text-decoration: none;
+}
+.page-btn:hover { border-color: #0797b0; color: #0797b0; }
+.page-btn.active { background: #0797b0; border-color: #0797b0; color: white; }
+.page-btn.wide { width: auto; padding: 0 16px; }
+
+/* REVEAL */
+.rw { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.rw.vis { opacity: 1; transform: none; }
+.rw-d1 { transition-delay: 0.1s; }
+.rw-d2 { transition-delay: 0.2s; }
+.rw-d3 { transition-delay: 0.3s; }
+
+/* GDPR */
+.gdpr {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
+  background: #0797b0; border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 5%;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  font-size: 0.8rem; color: rgba(255,255,255,0.45);
+  backdrop-filter: blur(20px);
+  transform: translateY(0); transition: transform 0.4s var(--ease);
+}
+.gdpr.hidden { transform: translateY(100%); }
+.gdpr a { color: var(--gold); text-decoration: none; }
+.gdpr-btns { display: flex; gap: 10px; flex-shrink: 0; }
+.gdpr-acc { background: var(--gold); color: #fff; border: none; padding: 9px 22px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; font-family: 'Jost', sans-serif; }
+.gdpr-dec { background: none; color: rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 9px 18px; font-size: 0.75rem; cursor: pointer; font-family: 'Jost', sans-serif; transition: border-color 0.2s; }
+.gdpr-dec:hover { border-color: rgba(255,255,255,0.3); }
+
+/* WA BTN */
+.wa-btn {
+  position: fixed; bottom: 32px; right: 32px; z-index: 400;
+  display: flex; align-items: center; gap: 10px;
+  background: #128c7e; color: white; text-decoration: none;
+  padding: 12px 20px 12px 16px; border-radius: 2px;
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.5px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25); transition: transform 0.2s, background 0.2s;
+}
+.wa-btn:hover { background: #075e54; transform: translateY(-2px); }
+.wa-icon { font-size: 1.2rem; }
+
+/* FOOTER */
+footer { background: #0797b0; padding: 80px 5% 40px; }
+.footer-top {
+  display: grid; grid-template-columns: 3fr 1.5fr 1.5fr 1.5fr;
+  gap: 60px; margin-bottom: 60px; padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.footer-brand-word { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 500; color: var(--white); letter-spacing: -0.01em; margin-bottom: 16px; }
+.footer-brand-word em { font-style: italic; color: var(--gold); }
+.footer-desc { font-size: 0.83rem; line-height: 1.8; color: rgba(255,255,255,0.3); font-weight: 300; max-width: 300px; margin-bottom: 32px; }
+.socials { display: flex; gap: 10px; }
+.soc { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.soc:hover { border-color: var(--gold); color: var(--gold); }
+.footer-col h5 { font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 20px; font-weight: 400; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul li a { font-size: 0.84rem; color: rgba(255,255,255,0.38); text-decoration: none; font-weight: 300; transition: color 0.2s; }
+.footer-col ul li a:hover { color: rgba(255,255,255,0.75); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; font-size: 0.73rem; color: rgba(255,255,255,0.2); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.5); }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .blog-layout { grid-template-columns: 1fr; }
+  .sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .nav-menu, .nav-book { display: none; }
+  .hamburger { display: flex; }
+  .feat-article { grid-template-columns: 1fr; }
+  .feat-art-visual { min-height: 220px; }
+  .articles-grid { grid-template-columns: 1fr 1fr; }
+  .articles-wide { grid-template-columns: 1fr; }
+  .art-wide { grid-template-columns: 1fr; }
+  .newsletter-inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+  .wa-btn .wa-text { display: none; }
+  .wa-btn { padding: 14px; border-radius: 50%; }
+}
+@media (max-width: 600px) {
+  .section { padding: 60px 5%; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .sidebar { grid-template-columns: 1fr; }
+  .nl-form { flex-direction: column; }
+  .nl-input { border-right: 1px solid rgba(255,255,255,0.1); border-bottom: none; }
+  .gdpr { flex-direction: column; align-items: flex-start; }
+  .feat-art-body { padding: 36px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-word">Klinika <em>Vera - Virhov</em></span>
+      <span class="logo-sep"></span>
+      <span class="logo-sub">Tiranë</span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html#sherbimet">Shërbimet</a></li>
+      <li><a href="stafi.html">Stafi</a></li>
+      <li><a href="index.html#testimoniale">Testimoniale</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="index.html#rezervo" class="nav-book">Rezervo Vizitë</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- DRAWER -->
+<div class="drawer" id="drawer">
+  <a class="drawer-link" href="index.html#sherbimet" onclick="closeDrawer()">Shërbimet</a>
+  <a class="drawer-link" href="stafi.html" onclick="closeDrawer()">Stafi Mjekësor</a>
+  <a class="drawer-link" href="index.html#testimoniale" onclick="closeDrawer()">Testimoniale</a>
+  <a class="drawer-link" href="blog.html" onclick="closeDrawer()">Blog</a>
+  <a class="drawer-link" href="index.html#kontakt" onclick="closeDrawer()">Kontakt</a>
+  <a class="drawer-cta" href="index.html#rezervo" onclick="closeDrawer()">Rezervo Vizitën →</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow rw"><span class="eyebrow-line"></span><span class="eyebrow-text">Blog & Edukim Shëndetësor</span></div>
+    <h1 class="page-h1 rw rw-d1">Njihni shëndetin tuaj<br>nga <em>specialistët</em></h1>
+    <p class="page-desc rw rw-d2">Artikuj klinike, udhëzues shëndetësorë dhe këshilla nga mjekët tanë — për të jetuar më mirë çdo ditë.</p>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" onclick="filterArticles('të gjitha', this)">Të gjitha</button>
+    <button class="filter-btn" onclick="filterArticles('kardiologji', this)">Kardiologji</button>
+    <button class="filter-btn" onclick="filterArticles('neurologji', this)">Neurologji</button>
+    <button class="filter-btn" onclick="filterArticles('ortopedi', this)">Ortopedi</button>
+    <button class="filter-btn" onclick="filterArticles('oftalmologji', this)">Oftalmologji</button>
+    <button class="filter-btn" onclick="filterArticles('dentistri', this)">Dentistri</button>
+    <button class="filter-btn" onclick="filterArticles('pediatri', this)">Pediatri</button>
+    <button class="filter-btn" onclick="filterArticles('gjinekologji', this)">Gjinekologji</button>
+    <button class="filter-btn" onclick="filterArticles('jetese', this)">Stil Jetese</button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="section" style="padding-top:60px;">
+  <div class="container">
+    <div class="blog-layout">
+
+      <!-- LEFT COLUMN: Articles -->
+      <div>
+
+        <!-- FEATURED -->
+        <a class="feat-article rw" href="#" data-cat="kardiologji">
+          <div class="feat-art-body">
+            <div class="blog-cat">Kardiologji</div>
+            <h2 class="blog-h">Pesë shenjat e hershme të infarktit që njerëzit i nënvlerësojnë — dhe çfarë të bëni</h2>
+            <p class="blog-excerpt">Infarkti nuk fillon gjithmonë me dhimbe të forta gjoksi. Dr. Artan Hoxha shpjegon simptomat e heshtura — lodhja e pazakontë, gulçimi, dhimbja në shpatull — që mund të paraqiten ditë para ngjarjes. Njohja e tyre mund të shpëtojë jetë.</p>
+            <div class="blog-meta">
+              <span>Dr. Artan Hoxha</span>
+              <span class="blog-meta-sep"></span>
+              <span>20 Mars 2025</span>
+              <span class="blog-meta-sep"></span>
+              <span>7 min lexim</span>
+            </div>
+            <div class="blog-read-more">Lexo artikullin →</div>
+          </div>
+          <div class="feat-art-visual" style="background: linear-gradient(150deg,#1a6bb5,#0d3d70);">
+            <div class="feat-art-visual-num">01</div>
+            <div class="feat-art-visual-icon">🫀</div>
+            <div class="feat-art-visual-tag">E Rekomanduara</div>
+          </div>
+        </a>
+
+        <!-- GRID 3 -->
+        <div class="articles-grid" style="margin-top:3px;">
+
+          <a class="art-card rw" href="#" data-cat="oftalmologji">
+            <div class="art-card-visual" style="background: linear-gradient(150deg,#0e4f5c,#07303a);">
+              <div class="art-card-visual-num">02</div>
+              <div class="art-card-visual-icon">👁️</div>
+            </div>
+            <div class="art-card-body">
+              <div class="blog-cat">Oftalmologji</div>
+              <h3 class="blog-h">Kirurgjia LASIK: çfarë duhet të dini para vendimit</h3>
+              <p class="blog-excerpt">Pyetjet reale, rreziqet e vërteta dhe kush nuk është kandidat ideal për ndërhyrjen.</p>
+              <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
+                <span>Dr. Lira Gjoka</span>
+                <span class="blog-meta-sep"></span>
+                <span>5 Mars 2025</span>
+                <span class="blog-meta-sep"></span>
+                <span>5 min</span>
+              </div>
+              <div class="blog-read-more">Lexo →</div>
+            </div>
+          </a>
+
+          <a class="art-card rw rw-d1" href="#" data-cat="ortopedi">
+            <div class="art-card-visual" style="background: linear-gradient(150deg,#1a3d20,#0a1f10);">
+              <div class="art-card-visual-num">03</div>
+              <div class="art-card-visual-icon">🦴</div>
+            </div>
+            <div class="art-card-body">
+              <div class="blog-cat">Ortopedi</div>
+              <h3 class="blog-h">Dhimbja e shpinës: kur duhet vizita dhe kur jo</h3>
+              <p class="blog-excerpt">Udhëzues klinik i thjeshtë për të kuptuar kur dhimbja kërkon specialist dhe kur mund të trajtohet në shtëpi.</p>
+              <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
+                <span>Dr. Erion Çela</span>
+                <span class="blog-meta-sep"></span>
+                <span>18 Feb 2025</span>
+                <span class="blog-meta-sep"></span>
+                <span>6 min</span>
+              </div>
+              <div class="blog-read-more">Lexo →</div>
+            </div>
+          </a>
+
+          <a class="art-card rw rw-d2" href="#" data-cat="pediatri">
+            <div class="art-card-visual" style="background: linear-gradient(150deg,#4a2a00,#2a1500);">
+              <div class="art-card-visual-num">04</div>
+              <div class="art-card-visual-icon">👶</div>
+            </div>
+            <div class="art-card-body">
+              <div class="blog-cat">Pediatri</div>
+              <h3 class="blog-h">Vaksinat e fëmijëve: orari i plotë dhe pse nuk duhen anashkaluar</h3>
+              <p class="blog-excerpt">Dr. Edi Tushe shpjegon çdo vaksinë të rekomanduar sipas moshës dhe efektet anësore normale kundrejt alarmantes.</p>
+              <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
+                <span>Dr. Edi Tushe</span>
+                <span class="blog-meta-sep"></span>
+                <span>10 Feb 2025</span>
+                <span class="blog-meta-sep"></span>
+                <span>8 min</span>
+              </div>
+              <div class="blog-read-more">Lexo →</div>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- WIDE CARDS x2 -->
+        <div class="articles-wide rw" style="margin-top:3px;">
+
+          <a class="art-wide" href="#" data-cat="neurologji">
+            <div class="art-wide-visual" style="background: linear-gradient(150deg,#2a0a4a,#150025);">
+              <div class="art-wide-visual-num">05</div>
+              <div class="art-wide-visual-icon">🧠</div>
+            </div>
+            <div class="art-wide-body">
+              <div class="blog-cat">Neurologji</div>
+              <h3 class="blog-h">Migrena kronike: trajtimet e reja që ndryshojnë jetën e pacientëve</h3>
+              <p class="blog-excerpt">Injeksionet anti-CGRP dhe biofeedback si alternativa moderne ndaj medikamenteve tradicionale. Rezultate nga pacientët e klinikës.</p>
+              <div class="blog-meta" style="margin-top:20px;">
+                <span>Dr. Blerina Hasa</span>
+                <span class="blog-meta-sep"></span>
+                <span>28 Jan 2025</span>
+                <span class="blog-meta-sep"></span>
+                <span>9 min</span>
+              </div>
+              <div class="blog-read-more">Lexo artikullin →</div>
+            </div>
+          </a>
+
+          <a class="art-wide" href="#" data-cat="gjinekologji">
+            <div class="art-wide-visual" style="background: linear-gradient(150deg,#4a1520,#280a10);">
+              <div class="art-wide-visual-num">06</div>
+              <div class="art-wide-visual-icon">🌸</div>
+            </div>
+            <div class="art-wide-body">
+              <div class="blog-cat">Gjinekologji</div>
+              <h3 class="blog-h">Endometrioza: sëmundja e heshtur që prek 1 në 10 gra</h3>
+              <p class="blog-excerpt">Simptomat e zakonshme që gabohen me dhimbje menstruale dhe hapat diagnostikë për diagnozë të hershme dhe trajtim efektiv.</p>
+              <div class="blog-meta" style="margin-top:20px;">
+                <span>Dr. Moza Keta</span>
+                <span class="blog-meta-sep"></span>
+                <span>15 Jan 2025</span>
+                <span class="blog-meta-sep"></span>
+                <span>7 min</span>
+              </div>
+              <div class="blog-read-more">Lexo artikullin →</div>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- GRID 3 — more articles -->
+        <div class="articles-grid" style="margin-top:3px;">
+
+          <a class="art-card rw" href="#" data-cat="dentistri">
+            <div class="art-card-visual" style="background: linear-gradient(150deg,#0a3a5c,#051e30);">
+              <div class="art-card-visual-num">07</div>
+              <div class="art-card-visual-icon">🦷</div>
+            </div>
+            <div class="art-card-body">
+              <div class="blog-cat">Dentistri</div>
+              <h3 class="blog-h">Implantimi dentar kundër urës fikse: cila zgjidhje është për ju?</h3>
+              <p class="blog-excerpt">Krahasim i detajuar i kostove, kohëzgjatjes, procesit kirurgjik dhe rezultateve afatgjata të të dy opsioneve.</p>
+              <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
+                <span>Dr. Altin Muka</span>
+                <span class="blog-meta-sep"></span>
+                <span>5 Jan 2025</span>
+                <span class="blog-meta-sep"></span>
+                <span>6 min</span>
+              </div>
+              <div class="blog-read-more">Lexo →</div>
+            </div>
+          </a>
+
+          <a class="art-card rw rw-d1" href="#" data-cat="jetese">
+            <div class="art-card-visual" style="background: linear-gradient(150deg,#1a4a2a,#0a2515);">
+              <div class="art-card-visual-num">08</div>
+              <div class="art-card-visual-icon">🥗</div>
+            </div>
+            <div class="art-card-body">
+              <div class="blog-cat">Stil Jetese</div>
+              <h3 class="blog-h">10 zakone ditore që reduktojnë riskun kardiovaskular me 40%</h3>
+              <p class="blog-excerpt">Studime të fundit tregojnë se ndryshime të vogla — ecja 30 minuta, gjumi 7 orë, ngrënia mesdhetare — kanë ndikim të madh.</p>
+              <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
+                <span>Dr. Genta Dedej</span>
+                <span class="blog-meta-sep"></span>
+                <span>22 Dhj 2024</span>
+                <span class="blog-meta-sep"></span>
+                <span>5 min</span>
+              </div>
+              <div class="blog-read-more">Lexo →</div>
+            </div>
+          </a>
+
+          <a class="art-card rw rw-d2" href="#" data-cat="kardiologji">
+            <div class="art-card-visual" style="background: linear-gradient(150deg,#3a1a00,#1e0d00);">
+              <div class="art-card-visual-num">09</div>
+              <div class="art-card-visual-icon">💊</div>
+            </div>
+            <div class="art-card-body">
+              <div class="blog-cat">Kardiologji</div>
+              <h3 class="blog-h">Hipertensioni: pse quhet "vrasësi i heshtur" dhe si kontrollohet</h3>
+              <p class="blog-excerpt">Mbi 30% e shqiptarëve kanë hipertension pa e ditur. Matja e rregullt dhe dieta pa kripë mund të parandalojnë goditjen cerebrale.</p>
+              <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
+                <span>Dr. Elton Qeli</span>
+                <span class="blog-meta-sep"></span>
+                <span>10 Dhj 2024</span>
+                <span class="blog-meta-sep"></span>
+                <span>7 min</span>
+              </div>
+              <div class="blog-read-more">Lexo →</div>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- ONE MORE WIDE -->
+        <div style="margin-top:3px;">
+          <a class="art-wide rw" href="#" data-cat="jetese" style="display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);text-decoration:none;color:inherit;transition:box-shadow 0.3s;">
+            <div class="art-wide-visual" style="background: linear-gradient(150deg,#1b3a6b,#0a1f40);">
+              <div class="art-wide-visual-num">10</div>
+              <div class="art-wide-visual-icon">🩺</div>
+            </div>
+            <div class="art-wide-body">
+              <div class="blog-cat">Stil Jetese</div>
+              <h3 class="blog-h">Check-up vjetor: çfarë ekzaminimesh duhet të bëni sipas moshës</h3>
+              <p class="blog-excerpt">Udhëzuesi i plotë i testeve të rekomanduara për meshkuj dhe femra nga 20 deri 70+ vjeç — për çdo buxhet dhe prioritet shëndetësor.</p>
+              <div class="blog-meta" style="margin-top:20px;">
+                <span>Dr. Genta Dedej</span>
+                <span class="blog-meta-sep"></span>
+                <span>1 Dhj 2024</span>
+                <span class="blog-meta-sep"></span>
+                <span>10 min</span>
+              </div>
+              <div class="blog-read-more">Lexo artikullin →</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="pagination rw">
+          <a class="page-btn active">1</a>
+          <a class="page-btn" href="#">2</a>
+          <a class="page-btn" href="#">3</a>
+          <a class="page-btn" href="#">4</a>
+          <span class="page-btn" style="border:none;cursor:default;">…</span>
+          <a class="page-btn" href="#">12</a>
+          <a class="page-btn wide" href="#">Tjetri →</a>
+        </div>
+
+      </div><!-- /left col -->
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+
+        <div class="sidebar-block rw">
+          <h4>Artikujt më të lexuar</h4>
+          <div class="pop-list">
+            <a class="pop-item" href="#">
+              <div class="pop-num">1</div>
+              <div>
+                <div class="pop-title">Pesë shenjat e hershme të infarktit</div>
+                <div class="pop-cat">Kardiologji · 7 min</div>
+              </div>
+            </a>
+            <a class="pop-item" href="#">
+              <div class="pop-num">2</div>
+              <div>
+                <div class="pop-title">Check-up vjetor sipas moshës</div>
+                <div class="pop-cat">Stil Jetese · 10 min</div>
+              </div>
+            </a>
+            <a class="pop-item" href="#">
+              <div class="pop-num">3</div>
+              <div>
+                <div class="pop-title">Kirurgjia LASIK: para vendimit</div>
+                <div class="pop-cat">Oftalmologji · 5 min</div>
+              </div>
+            </a>
+            <a class="pop-item" href="#">
+              <div class="pop-num">4</div>
+              <div>
+                <div class="pop-title">Endometrioza: sëmundja e heshtur</div>
+                <div class="pop-cat">Gjinekologji · 7 min</div>
+              </div>
+            </a>
+            <a class="pop-item" href="#">
+              <div class="pop-num">5</div>
+              <div>
+                <div class="pop-title">Vaksinat e fëmijëve — orari i plotë</div>
+                <div class="pop-cat">Pediatri · 8 min</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-block rw rw-d1">
+          <h4>Kategoritë</h4>
+          <div class="cat-list">
+            <button class="cat-pill active" onclick="filterArticles('të gjitha', null)">Të gjitha <span class="cat-count">10</span></button>
+            <button class="cat-pill" onclick="filterArticles('kardiologji', null)">Kardiologji <span class="cat-count">3</span></button>
+            <button class="cat-pill" onclick="filterArticles('neurologji', null)">Neurologji <span class="cat-count">1</span></button>
+            <button class="cat-pill" onclick="filterArticles('ortopedi', null)">Ortopedi <span class="cat-count">1</span></button>
+            <button class="cat-pill" onclick="filterArticles('oftalmologji', null)">Oftalmologji <span class="cat-count">1</span></button>
+            <button class="cat-pill" onclick="filterArticles('dentistri', null)">Dentistri <span class="cat-count">1</span></button>
+            <button class="cat-pill" onclick="filterArticles('pediatri', null)">Pediatri <span class="cat-count">1</span></button>
+            <button class="cat-pill" onclick="filterArticles('gjinekologji', null)">Gjinekologji <span class="cat-count">1</span></button>
+            <button class="cat-pill" onclick="filterArticles('jetese', null)">Stil Jetese <span class="cat-count">2</span></button>
+          </div>
+        </div>
+
+        <div class="sidebar-block rw rw-d2" style="background:#0797b0;border-color:transparent;">
+          <h4 style="color:rgba(255,255,255,0.3);">Rezervo Vizitë</h4>
+          <p style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;color:white;line-height:1.3;margin-bottom:16px;">Keni pyetje pas leximit të artikullit?</p>
+          <p style="font-size:0.82rem;color:rgba(255,255,255,0.45);font-weight:300;margin-bottom:24px;line-height:1.7;">Mjekët tanë janë këtu për konsultë. Rezervoni vizitën tuaj online, pa pritje.</p>
+          <a href="index.html#rezervo" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:white;text-decoration:none;padding:13px 24px;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;">Rezervo Tani →</a>
+        </div>
+
+        <div class="sidebar-block rw rw-d3">
+          <h4>Mjekët Autorë</h4>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:12px;align-items:center;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#0797b0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,0.6);font-size:1rem;flex-shrink:0;">A</div>
+              <div>
+                <div style="font-size:0.85rem;font-weight:500;color:var(--ink);">Dr. Artan Hoxha</div>
+                <div style="font-size:0.72rem;color:var(--muted);">Kardiolog · 3 artikuj</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#1a3d20;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,0.6);font-size:1rem;flex-shrink:0;">G</div>
+              <div>
+                <div style="font-size:0.85rem;font-weight:500;color:var(--ink);">Dr. Genta Dedej</div>
+                <div style="font-size:0.72rem;color:var(--muted);">Drejtuese · 2 artikuj</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#2a0a4a;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,0.6);font-size:1rem;flex-shrink:0;">M</div>
+              <div>
+                <div style="font-size:0.85rem;font-weight:500;color:var(--ink);">Dr. Moza Keta</div>
+                <div style="font-size:0.72rem;color:var(--muted);">Gjinekologe · 1 artikull</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#4a2a00;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,0.6);font-size:1rem;flex-shrink:0;">E</div>
+              <div>
+                <div style="font-size:0.85rem;font-weight:500;color:var(--ink);">Dr. Edi Tushe</div>
+                <div style="font-size:0.72rem;color:var(--muted);">Pediatër · 1 artikull</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-word">Klinika <em>Vera - Virhov</em></div>
+      <p class="footer-desc">Klinikë private me standarde ndërkombëtare, e dedikuar shëndetit dhe mirëqenies tuaj nga viti 2009.</p>
+      <div class="socials">
+        <a class="soc" href="#" aria-label="Facebook">f</a>
+        <a class="soc" href="#" aria-label="Instagram">ig</a>
+        <a class="soc" href="#" aria-label="LinkedIn">in</a>
+        <a class="soc" href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Shërbimet</h5>
+      <ul>
+        <li><a href="sherbimi.html#kardiologji">Kardiologji</a></li>
+        <li><a href="sherbimi.html#neurologji">Neurologji</a></li>
+        <li><a href="sherbimi.html#ortopedi">Ortopedi</a></li>
+        <li><a href="sherbimi.html#oftalmologji">Oftalmologji</a></li>
+        <li><a href="sherbimi.html#dentistri">Dentistri</a></li>
+        <li><a href="sherbimi.html#checkup">Check-Up Ekzekutiv</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Klinika</h5>
+      <ul>
+        <li><a href="index.html#rreth">Filozofia Jonë</a></li>
+        <li><a href="stafi.html">Stafi Mjekësor</a></li>
+        <li><a href="blog.html">Blog & Edukim</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Informacion</h5>
+      <ul>
+        <li><a href="index.html#rezervo">Rezervo Vizitë</a></li>
+        <li><a href="politika-e-privatesise.html">Politika e Privatësisë</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">GDPR</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Klinika Vera Virhov. Të gjitha të drejtat e rezervuara.</span>
+    <div class="footer-legal">
+      <a href="politika-e-privatesise.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="wa-btn" href="https://wa.me/355690000000" target="_blank" aria-label="WhatsApp">
+  <span class="wa-icon">💬</span>
+  <span class="wa-text">Na shkruani</span>
+</a>
+
+<!-- GDPR -->
+<div class="gdpr" id="gdpr">
+  <span>Përdorim cookies esenciale dhe analitike për të përmirësuar përvojën tuaj. <a href="politika-e-privatesise.html">Politika e Cookies.</a></span>
+  <div class="gdpr-btns">
+    <button class="gdpr-acc" onclick="acceptGdpr()">Pranoj të gjitha</button>
+    <button class="gdpr-dec" onclick="acceptGdpr()">Vetëm esenciale</button>
+  </div>
+</div>
+
+<script>
+// CURSOR
+const cur = document.getElementById('cur');
+const curRing = document.getElementById('curRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animCursor() {
+  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  curRing.style.left = rx + 'px'; curRing.style.top = ry + 'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cur.style.width = '16px'; cur.style.height = '16px';
+    cur.style.background = '#b8965a';
+    curRing.style.width = '52px'; curRing.style.height = '52px';
+    curRing.style.opacity = '0.5';
+  });
+  el.addEventListener('mouseleave', () => {
+    cur.style.width = '8px'; cur.style.height = '8px';
+    cur.style.background = '#1b3a6b';
+    curRing.style.width = '36px'; curRing.style.height = '36px';
+    curRing.style.opacity = '1';
+  });
+});
+
+// HAMBURGER
+const ham = document.getElementById('ham');
+const drawer = document.getElementById('drawer');
+let drawerOpen = false;
+ham.addEventListener('click', () => {
+  drawerOpen = !drawerOpen;
+  drawer.classList.toggle('open', drawerOpen);
+  const spans = ham.querySelectorAll('span');
+  if (drawerOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+  } else {
+    spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+});
+function closeDrawer() {
+  drawerOpen = false; drawer.classList.remove('open');
+  ham.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+}
+
+// SCROLL REVEAL
+const rws = document.querySelectorAll('.rw');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+rws.forEach(r => obs.observe(r));
+
+// GDPR
+function acceptGdpr() {
+  document.getElementById('gdpr').classList.add('hidden');
+  sessionStorage.setItem('gdpr', '1');
+}
+if (sessionStorage.getItem('gdpr')) document.getElementById('gdpr').classList.add('hidden');
+
+// FILTER
+function filterArticles(cat, btnEl) {
+  // Update filter bar buttons
+  if (btnEl) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+  }
+  // Update sidebar cat pills
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+
+  const cards = document.querySelectorAll('[data-cat]');
+  cards.forEach(card => {
+    if (cat === 'të gjitha' || card.dataset.cat === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// NEWSLETTER
+document.querySelector('.nl-btn').addEventListener('click', () => {
+  const inp = document.querySelector('.nl-input');
+  if (!inp.value.includes('@')) { inp.style.borderColor = '#e74c3c'; return; }
+  inp.style.borderColor = '';
+  inp.value = '';
+  inp.placeholder = 'Faleminderit! Do merrni emailin e parë së shpejti.';
+  setTimeout(() => { inp.placeholder = 'emaili@juaj.al'; }, 4000);
+});
+</script>
+</body>
+</html>
