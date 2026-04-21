@@ -64,24 +64,24 @@
     .section { padding:90px 48px; max-width:1200px; margin:0 auto; }
     .section-label { font-size:0.72rem; letter-spacing:4px; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
     .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3vw,2.2rem); color:var(--dark); font-weight:400; margin-bottom:48px; }
-    .staff-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:32px; }
+    .staff-grid { display:grid; grid-template-columns:1fr; gap:32px; }
 
     /* CARD */
-    .staff-card { background:var(--white); border:1px solid var(--border); overflow:hidden; transition:transform 0.3s,box-shadow 0.3s; position:relative; }
+    .staff-card { background:var(--white); border:1px solid var(--border); overflow:hidden; transition:transform 0.3s,box-shadow 0.3s; position:relative; display:flex; flex-direction:row; }
     .staff-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(7,151,176,0.15); }
     .staff-card:hover .card-overlay { opacity:1; }
 
     /* PHOTO PLACEHOLDER — img + silhouette */
-    .card-photo-placeholder { width:100%; height:300px; position:relative; overflow:hidden; background:linear-gradient(135deg,var(--teal-l) 0%,var(--teal-d) 100%); }
+    .card-photo-placeholder { width:240px; min-width:240px; height:auto; min-height:280px; position:relative; overflow:hidden; background:linear-gradient(135deg,var(--teal-l) 0%,var(--teal-d) 100%); flex-shrink:0; }
     .card-silhouette { position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:center; }
     .card-silhouette-inner { width:70%; height:88%; background:linear-gradient(170deg,rgba(255,255,255,0.12) 0%,rgba(255,255,255,0.04) 100%); border-radius:60% 60% 0 0; display:flex; align-items:center; justify-content:center; padding-top:30%; }
     .card-initial { font-family:'Playfair Display',serif; font-size:3.5rem; font-weight:400; font-style:italic; color:rgba(255,255,255,0.25); }
     .card-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; display:block; z-index:2; }
     .card-img[src=""] { display:none; }
 
-    .card-overlay { position:absolute; top:0; left:0; right:0; height:300px; background:rgba(7,151,176,0.85); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; z-index:3; }
+    .card-overlay { position:absolute; inset:0; background:rgba(7,151,176,0.85); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; z-index:3; }
     .card-overlay-text { color:var(--white); font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; border-bottom:1px solid var(--gold-l); padding-bottom:6px; }
-    .card-body { padding:24px 28px 28px; }
+    .card-body { padding:28px 32px; flex:1; display:flex; flex-direction:column; justify-content:center; }
     .card-spec { font-size:0.68rem; letter-spacing:3px; text-transform:uppercase; color:var(--teal); margin-bottom:8px; }
     .card-name { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--dark); font-weight:500; margin-bottom:14px; }
     .card-line { width:32px; height:1px; background:var(--gold-l); margin-bottom:14px; }
@@ -127,6 +127,8 @@
       .hero { padding:120px 24px 60px; }
       .section { padding:60px 24px; }
       .staff-grid { grid-template-columns:1fr; }
+      .staff-card { flex-direction:column; }
+      .card-photo-placeholder { width:100%; min-width:unset; height:260px; min-height:unset; }
     }
   </style>
 </head>
@@ -139,7 +141,7 @@
   <nav id="nav">
     <div class="nav-inner">
       <a href="index.html" class="logo">
-        <span class="logo-word">Klinika <em>Vera - Virhov</em></span>
+        <img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:44px;width:auto;display:block;">
         <span class="logo-sep"></span>
         <span class="logo-sub">Tirane</span>
       </a>
@@ -191,7 +193,15 @@
           <p class="card-spec">Mjeke Laboratori</p>
           <h3 class="card-name">Dr. Genta Dedej</h3>
           <div class="card-line"></div>
-          <p class="card-bio">Specialist i kardiologjise me mbi 18 vjet pervoje klinike. I diplomuar nga Universiteti i Vjenes, me specializim ne ekokardiografi 3D dhe kirurgji interventionale minimalisht invazive.</p>
+          <p class="card-bio">Dr. Genta Dedej
+            Mjeke specialiste laboratori biokimik- klinik - imunologjik.
+            Me mbi dy dekada përvojë të konsoliduar, ajo ka ndërtuar një profil profesional të bazuar në saktësi shkencore, integritet mjekësor dhe interpretim të thelluar klinik. Çdo analizë që kalon në duart e saj nuk është thjesht një rezultat, por një mesazh i koduar i organizmit, i lexuar me ekspertizë dhe përgjegjësi maksimale.
+            
+            Filozofia e saj është e qartë:
+            diagnoza e saktë nuk është rastësi — është rezultat i disiplinës, përvojës dhe inteligjencës mjekësore.
+            
+            Nën drejtimin e saj, laboratori funksionon si një strukturë elitare ku teknologjia moderne bashkohet me gjykimin klinik, duke garantuar një nivel të lartë besimi për pacientët që kërkojnë më shumë se një shërbim standard dhe  siguri.
+            Dr. Genta Dedej ka dhene nje kontribut te cmuar si drejtuese e sherbimit laboratorik ne spitalin universitar Koco Gliozheni per me shume se 10 vite , dhe njekohesisht eshte drejtuese teknike e klinikes Vera -VIRHOV prej me shume se dy dekadash.</p>
           <div class="card-tags">
             
           </div>
@@ -208,7 +218,9 @@
           <p class="card-spec">Kardiolog</p>
           <h3 class="card-name">Dr. Elton Qeli</h3>
           <div class="card-line"></div>
-          <p class="card-bio">Neurologe e specializuar ne trajtimin e migrenes kronike, epilepsise dhe semundjeve neurodegenerative. Trajnim i avancuar ne klinika europiane me reputacion nderkombetar.</p>
+          <p class="card-bio">Kardiolog dr. Elton Qeli eshte nje nga kardiologet e mirenjohur per problematikat e semundjeve te zemres sic:
+            Hipertensioni arterial, Aritmite, ishemia , infarti etj.
+            Dr. Elton Qeli ofron konsulta cdo dite prane klinikes Vera-VIRHOV</p>
           <div class="card-tags">
             
           </div>
@@ -225,7 +237,11 @@
           <p class="card-spec">Pediatër</p>
           <h3 class="card-name">Dr. Edi Tushe</h3>
           <div class="card-line"></div>
-          <p class="card-bio">Kirurg ortoped me specializim ne kirurgji artroskopike te kyqeve dhe implantime totale. Anetar i Shoqates Europiane te Ortopedise dhe Traumatologjise.</p>
+          <p class="card-bio">Dr. Edi Tushe
+            Neonatologu dhe pediatri i mirënjohur në fushen e tij, jo vetëm per ekspertizen  profesionale, por edhe si themelues i Sherbimit Neonatologjik  në Shqiperi. Pedagogu i dashur per koleget dhe studentet e tij, dhe mjeku i dashur per fëmijët, shembulli mё i mirë per kujdesjen
+            dhe qetesine e duhur për nenat e reja.
+            Dr.Edi Tushe drejton shërbimin pediatrik
+            në klinikën Vera-Virhov.</p>
           <div class="card-tags">
            
           </div>
@@ -242,7 +258,8 @@
           <p class="card-spec">Gjinekologe</p>
           <h3 class="card-name">Dr. Moza Keta</h3>
           <div class="card-line"></div>
-          <p class="card-bio">Specialiste e oftalmologjise me fokus ne kirurgjine lazer LASIK/LASEK dhe trajtimin e kataraktes. Trajnim i specializuar ne qendrat kryesore europiane te kirurgjise okulare.</p>
+          <p class="card-bio">Gjinekologe dr. Mimoza Keta eshte nje nga specialistet e mirenjohura ne fushen e obstetrike- gjinekologjise ne Shqiperi, ajo i takon plejades se mjekeve te nderuar qe i kane sherbyer grave per problematikat qe lidhen me shendetin riprodhues. Dr. Mimoza Keta eshte ekperte ne problematikat qe lidhen me infeksionet seksualisht te transmetueshme, crregullimet hormonale, ovari polikistik etj.
+            Dr. Mimoza ofron sherbim cdo dite prane klinikes Vera-VIRHOV.</p>
           <div class="card-tags">
             
           </div>
@@ -259,7 +276,7 @@
           <p class="card-spec">Pediatër</p>
           <h3 class="card-name">Dr. Teuta Neli</h3>
           <div class="card-line"></div>
-          <p class="card-bio">Dentist i specializuar ne implantologji dhe dentistri estetike. Ekspert ne implantime titanike, veneer porcelani dhe trajtim me Invisalign. Mbi 2000 implante te kryera me sukses.</p>
+          <p class="card-bio">Pediatre dr. Teuta Neli eshte nje nga pediatret e mirenjohura ne sherbim te femijeve prej me shume se 30 viteve. Dr.Teuta Neli pervecse trajtimit te diagnozave te ndryshme per femijet e semure nga i porsalinduri deri ne 15 vjec, gjithashtu ofron eksperitizen e saj per problemet qe lidhen me kardiologjine tek femijet dhe artritin reumatoid.Ajo ofron konsulta cdo dite ne kliniken Vera-VIRHOV.</p>
           <div class="card-tags">
             
           </div>
@@ -276,7 +293,7 @@
           <p class="card-spec">Infermiere</p>
           <h3 class="card-name">Infermiere Zenepe Luraj</h3>
           <div class="card-line"></div>
-          <p class="card-bio">Interniste e specializuar ne programet e check-up ekzekutiv dhe mjekesine parandaluese. Koordinatore e ekipit mjekesor, me mbi 20 vjet pervoje ne diagnostikimin e semundjeve te brendshme.</p>
+          <p class="card-bio">Infermiere Zenepe Luraj ofron sherbimin infermieristik ne kliniken Vera-VIRHOV . Ajo ka nje eksperience prej me shume se 30 vitesh ne pediatri per marrjen e gjakut te femijet e vegjel, vendosjen e terapive intravenoze, intramuskulare etj. Gjithashtu ajo drejton ekipin e infermiereve ne kliniken Vera- VIRHOV.</p>
           <div class="card-tags">
             
           </div>
@@ -290,13 +307,13 @@
   <footer>
     <div class="footer-top">
       <div>
-        <div class="footer-brand-word">Klinika <em>Vera - Virhov</em></div>
+        <div class="footer-brand-word"><img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:48px;width:auto;display:block;"></div>
         <p class="footer-desc">Klinike private me standarde nderkombtare, e dedikuar shendetit dhe mireqenies tuaj nga viti 2009.</p>
         <div class="socials">
-          <a class="soc" href="#" aria-label="Facebook">f</a>
-          <a class="soc" href="#" aria-label="Instagram">ig</a>
-          <a class="soc" href="#" aria-label="LinkedIn">in</a>
-          <a class="soc" href="#" aria-label="YouTube">&#9658;</a>
+          <a class="soc" href="https://www.facebook.com/Virhov/" aria-label="Facebook">f</a>
+          <a class="soc" href="https://www.instagram.com/klinika_veravirhov?igsh=YXkxMTQzMG5ncXUy" aria-label="Instagram">ig</a>
+          <a class="soc" href="https://al.linkedin.com/in/klinika-vera-virhov-582290247" aria-label="LinkedIn">in</a>
+          <a class="soc" href="https://www.youtube.com/@klinikaveravirhov9021" aria-label="YouTube">&#9658;</a>
         </div>
       </div>
       <div class="footer-col">
@@ -337,6 +354,10 @@
         <a href="politika-e-privatesise.html">Privacy Policy</a>
       </div>
     </div>
+    <!-- LOREI Web Studio Credit -->
+<div style="width: 100%; text-align: center; padding: 14px 20px; font-family: sans-serif; font-size: 13px; color: #ffffff; background: transparent; border-top: 1px solid rgba(255,255,255,0.2); margin-top: 40px;">
+  Powered by <strong style="color: #ffffff;">LOREI Web Studio Albania</strong> · Email: <a href="mailto:lrwebstudio1@gmail.com" style="color: #ffffff; text-decoration: none;">lrwebstudio1@gmail.com</a>
+</div>
   </footer>
 
   <a class="wa-btn" href="https://wa.me/355690000000" target="_blank" aria-label="WhatsApp">
