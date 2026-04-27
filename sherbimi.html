@@ -3,304 +3,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shërbimet — Klinika Vera Virhov</title>
-<meta name="description" content="Informacion i detajuar mbi shërbimet mjekësore të Klinikës Vera Virhov.">
+<title>Sherbimet - Klinika Vera Virhov</title>
+<meta name="description" content="Sherbimet mjekesore te Klinikes Vera Virhov: analiza, ekografi, EEG, fizioterapi, logopedi, haloterapi dhe me shume.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink:      #0e1117;
-  --ink-mid:  #1c2333;
-  --slate:    #2d3a4f;
-  --cobalt:   #1b3a6b;
-  --cobalt-l: #245492;
-  --sky:      #4c82c4;
-  --teal:     #0797b0;
-  --cream:    #f7f4ef;
-  --warm:     #ede9e1;
-  --gold:     #b8965a;
-  --gold-l:   #d4b07a;
-  --white:    #ffffff;
-  --muted:    #8a8f9a;
-  --border:   rgba(14,17,23,0.08);
-  --ease:     cubic-bezier(0.4,0,0.2,1);
+  --ink:#0e1117; --cobalt:#1b3a6b; --cobalt-l:#245492;
+  --teal:#0797b0; --cream:#f7f4ef; --warm:#ede9e1;
+  --gold:#b8965a; --gold-l:#d4b07a; --white:#ffffff;
+  --muted:#8a8f9a; --slate:#2d3a4f;
+  --border:rgba(14,17,23,0.08);
+  --ease:cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;cursor:none;}
+
+.cursor{width:8px;height:8px;background:var(--cobalt);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),background .3s;}
+.cursor-ring{width:36px;height:36px;border:1px solid rgba(27,58,107,.35);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .18s var(--ease),width .4s var(--ease),height .4s var(--ease);}
+
+nav{position:fixed;inset:0 0 auto 0;z-index:500;height:76px;display:flex;align-items:center;padding:0 5%;background:rgba(247,244,239,.96);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border);}
+.nav-inner{width:100%;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:3px;text-decoration:none;line-height:1;}
+.logo-sep{width:1px;height:22px;background:#d4b07a;margin:0 10px;opacity:.6;}
+.logo-sub{font-size:.68rem;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:#d4b07a;}
+.nav-menu{display:flex;align-items:center;gap:36px;list-style:none;}
+.nav-menu a{font-size:.82rem;font-weight:400;letter-spacing:.8px;text-transform:uppercase;color:var(--teal);text-decoration:none;position:relative;transition:color .2s;}
+.nav-menu a::after{content:'';position:absolute;bottom:-3px;left:0;right:100%;height:1px;background:var(--teal);transition:right .3s var(--ease);}
+.nav-menu a:hover::after{right:0;}
+.nav-menu a.active{color:var(--gold);}
+.nav-menu a.active::after{background:var(--gold);right:0;}
+.nav-book{display:flex;align-items:center;gap:8px;font-size:.8rem;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--white);text-decoration:none;background:var(--teal);padding:11px 24px;border-radius:2px;transition:background .25s,transform .2s;}
+.nav-book:hover{background:var(--cobalt-l);transform:translateY(-1px);}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:6px;padding:4px;}
+.hamburger span{display:block;width:26px;height:1.5px;background:var(--ink);transition:.35s var(--ease);}
+
+.drawer{position:fixed;inset:0;z-index:490;background:var(--teal);display:flex;flex-direction:column;padding:100px 8% 60px;transform:translateX(100%);transition:transform .5s var(--ease);}
+.drawer.open{transform:none;}
+.drawer-link{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3rem);font-weight:400;font-style:italic;color:rgba(255,255,255,.15);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.04);transition:color .2s;}
+.drawer-link:hover{color:rgba(255,255,255,.8);}
+.drawer-link:last-of-type{border:none;}
+.drawer-cta{margin-top:40px;display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;padding:16px 32px;width:fit-content;}
+
+.page-hero{padding:140px 5% 80px;background:#0797b0;position:relative;overflow:hidden;}
+.page-hero-inner{max-width:1260px;margin:0 auto;position:relative;z-index:2;}
+.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.eyebrow-line{width:28px;height:1px;background:var(--gold);}
+.eyebrow-text{font-size:.7rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold-l);}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:400;line-height:1.1;color:var(--white);letter-spacing:-.02em;max-width:700px;}
+.page-hero h1 em{font-style:italic;color:var(--gold-l);}
+.page-hero p{font-size:1rem;line-height:1.8;color:rgba(255,255,255,.45);font-weight:300;max-width:560px;margin-top:24px;}
+.hero-bg-deco{position:absolute;right:5%;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:220px;font-weight:700;font-style:italic;color:rgba(255,255,255,.015);pointer-events:none;white-space:nowrap;letter-spacing:-.04em;}
+
+.services-section{max-width:1260px;margin:0 auto;padding:80px 5%;}
+
+/* TABS */
+.tabs-wrap{position:relative;}
+.tabs-nav{display:flex;overflow-x:auto;gap:0;border-bottom:2px solid var(--border);margin-bottom:0;scrollbar-width:none;}
+.tabs-nav::-webkit-scrollbar{display:none;}
+.tab-btn{flex-shrink:0;display:flex;align-items:center;gap:10px;padding:18px 28px;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;cursor:pointer;font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);transition:color .25s,border-color .25s,background .25s;white-space:nowrap;}
+.tab-btn:hover{color:var(--teal);background:rgba(7,151,176,.04);}
+.tab-btn.active{color:var(--teal);border-bottom-color:var(--teal);background:rgba(7,151,176,.04);}
+.tab-btn .tb-icon{font-size:1.2rem;line-height:1;}
+.tab-btn .tb-num{font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:var(--gold);margin-right:2px;}
+
+.tabs-panels{background:var(--white);border:1px solid var(--border);border-top:none;}
+.tab-panel{display:none;padding:56px 60px;gap:64px;align-items:flex-start;}
+.tab-panel.active{display:grid;grid-template-columns:1fr 1fr;}
+.tab-panel-left{}
+.tab-panel-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.tab-panel-eyebrow span:first-child{width:20px;height:1px;background:var(--teal);display:block;}
+.tab-panel-eyebrow span:last-child{font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:500;}
+.tab-panel h2{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:400;color:var(--ink);letter-spacing:-.02em;line-height:1.15;margin-bottom:20px;}
+.tab-panel h2 em{font-style:italic;color:var(--teal);}
+.tab-panel-desc{font-size:.92rem;line-height:1.85;color:var(--muted);font-weight:300;margin-bottom:32px;}
+.tab-panel-cta{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:white;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;padding:13px 26px;transition:background .25s,gap .2s;}
+.tab-panel-cta:hover{background:var(--cobalt-l);gap:16px;}
+.tab-panel-right{padding-left:64px;border-left:1px solid var(--border);}
+.tab-panel-big-num{font-family:'Playfair Display',serif;font-size:8rem;font-weight:700;font-style:italic;color:rgba(14,17,23,.04);line-height:1;letter-spacing:-.04em;margin-bottom:16px;}
+.tab-panel-icon{font-size:3.5rem;display:block;margin-bottom:24px;}
+.tab-panel-features{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:16px;}
+.tab-panel-features li{display:flex;align-items:flex-start;gap:14px;font-size:.88rem;line-height:1.7;color:var(--slate);}
+.tab-panel-features li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:8px;}
+
+@media(max-width:900px){
+  .tab-btn{padding:14px 18px;font-size:.7rem;}
+  .tab-panel.active{grid-template-columns:1fr;}
+  .tab-panel{padding:36px 28px;}
+  .tab-panel-right{padding-left:0;border-left:none;border-top:1px solid var(--border);padding-top:32px;margin-top:8px;}
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  font-family: 'Jost', sans-serif;
-  background: var(--cream);
-  color: var(--ink);
-  overflow-x: hidden;
-  cursor: none;
-}
+.cta-section{background:var(--teal);padding:100px 5%;text-align:center;}
+.cta-inner{max-width:680px;margin:0 auto;}
+.cta-section .eyebrow{justify-content:center;}
+.cta-section .eyebrow-line{background:rgba(255,255,255,.4);}
+.cta-section .eyebrow-text{color:rgba(255,255,255,.6);}
+.cta-h{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;color:var(--white);line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;}
+.cta-h em{font-style:italic;color:var(--gold-l);}
+.cta-p{font-size:.95rem;color:rgba(255,255,255,.5);font-weight:300;margin-bottom:44px;line-height:1.8;}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:white;font-size:.8rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;padding:16px 36px;border-radius:2px;transition:background .25s,transform .2s;}
+.btn-gold:hover{background:var(--gold-l);transform:translateY(-2px);}
 
-/* CURSOR */
-.cursor {
-  width: 8px; height: 8px;
-  background: var(--cobalt); border-radius: 50%;
-  position: fixed; top: 0; left: 0;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%,-50%);
-  transition: width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s;
-}
-.cursor-ring {
-  width: 36px; height: 36px;
-  border: 1px solid rgba(27,58,107,0.35); border-radius: 50%;
-  position: fixed; top: 0; left: 0;
-  pointer-events: none; z-index: 9998;
-  transform: translate(-50%,-50%);
-  transition: transform 0.18s var(--ease), width 0.4s var(--ease), height 0.4s var(--ease);
-}
+footer{background:#0797b0;padding:80px 5% 40px;}
+.footer-top{display:grid;grid-template-columns:3fr 1.5fr 1.5fr 1.5fr;gap:60px;margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.05);}
+.footer-desc{font-size:.83rem;line-height:1.8;color:rgba(255,255,255,.3);font-weight:300;max-width:300px;margin-bottom:32px;margin-top:16px;}
+.socials{display:flex;gap:10px;}
+.soc{width:38px;height:38px;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:rgba(255,255,255,.4);text-decoration:none;transition:border-color .2s,color .2s;}
+.soc:hover{border-color:var(--gold);color:var(--gold);}
+.footer-col h5{font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:20px;font-weight:400;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul li a{font-size:.84rem;color:rgba(255,255,255,.38);text-decoration:none;font-weight:300;transition:color .2s;}
+.footer-col ul li a:hover{color:rgba(255,255,255,.75);}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;font-size:.73rem;color:rgba(255,255,255,.2);}
+.footer-legal{display:flex;gap:24px;}
+.footer-legal a{color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s;}
+.footer-legal a:hover{color:rgba(255,255,255,.5);}
 
-/* NAV */
-nav {
-  position: fixed; inset: 0 0 auto 0; z-index: 500;
-  height: 76px; display: flex; align-items: center; padding: 0 5%;
-  background: rgba(247,244,239,0.96);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 var(--border);
-}
-.nav-inner { width: 100%; display: flex; align-items: center; justify-content: space-between; }
-.logo { display: flex; align-items: baseline; gap: 3px; text-decoration: none; line-height: 1; }
-.logo-word { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 500; color: var(--ink); }
-.logo-word em { font-style: italic; color: var(--cobalt); }
-.logo-sep { width: 1px; height: 22px; background: #d4b07a; margin: 0 10px; opacity: 0.6; }
-.logo-sub { font-size: 0.68rem; font-weight: 400; letter-spacing: 2.5px; text-transform: uppercase; color: #d4b07a; }
-.nav-back {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.78rem; font-weight: 400; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--teal); text-decoration: none;
-  transition: gap 0.2s;
-}
-.nav-back:hover { gap: 12px; }
-.nav-book {
-  display: flex; align-items: center;
-  font-size: 0.8rem; font-weight: 500; letter-spacing: 1.2px;
-  text-transform: uppercase; color: var(--white); text-decoration: none;
-  background: var(--teal); padding: 11px 24px; border-radius: 2px;
-  transition: background 0.25s;
-}
-.nav-book:hover { background: var(--cobalt-l); }
+.rw{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.rw.vis{opacity:1;transform:none;}
+.rw-d1{transition-delay:.1s;}
+.rw-d2{transition-delay:.2s;}
+.rw-d3{transition-delay:.3s;}
 
-/* PAGE HERO */
-.page-hero {
-  padding: 140px 5% 80px;
-  background: #0797b0;
-  position: relative; overflow: hidden;
+@media(max-width:1000px){
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .svc-card.full{grid-column:span 2;grid-template-columns:1fr;gap:32px;}
+  .svc-card.full .svc-card-side{border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:32px;}
+  .footer-top{grid-template-columns:1fr 1fr;}
 }
-.page-hero-inner { max-width: 1260px; margin: 0 auto; position: relative; z-index: 2; }
-.eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-.eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
-.eyebrow-text { font-size: 0.7rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-l); }
-.page-hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
-  font-weight: 400; line-height: 1.1; color: var(--white);
-  letter-spacing: -0.02em; max-width: 700px;
+@media(max-width:900px){
+  .nav-menu,.nav-book{display:none;}
+  .hamburger{display:flex;}
+  .footer-top{grid-template-columns:1fr;gap:40px;}
+  .footer-bottom{flex-direction:column;gap:12px;}
 }
-.page-hero h1 em { font-style: italic; color: var(--gold-l); }
-.page-hero p {
-  font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.45);
-  font-weight: 300; max-width: 560px; margin-top: 24px;
-}
-.hero-bg-deco {
-  position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
-  font-family: 'Playfair Display', serif;
-  font-size: 220px; font-weight: 700; font-style: italic;
-  color: rgba(255,255,255,0.015); pointer-events: none;
-  white-space: nowrap; letter-spacing: -0.04em;
-}
-
-/* FILTER TABS */
-.filter-bar {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  position: sticky; top: 76px; z-index: 100;
-}
-.filter-inner {
-  max-width: 1260px; margin: 0 auto; padding: 0 5%;
-  display: flex; gap: 0; overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.filter-inner::-webkit-scrollbar { display: none; }
-.ftab {
-  display: flex; align-items: center; gap: 8px;
-  padding: 18px 22px;
-  font-size: 0.78rem; font-weight: 400; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--muted);
-  border: none; background: none; cursor: pointer;
-  border-bottom: 2px solid transparent; white-space: nowrap;
-  transition: color 0.2s, border-color 0.2s;
-  font-family: 'Jost', sans-serif;
-  text-decoration: none;
-}
-.ftab:hover { color: var(--ink); }
-.ftab.active { color: var(--teal); border-bottom-color: var(--teal); }
-.ftab-icon { font-size: 1rem; }
-
-/* SERVICES DETAILS */
-.services-wrap { max-width: 1260px; margin: 0 auto; padding: 0 5%; }
-
-.svc-detail {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; align-items: start;
-  padding: 100px 0;
-  border-bottom: 1px solid var(--border);
-}
-.svc-detail:last-child { border-bottom: none; }
-.svc-detail.reverse { direction: rtl; }
-.svc-detail.reverse > * { direction: ltr; }
-
-.svc-left { }
-.svc-tag { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
-.svc-tag-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.85rem; font-style: italic; color: var(--gold);
-}
-.svc-icon-lg { font-size: 3.5rem; margin-bottom: 20px; display: block; }
-.svc-detail h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  font-weight: 400; line-height: 1.12; color: var(--ink);
-  letter-spacing: -0.02em; margin-bottom: 20px;
-}
-.svc-detail h2 em { font-style: italic; color: var(--cobalt); }
-.svc-lead {
-  font-size: 1rem; line-height: 1.85; color: var(--muted);
-  font-weight: 300; margin-bottom: 36px;
-}
-.svc-features {
-  display: flex; flex-direction: column; gap: 0;
-  margin-bottom: 40px;
-}
-.svc-feat {
-  display: flex; align-items: flex-start; gap: 16px;
-  padding: 16px 0; border-bottom: 1px solid var(--border);
-}
-.svc-feat:first-child { border-top: 1px solid var(--border); }
-.svc-feat-check {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: var(--teal);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: 1px;
-  font-size: 0.65rem; color: white;
-}
-.svc-feat-text { font-size: 0.88rem; line-height: 1.6; color: var(--slate); }
-.svc-feat-text strong { display: block; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
-
-.btn-teal {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--teal); color: var(--white);
-  font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px;
-  text-transform: uppercase; text-decoration: none;
-  padding: 14px 28px; border-radius: 2px;
-  transition: background 0.25s, transform 0.2s;
-}
-.btn-teal:hover { background: var(--cobalt); transform: translateY(-2px); }
-
-.svc-right { }
-.svc-visual {
-  aspect-ratio: 4/3;
-  background: var(--warm);
-  border-radius: 2px;
-  position: relative; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 24px;
-}
-.svc-visual-bg {
-  position: absolute; inset: 0;
-}
-.svc-visual-icon {
-  font-size: 80px; opacity: 0.18;
-  position: relative; z-index: 1;
-}
-.svc-visual-label {
-  position: absolute; bottom: 24px; left: 24px;
-  background: rgba(14,17,23,0.7); backdrop-filter: blur(10px);
-  padding: 12px 18px; border-radius: 2px;
-  font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
-}
-.svc-stats {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
-}
-.svc-stat {
-  background: var(--white); padding: 24px 20px;
-  text-align: center;
-}
-.svc-stat-n {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem; font-weight: 400; color: var(--ink);
-  letter-spacing: -0.03em; line-height: 1;
-}
-.svc-stat-n span { color: var(--teal); }
-.svc-stat-l {
-  font-size: 0.7rem; letter-spacing: 1.2px; text-transform: uppercase;
-  color: var(--muted); margin-top: 6px;
-}
-
-/* CTA SECTION */
-.cta-section {
-  background: var(--teal);
-  padding: 100px 5%;
-  text-align: center;
-}
-.cta-inner { max-width: 680px; margin: 0 auto; }
-.cta-section .eyebrow { justify-content: center; }
-.cta-section .eyebrow-line { background: rgba(255,255,255,0.4); }
-.cta-section .eyebrow-text { color: rgba(255,255,255,0.6); }
-.cta-h {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 400; color: var(--white); line-height: 1.15;
-  letter-spacing: -0.02em; margin-bottom: 20px;
-}
-.cta-h em { font-style: italic; color: var(--gold-l); }
-.cta-p { font-size: 0.95rem; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 44px; line-height: 1.8; }
-.btn-gold {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--gold); color: white;
-  font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px;
-  text-transform: uppercase; text-decoration: none;
-  padding: 16px 36px; border-radius: 2px;
-  transition: background 0.25s, transform 0.2s;
-}
-.btn-gold:hover { background: var(--gold-l); transform: translateY(-2px); }
-
-/* FOOTER minimal */
-footer {
-  background: #0797b0; padding: 40px 5%;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.foot-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem; color: rgba(255,255,255,0.5);
-}
-.foot-brand em { font-style: italic; color: rgba(255,255,255,0.7); }
-.foot-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
-
-/* SCROLL REVEAL */
-.rw { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
-.rw.vis { opacity: 1; transform: none; }
-.rw-d1 { transition-delay: 0.1s; }
-.rw-d2 { transition-delay: 0.2s; }
-
-/* MOBILE */
-@media (max-width: 900px) {
-  .svc-detail { grid-template-columns: 1fr; gap: 40px; }
-  .svc-detail.reverse { direction: ltr; }
-  .svc-stats { grid-template-columns: repeat(4,1fr); }
-  footer { flex-direction: column; gap: 12px; text-align: center; }
-  .nav-back span { display: none; }
-  .page-hero h1 { font-size: clamp(2rem, 7vw, 3rem); }
-  .filter-inner { padding: 0 16px; }
-}
-@media (max-width: 600px) {
-  .svc-stats { grid-template-columns: 1fr 1fr; }
-  .page-hero { padding: 120px 5% 60px; }
+@media(max-width:600px){
+  .svc-grid{grid-template-columns:1fr;}
+  .svc-card.full{grid-column:span 1;padding:36px 28px;}
+  .page-hero{padding:120px 5% 60px;}
 }
 </style>
 </head>
@@ -309,486 +151,360 @@ footer {
 <div class="cursor" id="cur"></div>
 <div class="cursor-ring" id="curRing"></div>
 
-<!-- NAV -->
-<nav>
+<nav id="nav">
   <div class="nav-inner">
     <a href="index.html" class="logo">
       <img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:44px;width:auto;display:block;">
       <span class="logo-sep"></span>
-      <span class="logo-sub">Tiranë</span>
+      <span class="logo-sub">Tirane</span>
     </a>
-    <a href="index.html" class="nav-back" onclick="sessionStorage.setItem('fromSherbimi','1')">← <span>Kthehu</span></a>
-    <a href="index.html#rezervo" class="nav-book">Rezervo Vizitën</a>
+    <ul class="nav-menu">
+      <li><a href="sherbimi.html" class="active">Sherbimet</a></li>
+      <li><a href="stafi.html">Stafi</a></li>
+      <li><a href="index.html#testimoniale">Testimoniale</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="index.html#rezervo" class="nav-book">Rezervo Vizite</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<!-- PAGE HERO -->
+<div class="drawer" id="drawer">
+  <a class="drawer-link" href="sherbimi.html" onclick="closeDrawer()">Sherbimet</a>
+  <a class="drawer-link" href="stafi.html" onclick="closeDrawer()">Stafi Mjekesor</a>
+  <a class="drawer-link" href="index.html#testimoniale" onclick="closeDrawer()">Testimoniale</a>
+  <a class="drawer-link" href="blog.html" onclick="closeDrawer()">Blog</a>
+  <a class="drawer-link" href="index.html#kontakt" onclick="closeDrawer()">Kontakt</a>
+  <a class="drawer-cta" href="index.html#rezervo" onclick="closeDrawer()">Rezervo Viziten</a>
+</div>
+
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="eyebrow rw"><span class="eyebrow-line"></span><span class="eyebrow-text">Shërbimet Mjekësore</span></div>
-    <h1 class="rw rw-d1">Specializim i lartë,<br><em>teknologji e avancuar</em></h1>
-    <p class="rw rw-d2">Çdo departament është i pajisur me teknologji të gjeneratës së re dhe drejtohet nga specialistë me certifikime ndërkombëtare.</p>
+    <div class="eyebrow rw"><span class="eyebrow-line"></span><span class="eyebrow-text">Sherbimet Mjekesore</span></div>
+    <h1 class="rw rw-d1">Kujdes i plote,<br><em>nen nje cati</em></h1>
+    <p class="rw rw-d2">Nga analizat laboratorike deri tek haloterapi - ofrojme sherbime gjitheperfshirese per cdo nevoje shendetesore te familjes suaj.</p>
   </div>
-  <div class="hero-bg-deco">Shërbime</div>
+  <div class="hero-bg-deco">Sherbime</div>
 </section>
 
-<!-- FILTER TABS -->
-<div class="filter-bar">
-  <div class="filter-inner">
-    <a class="ftab active" href="#kardiologji"><span class="ftab-icon">🫀</span> Kardiologji</a>
-    <a class="ftab" href="#neurologji"><span class="ftab-icon">🧠</span> Neurologji</a>
-    <a class="ftab" href="#ortopedi"><span class="ftab-icon">🦴</span> Ortopedi</a>
-    <a class="ftab" href="#oftalmologji"><span class="ftab-icon">👁️</span> Oftalmologji</a>
-    <a class="ftab" href="#dentistri"><span class="ftab-icon">🦷</span> Dentistri</a>
-    <a class="ftab" href="#checkup"><span class="ftab-icon">🩺</span> Kontroll   </a>
-  </div>
+<div class="services-section">
+  <div class="tabs-wrap rw">
+
+    <!-- TAB NAV -->
+    <div class="tabs-nav" role="tablist">
+      <button class="tab-btn active" onclick="switchTab(0)" role="tab"><span class="tb-num">01</span><span class="tb-icon">&#128300;</span> Analiza Laboratorike</button>
+      <button class="tab-btn" onclick="switchTab(1)" role="tab"><span class="tb-num">02</span><span class="tb-icon">&#128251;</span> Ekografi</button>
+      <button class="tab-btn" onclick="switchTab(2)" role="tab"><span class="tb-num">03</span><span class="tb-icon">&#129504;</span> Encefalograme (EEG)</button>
+      <button class="tab-btn" onclick="switchTab(3)" role="tab"><span class="tb-num">04</span><span class="tb-icon">&#128106;</span> Kujdes Femije &amp; te Rritur</button>
+      <button class="tab-btn" onclick="switchTab(4)" role="tab"><span class="tb-num">05</span><span class="tb-icon">&#128202;</span> Monitorim Parametrave</button>
+      <button class="tab-btn" onclick="switchTab(5)" role="tab"><span class="tb-num">06</span><span class="tb-icon">&#128104;&#8205;&#9877;&#65039;</span> Konsulta Specialiste</button>
+      <button class="tab-btn" onclick="switchTab(6)" role="tab"><span class="tb-num">07</span><span class="tb-icon">&#127947;</span> Fizioterapi</button>
+      <button class="tab-btn" onclick="switchTab(7)" role="tab"><span class="tb-num">08</span><span class="tb-icon">&#128483;</span> Logopedi</button>
+      <button class="tab-btn" onclick="switchTab(8)" role="tab"><span class="tb-num">09</span><span class="tb-icon">&#128138;</span> Sherbim Infermieristik</button>
+      <button class="tab-btn" onclick="switchTab(9)" role="tab"><span class="tb-num">10</span><span class="tb-icon">&#129752;</span> Haloterapi</button>
+    </div>
+
+    <!-- PANELS -->
+    <div class="tabs-panels">
+
+      <!-- 01 -->
+      <div class="tab-panel active">
+        <div class="tab-panel-left">
+          <div class="tab-panel-eyebrow"><span></span><span>Sherbim 01</span></div>
+          <h2>Analiza <em>Laboratorike</em></h2>
+          <p class="tab-panel-desc">Analiza te sakta dhe te avancuara: hemogram i plote, biokimi, hormone, markera tumorale, vitamina dhe shume te tjera. Rezultate brenda 24 oreve me raporte te detajuara dixhitale.</p>
+          <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
+        </div>
+        <div class="tab-panel-right">
+          <div class="tab-panel-big-num">01</div>
+          <span class="tab-panel-icon">&#128300;</span>
+          <ul class="tab-panel-features">
+            <li>Hemogram i plote dhe formula leukcitare</li>
+            <li>Biokimi gjaku: glucose, kreatinine, lipide</li>
+            <li>Hormone tiroide, seksuale dhe adrenale</li>
+            <li>Markera tumorale dhe inflamatore</li>
+            <li>Vitamina D, B12, ferritine dhe te tjera</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="tab-panel">
+        <div class="tab-panel-left">
+          <div class="tab-panel-eyebrow"><span></span><span>Sherbim 02</span></div>
+          <h2><em>Ekografi</em></h2>
+          <p class="tab-panel-desc">Ekografi abdominale, pelvike, tiroideje dhe vaskulare me pajisje te gjenerates se re. Imazhe me rezolucion te larte dhe interpretim i menjehershem nga specialisti.</p>
+          <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
+        </div>
+        <div class="tab-panel-right">
+          <div class="tab-panel-big-num">02</div>
+          <span class="tab-panel-icon">&#128251;</span>
+          <ul class="tab-panel-features">
+            <li>Ekografi abdominale dhe pelvike</li>
+            <li>Ekografi tiroideje dhe qafes</li>
+            <li>Ekografi vaskulare Doppler</li>
+            <li>Ekografi obstetrike dhe gjinekologjike</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="tab-panel">
+        <div class="tab-panel-left">
+          <div class="tab-panel-eyebrow"><span></span><span>Sherbim 03</span></div>
+          <h2>Encefalograme <em>(EEG)</em></h2>
+          <p class="tab-panel-desc">Regjistrimi dixhital i aktivitetit elektrik te trurit per diagnozim te epilepsise, cregullimeve te gjumit dhe semundjeve neurologjike. Procedura e padhemshmeshme dhe e shpejte.</p>
+          <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
+        </div>
+        <div class="tab-panel-right">
+          <div class="tab-panel-big-num">03</div>
+          <span class="tab-panel-icon">&#129504;</span>
+          <ul class="tab-panel-features">
+            <li>EEG rutine dhe e zgjatur</li>
+            <li>Diagnoza e epilepsise dhe krizave</li>
+            <li>Vleresim i cregullimeve te gjumit</li>
+            <li>Monitorim neurologjik post-traumatik</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="tab-panel">
+        <div class="tab-panel-left">
+          <div class="tab-panel-eyebrow"><span></span><span>Sherbim 04</span></div>
+          <h2>Kujdes per <em>Femije &amp; te Rritur</em></h2>
+          <p class="tab-panel-desc">Pediatri, mjekesi e pergjithshme dhe sherbime specializuara per cdo moshe. Nje ekip i dedikuar per te gjithe anetaret e familjes, nga lindja deri ne moshe te plote.</p>
+          <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
+        </div>
+        <div class="tab-panel-right">
+          <div class="tab-panel-big-num">04</div>
+          <span class="tab-panel-icon">&#128106;</span>
+          <ul class="tab-panel-features">
+            <li>Pediatri dhe neonatologji</li>
+            <li>Mjekesi e pergjithshme per te rritur</li>
+            <li>Vaksinime dhe kontrolle rutine</li>
+            <li>Kujdes emergjent ambulatorik</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="tab-panel">
+        <div class="tab-panel-left">
+          <div class="tab-panel-eyebrow"><span></span><span>Sherbim 05</span></div>
+          <h2>Monitorim <em>Parametrave Jetike</em></h2>
+          <p class="tab-panel-desc">Matje dhe monitorim i presionit te gjakut, pulsit, saturimit te oksigjenit dhe EKG. Holter 24h per vleresim te plote kardiovaskular ne kushte jete reale.</p>
+          <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
+        </div>
+        <div class="tab-panel-right">
+          <div class="tab-panel-big-num">05</div>
+          <span class="tab-panel-icon">&#128202;</span>
+          <ul class="tab-panel-features">
+            <li>EKG 12-kanalesh dixhitale</li>
+            <li>Holter EKG 24-48 ore</li>
+            <li>Monitorim presioni Holter 24h (ABPM)</li>
+            <li>Pulsoksimetri dhe saturim O2</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="tab-panel">
+        <div class="tab-panel-left">
+          <div class="tab-panel-eyebrow"><span></span><span>Sherbim 06</span></div>
+          <h2>Konsulta me <em>Specialiste</em></h2>
+          <p class="tab-panel-desc">Konsulte me mjeke specialiste te fushave te ndryshme pa pritje te gjata. Konfirmim vizite brenda 30 minutave dhe raport dixhital pas cdo konsulte.</p>
+          <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
+        </div>
+        <div class="tab-panel-right">
+          <div class="tab-panel-big-num">06</div>
+          <span class="tab-panel-icon">&#128104;&#8205;&#9877;&#65039;</span>
+          <ul class="tab-panel-features">
+            <li>Kardiologji dhe mjekesi internistike</li>
+            <li>Neurologji dhe psikiatri</li>
+            <li>Gjinekologji dhe obstetrike</li>
+            <li>Oftalmologji dhe otorinolaringologji</li>
+            <li>Dermatolologji dhe endokrinologji</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 07 -->
+      <div class="tab-panel">
+        <div class="tab-panel-left">
+          <div class="tab-panel-eyebrow"><span></span><span>Sherbim 07</span></div>
+          <h2><em>Fizioterapi</em></h2>
+          <p class="tab-panel-desc">Program i personalizuar rehabilitimi muskuloskeletal, post-kirurgjik dhe neurologjik me fizioterapiste te certifikuar. Pajisje moderne dhe protokolle te bazuara ne evidence.</p>
+          <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
+        </div>
+        <div class="tab-panel-right">
+          <div class="tab-panel-big-num">07</div>
+          <span class="tab-panel-icon">&#127947;</span>
+          <ul class="tab-panel-features">
+            <li>Rehabilitim post-kirurgjik dhe ortopedik</li>
+            <li>Terapi manuale dhe masazh terapeutik</li>
+            <li>Elektrosterapi dhe ultrason terapeutik</li>
+            <li>Rehabilitim neurologjik (post-stroke)</li>
+            <li>Kinesioterapi dhe ushtrime funksionale</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 08 -->
+      <div class="tab-panel">
+        <div class="tab-panel-left">
+          <div class="tab-panel-eyebrow"><span></span><span>Sherbim 08</span></div>
+          <h2><em>Logopedi</em></h2>
+          <p class="tab-panel-desc">Vleresim dhe terapi e cregullimeve te te folurit, gjuhes dhe gelltitjes tek femijte dhe te rriturit. Seanca individuale te personalizuara me logopediste te specializuar.</p>
+          <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
+        </div>
+        <div class="tab-panel-right">
+          <div class="tab-panel-big-num">08</div>
+          <span class="tab-panel-icon">&#128483;</span>
+          <ul class="tab-panel-features">
+            <li>Vonesat ne zhvillimin e te folurit tek femijt</li>
+            <li>Gagavitje dhe ritme te crregulluara te te folurit</li>
+            <li>Dysfagia — cregullime te gelltitjes</li>
+            <li>Rehabilitim i te folurit post-stroke</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 09 -->
+      <div class="tab-panel">
+        <div class="tab-panel-left">
+          <div class="tab-panel-eyebrow"><span></span><span>Sherbim 09</span></div>
+          <h2>Sherbim <em>Infermieristik</em></h2>
+          <p class="tab-panel-desc">Kujdes infermieristik profesional ne ambiente te sterilizuara: injeksione, infuzione, matje dhe monitorim i herepashereshem. Disponueshem gjate gjithe orarit te klinikes.</p>
+          <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
+        </div>
+        <div class="tab-panel-right">
+          <div class="tab-panel-big-num">09</div>
+          <span class="tab-panel-icon">&#128138;</span>
+          <ul class="tab-panel-features">
+            <li>Injeksione intramuskulare dhe intravenoze</li>
+            <li>Infuzione dhe serum-terapi</li>
+            <li>Matje presioni, glicemie dhe parameters vitale</li>
+            <li>Ndreqje plagesh dhe kujdes post-operativ</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="tab-panel">
+        <div class="tab-panel-left">
+          <div class="tab-panel-eyebrow"><span></span><span>Sherbim 10</span></div>
+          <h2><em>Haloterapi</em></h2>
+          <p class="tab-panel-desc">Terapi me ajer te pasur me kripe natyrore per trajtimin e semundjeve respiratore, alergive dhe stresit kronik. Ambient i qete dhe relaksues per rezultate optimale.</p>
+          <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
+        </div>
+        <div class="tab-panel-right">
+          <div class="tab-panel-big-num">10</div>
+          <span class="tab-panel-icon">&#129752;</span>
+          <ul class="tab-panel-features">
+            <li>Astma bronkiale dhe COPD</li>
+            <li>Rhinit alergik dhe sinuzit kronik</li>
+            <li>Dermatite dhe psoriazis</li>
+            <li>Stres kronik dhe ankthi</li>
+            <li>Permiresim i cilesise se gjumit</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /tabs-panels -->
+  </div><!-- /tabs-wrap -->
 </div>
 
-<!-- SERVICES CONTENT -->
-<div class="services-wrap">
-
-  <!-- 01 KARDIOLOGJI -->
-  <div class="svc-detail rw" id="kardiologji">
-    <div class="svc-left">
-      <div class="svc-tag">
-        <span class="svc-tag-num">— 01</span>
-      </div>
-      <span class="svc-icon-lg">🫀</span>
-      <h2>Kardio<em>logji</em></h2>
-      <p class="svc-lead">Departamenti ynë i kardiologjisë ofron vlerësim të plotë kardiovaskular duke kombinuar teknologjinë diagnostike më të re me ekspertizën klinike të specialistëve tanë të certifikuar nga ESC (Shoqata Evropiane e Kardiologjisë).</p>
-      <div class="svc-features">
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Ekokardiografi 3D me teknologji GE Vivid</strong>Vizualizim tredimensional i zemrës për diagnozë të saktë të valvave, funksionit sistol/diastol dhe masës miokardiale.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Holter 24h / 48h dhe Holter presion</strong>Monitorim ambulaktor i ritmit kardiak dhe presionit arterial me analizë të automatizuar dhe raport të detajuar.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Test ergometrik (Test stresi)</strong>Vlerësim funksional i rezervës koronare gjatë sforcimit fizik të kontrolluar me EKG 12-derivacionale.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Angiografi coronare diagnostike</strong>Procedurë minimalisht invazive për vizualizim të drejtpërdrejtë të arterieve koronare.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Konsultë kardiologjike preventive</strong>Vlerësim i rrezikut kardiovaskular, plane personalizuar parandalimi dhe ndryshimi i stilit të jetesës.</div>
-        </div>
-      </div>
-      <a href="index.html#rezervo" class="btn-teal">Rezervo Konsultën →</a>
-    </div>
-    <div class="svc-right rw-d1">
-      <div class="svc-visual">
-        <div class="svc-visual-bg" style="background: linear-gradient(135deg, #1b3a6b 0%, #0797b0 100%);"></div>
-        <span class="svc-visual-icon">🫀</span>
-        <div class="svc-visual-label">Kardiologji — Dept. 1</div>
-      </div>
-      <div class="svc-stats">
-        <div class="svc-stat">
-          <div class="svc-stat-n">2.4<span>k</span></div>
-          <div class="svc-stat-l">Pacientë/vit</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">98<span>%</span></div>
-          <div class="svc-stat-l">Kënaqësi</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">3</div>
-          <div class="svc-stat-l">Kardiologë</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">15<span>+</span></div>
-          <div class="svc-stat-l">Vite Exp.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 02 NEUROLOGJI -->
-  <div class="svc-detail reverse rw" id="neurologji">
-    <div class="svc-left">
-      <div class="svc-tag">
-        <span class="svc-tag-num">— 02</span>
-      </div>
-      <span class="svc-icon-lg">🧠</span>
-      <h2>Neuro<em>logji</em></h2>
-      <p class="svc-lead">Njësia jonë neurologjike specializohet në diagnozën dhe trajtimin e sëmundjeve të sistemit nervor qendror dhe periferik, duke ofruar teknologji EEG dhe EMG dixhitale të gjeneratës së fundit.</p>
-      <div class="svc-features">
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>EEG Dixhital 256 kanale</strong>Regjistrimi i aktivitetit elektrik të trurit me rezolucion të lartë për diagnozë të epilepsisë, encefalopatisë dhe çrregullimeve të gjumit.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>EMG / Elektroneurografi</strong>Vlerësim i funksionit nervor dhe muskulor për diagnozë të neuropatisë, miopatisë dhe sindromave të shtypjes nervorë.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Potenciale të Evokuara (VEP, BAEP, SEP)</strong>Teste neurofizjologjike të specializuara për skleroza multiple dhe sëmundje demielinizuese.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Trajtimi i Migrenës Kronike</strong>Protokollet e reja me injeksione Botox neurologjike dhe terapi preventive të personalizuar.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Klinika e Çrregullimeve Neurodegenerative</strong>Monitorim dhe menaxhim i Parkinson, Alzheimer dhe demencave vaskulare me plan mjekësor gjithëpërfshirës.</div>
-        </div>
-      </div>
-      <a href="index.html#rezervo" class="btn-teal">Rezervo Konsultën →</a>
-    </div>
-    <div class="svc-right rw-d1">
-      <div class="svc-visual">
-        <div class="svc-visual-bg" style="background: linear-gradient(135deg, #2d3a4f 0%, #1b3a6b 100%);"></div>
-        <span class="svc-visual-icon">🧠</span>
-        <div class="svc-visual-label">Neurologji — Dept. 2</div>
-      </div>
-      <div class="svc-stats">
-        <div class="svc-stat">
-          <div class="svc-stat-n">1.8<span>k</span></div>
-          <div class="svc-stat-l">Pacientë/vit</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">97<span>%</span></div>
-          <div class="svc-stat-l">Kënaqësi</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">2</div>
-          <div class="svc-stat-l">Neurologë</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">12<span>+</span></div>
-          <div class="svc-stat-l">Vite Exp.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 03 ORTOPEDI -->
-  <div class="svc-detail rw" id="ortopedi">
-    <div class="svc-left">
-      <div class="svc-tag">
-        <span class="svc-tag-num">— 03</span>
-      </div>
-      <span class="svc-icon-lg">🦴</span>
-      <h2>Orto<em>pedi</em></h2>
-      <p class="svc-lead">Departamenti i ortopedisë ofron kirurgji artroskopike minimalisht invazive të të gjitha kyçeve kryesore, si dhe program të plotë rehabilitimi pas-operativ me fizioterapeutë të specializuar.</p>
-      <div class="svc-features">
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Kirurgji Artroskopike</strong>Artroskopi diagnostike dhe operative e gjurit, supit, kyçit të dorës dhe kofshës me pajisje 4K Ultra HD.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Artroplastika Totale dhe Parciale</strong>Zëvendësim i kyçit të gjurit dhe kofshës me implantet premium të certifikuara ISO, teknikë minimalisht invazive.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Kirurgji e Shtyllës Kurrizore</strong>Operacione diskale dhe stenozë spinale me teknikë endoskopike, kohë shërim e shkurtuar ndjeshëm.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>PRP dhe Terapi Bioplagëse</strong>Injeksione me plasma të pasur me tromboçite (PRP) dhe terapi me hialuronat për artrozë dhe dëmtime ligamentare.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Rehabilitim i Specializuar Post-Kirurgjik</strong>Program 8-12 javor me fizioterapeutë dhe kinesioterapeutë, ndjekje online dhe ushtrime të personalizuara.</div>
-        </div>
-      </div>
-      <a href="index.html#rezervo" class="btn-teal">Rezervo Konsultën →</a>
-    </div>
-    <div class="svc-right rw-d1">
-      <div class="svc-visual">
-        <div class="svc-visual-bg" style="background: linear-gradient(135deg, #b8965a 0%, #2d3a4f 100%);"></div>
-        <span class="svc-visual-icon">🦴</span>
-        <div class="svc-visual-label">Ortopedi — Dept. 3</div>
-      </div>
-      <div class="svc-stats">
-        <div class="svc-stat">
-          <div class="svc-stat-n">1.2<span>k</span></div>
-          <div class="svc-stat-l">Operacione/vit</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">99<span>%</span></div>
-          <div class="svc-stat-l">Sukses</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">3</div>
-          <div class="svc-stat-l">Ortopedë</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">10<span>+</span></div>
-          <div class="svc-stat-l">Vite Exp.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 04 OFTALMOLOGJI -->
-  <div class="svc-detail reverse rw" id="oftalmologji">
-    <div class="svc-left">
-      <div class="svc-tag">
-        <span class="svc-tag-num">— 04</span>
-      </div>
-      <span class="svc-icon-lg">👁️</span>
-      <h2>Oftalmol<em>ogji</em></h2>
-      <p class="svc-lead">Qendra jonë oftalmologjike kombinon kirurgji lazer të precizionit të lartë me diagnozën e sëmundjeve komplekse okulare, duke ofruar shikimin e qartë si prioritet absolut të pacientit.</p>
-      <div class="svc-features">
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Kirurgji Lazer LASIK dhe LASEK</strong>Korrigjim i miopias, hiperopias dhe astigmatizmit me laser Excimer WaveLight, rezultat i parashikueshëm dhe i qëndrueshëm.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Kirurgji e Kataraktës me Lente Premium</strong>Fakoëmulsifikim ultrazor me implant IOL premium multifokal ose toric, rikuperim mbrenda 24 orësh.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>OCT Retinale (Tomografi Koherente Optike)</strong>Imazherim i shtresave retinale në rezolucion mikron për degenerim makular, retinopati diabetike dhe gliomë.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Glaukoma — Diagnozë dhe Trajtim</strong>Tonometri, gonioskopi, perimetri automatike dhe trajtim me lazer SLT dhe ALT minimalisht invaziv.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Vizion Pediatrik dhe Strabizëm</strong>Diagnozë dhe trajtim i ambliopisë (syri i dembelizuar), strabizmit dhe çrregullimeve refraktive tek fëmijët.</div>
-        </div>
-      </div>
-      <a href="index.html#rezervo" class="btn-teal">Rezervo Konsultën →</a>
-    </div>
-    <div class="svc-right rw-d1">
-      <div class="svc-visual">
-        <div class="svc-visual-bg" style="background: linear-gradient(135deg, #0e6070 0%, #4c82c4 100%);"></div>
-        <span class="svc-visual-icon">👁️</span>
-        <div class="svc-visual-label">Oftalmologji — Dept. 4</div>
-      </div>
-      <div class="svc-stats">
-        <div class="svc-stat">
-          <div class="svc-stat-n">800<span>+</span></div>
-          <div class="svc-stat-l">Operacione/vit</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">99<span>%</span></div>
-          <div class="svc-stat-l">Kënaqësi</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">2</div>
-          <div class="svc-stat-l">Oftalmologë</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">18<span>+</span></div>
-          <div class="svc-stat-l">Vite Exp.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 05 DENTISTRI -->
-  <div class="svc-detail rw" id="dentistri">
-    <div class="svc-left">
-      <div class="svc-tag">
-        <span class="svc-tag-num">— 05</span>
-      </div>
-      <span class="svc-icon-lg">🦷</span>
-      <h2>Dentistri <em>Estetike</em></h2>
-      <p class="svc-lead">Studio jonë dentare kombinon estetikën me shëndetin oral, duke ofruar solucione gjithëpërfshirëse nga implantologjia deri tek ortodontia invisible dhe kirurgjia periodontale.</p>
-      <div class="svc-features">
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Implantime Titanike me Teknikë Dixhitale</strong>Planifikim 3D me CBCT, implante premium Straumann dhe Nobel Biocare, ngarkesë imediate kur është e mundur.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Veneer Porcelani dhe Composite</strong>Faseta të holla porcelani ose composite dixhital (CAD/CAM) për transformim estetik minimal invasiv.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Ortodonti Invisalign dhe Aparate Dixhitale</strong>Drejtim i dhëmbëve me aparat transparent, plan i personalizuar dixhital dhe kontroll çdo 6 javë.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Kirurgji Periodontale dhe Gjengivale</strong>Trajtim i sëmundjeve të mishit të dhëmbëve, greffe gingivale dhe zgjatim kuronar estetik.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Zbardhim Profesional Zoom!</strong>Sistemi Philips Zoom! in-office, 6-8 tone ndriçim mbrenda 45 minutave, i sigurtë për smaltin.</div>
-        </div>
-      </div>
-      <a href="index.html#rezervo" class="btn-teal">Rezervo Konsultën →</a>
-    </div>
-    <div class="svc-right rw-d1">
-      <div class="svc-visual">
-        <div class="svc-visual-bg" style="background: linear-gradient(135deg, #d4b07a 0%, #1b3a6b 100%);"></div>
-        <span class="svc-visual-icon">🦷</span>
-        <div class="svc-visual-label">Dentistri — Dept. 5</div>
-      </div>
-      <div class="svc-stats">
-        <div class="svc-stat">
-          <div class="svc-stat-n">500<span>+</span></div>
-          <div class="svc-stat-l">Implante/vit</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">99<span>%</span></div>
-          <div class="svc-stat-l">Sukses</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">4</div>
-          <div class="svc-stat-l">Dentistë</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">10<span>+</span></div>
-          <div class="svc-stat-l">Vite Exp.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 06 CHECK-UP -->
-  <div class="svc-detail reverse rw" id="checkup">
-    <div class="svc-left">
-      <div class="svc-tag">
-        <span class="svc-tag-num">— 06</span>
-      </div>
-      <span class="svc-icon-lg">🩺</span>
-      <h2>Kontroll  <em>Ekzekutiv</em></h2>
-      <p class="svc-lead">Programi ynë gjysmëditor i kontrollit ekzekutiv ofron një vlerësim gjithëpërfshirës të shëndetit tuaj me mbi 40 tregues laboratorikë, imagjistikë dhe konsultë me internist të specializuar, gjithçka brenda 4 orësh.</p>
-      <div class="svc-features">
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Analiza Gjaku Gjithëpërfshirëse (40+ tregues)</strong>Hemogram i plotë, biokimi, lipidogram, tiroide, markera tumoralë selektiv, vitamina dhe hormonë.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Imagjistikë — Ekografi dhe Radiografi</strong>Ekografi abdominale dhe pelvike, radiografi torakale, dhe skanime të tjera sipas indikacionit klinik.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Kardiologji Preventive</strong>EKG 12-derivacionale, presion arterial, ekokardiografi bazë dhe vlerësim i rrezikut kardiovaskular 10-vjeçar.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Konsultë e Internistit të Specializuar</strong>Diskutim i rezultateve, interpretim, rekomandimet e mëtejshme dhe hartimi i planit personal preventiv.</div>
-        </div>
-        <div class="svc-feat">
-          <div class="svc-feat-check">✓</div>
-          <div class="svc-feat-text"><strong>Raport i Detajuar Dixhital</strong>Të gjitha rezultatet të dërguara brenda 24 orësh në portal personal të sigurtë, me shpjegime të thjeshta.</div>
-        </div>
-      </div>
-      <a href="index.html#rezervo" class="btn-teal">Rezervo Kontrollin →</a>
-    </div>
-    <div class="svc-right rw-d1">
-      <div class="svc-visual">
-        <div class="svc-visual-bg" style="background: linear-gradient(135deg, #0797b0 0%, #0e1117 100%);"></div>
-        <span class="svc-visual-icon">🩺</span>
-        <div class="svc-visual-label">Kontroll — Dept. 6</div>
-      </div>
-      <div class="svc-stats">
-        <div class="svc-stat">
-          <div class="svc-stat-n">600<span>+</span></div>
-          <div class="svc-stat-l">Kontrolle/vit</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">4<span>h</span></div>
-          <div class="svc-stat-l">Kohëzgjatja</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">40<span>+</span></div>
-          <div class="svc-stat-l">Tregues</div>
-        </div>
-        <div class="svc-stat">
-          <div class="svc-stat-n">24<span>h</span></div>
-          <div class="svc-stat-l">Raporti</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /services-wrap -->
-
-<!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
-    <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">Hapi i Radhës</span></div>
-    <h2 class="cta-h">Gati të kujdeseni<br>për <em>shëndetin tuaj?</em></h2>
-    <p class="cta-p">Ekipi ynë është gati t'ju ndihmojë të zgjidhni shërbimin e duhur dhe të rezervoni vizitën tuaj sa më shpejt.</p>
-    <a href="index.html#rezervo" class="btn-gold">Rezervo Vizitën →</a>
+    <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">Hapi i Radh&#235;s</span></div>
+    <h2 class="cta-h">Gati te kujdeseni<br>per <em>shendetin tuaj?</em></h2>
+    <p class="cta-p">Ekipi yne eshte gati t'ju ndihmoje te zgjidhni sherbimin e duhur dhe te rezervoni viziten tuaj sa me shpejt.</p>
+    <a href="index.html#rezervo" class="btn-gold">Rezervo Viziten &#8594;</a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  
-  <div class="foot-brand">Klinika <em>Vera - Virhov</em></div>
-  <!-- LOREI Web Studio Credit -->
-<div style="width: 100%; text-align: center; padding: 14px 20px; font-family: sans-serif; font-size: 13px; color: #ffffff; background: transparent; border-top: 1px solid rgba(255,255,255,0.2); margin-top: 40px;">
-  Powered by <strong style="color: #ffffff;">LOREI Web Studio Albania</strong> · Email: <a href="mailto:lrwebstudio1@gmail.com" style="color: #ffffff; text-decoration: none;">lrwebstudio1@gmail.com</a>
-</div>
-  <div class="foot-copy">© 2025 Klinika Vera Virhov. Të gjitha të drejtat e rezervuara.</div>
-
-  
+  <div class="footer-top">
+    <div>
+      <img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:48px;width:auto;display:block;">
+      <p class="footer-desc">Klinike private me standarde nderkombet&#228;re, e dedikuar shendetit dhe mirqenies tuaj nga viti 2009.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.facebook.com/Virhov/" aria-label="Facebook">f</a>
+        <a class="soc" href="https://www.instagram.com/klinika_veravirhov?igsh=YXkxMTQzMG5ncXUy" aria-label="Instagram">ig</a>
+        <a class="soc" href="https://al.linkedin.com/in/klinika-vera-virhov-582290247" aria-label="LinkedIn">in</a>
+        <a class="soc" href="https://www.youtube.com/@klinikaveravirhov9021" aria-label="YouTube">&#9654;</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Sherbimet</h5>
+      <ul>
+        <li><a href="sherbimi.html">Analiza Laboratorike</a></li>
+        <li><a href="sherbimi.html">Ekografi</a></li>
+        <li><a href="sherbimi.html">EEG</a></li>
+        <li><a href="sherbimi.html">Fizioterapi</a></li>
+        <li><a href="sherbimi.html">Haloterapi</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Klinika</h5>
+      <ul>
+        <li><a href="index.html#rreth">Filozofia Jone</a></li>
+        <li><a href="stafi.html">Stafi Mjekesor</a></li>
+        <li><a href="blog.html">Blog dhe Edukim</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Informacion</h5>
+      <ul>
+        <li><a href="index.html#rezervo">Rezervo Vizite</a></li>
+        <li><a href="politika-e-privatesise.html">Politika e Privatesise</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">GDPR</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&#169; 2025 Klinika Vera Virhov. Te gjitha te drejtat e rezervuara.</span>
+    <div class="footer-legal">
+      <a href="politika-e-privatesise.html">Privacy Policy</a>
+    </div>
+  </div>
+  <div style="width:100%;text-align:center;padding:14px 20px;font-family:sans-serif;font-size:13px;color:#ffffff;background:transparent;border-top:1px solid rgba(255,255,255,0.2);margin-top:40px;">
+    Powered by <strong style="color:#ffffff;">LOREI Web Studio Albania</strong> &#183; Email: <a href="mailto:lrwebstudio1@gmail.com" style="color:#ffffff;text-decoration:none;">lrwebstudio1@gmail.com</a>
+  </div>
 </footer>
 
-
 <script>
-// CURSOR
-const cur = document.getElementById('cur');
-const curRing = document.getElementById('curRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-function animCursor() {
-  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
-  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-  curRing.style.left = rx + 'px'; curRing.style.top = ry + 'px';
-  requestAnimationFrame(animCursor);
-}
+const cur=document.getElementById('cur');
+const curRing=document.getElementById('curRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+function animCursor(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curRing.style.left=rx+'px';curRing.style.top=ry+'px';requestAnimationFrame(animCursor);}
 animCursor();
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cur.style.width = '16px'; cur.style.height = '16px';
-    cur.style.background = '#b8965a';
-    curRing.style.width = '52px'; curRing.style.height = '52px';
-  });
-  el.addEventListener('mouseleave', () => {
-    cur.style.width = '8px'; cur.style.height = '8px';
-    cur.style.background = '#1b3a6b';
-    curRing.style.width = '36px'; curRing.style.height = '36px';
-  });
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';cur.style.background='#b8965a';curRing.style.width='52px';curRing.style.height='52px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';cur.style.background='#1b3a6b';curRing.style.width='36px';curRing.style.height='36px';});
 });
+const ham=document.getElementById('ham');
+const drawer=document.getElementById('drawer');
+let drawerOpen=false;
+ham.addEventListener('click',()=>{drawerOpen=!drawerOpen;drawer.classList.toggle('open',drawerOpen);const spans=ham.querySelectorAll('span');if(drawerOpen){spans[0].style.transform='rotate(45deg) translate(5px,5px)';spans[1].style.opacity='0';spans[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{spans.forEach(s=>{s.style.transform='';s.style.opacity='';}); }});
+function closeDrawer(){drawerOpen=false;drawer.classList.remove('open');ham.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity='';}); }
+// TABS
+function switchTab(i){
+  document.querySelectorAll('.tab-btn').forEach((b,j)=>b.classList.toggle('active',i===j));
+  document.querySelectorAll('.tab-panel').forEach((p,j)=>p.classList.toggle('active',i===j));
+  // scroll tab btn into view
+  document.querySelectorAll('.tab-btn')[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
 
-// SCROLL REVEAL
-const rws = document.querySelectorAll('.rw');
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
-}, { threshold: 0.08 });
-rws.forEach(r => obs.observe(r));
-
-// ACTIVE FILTER TAB on scroll
-const sections = ['kardiologji','neurologji','ortopedi','oftalmologji','dentistri','checkup'];
-const tabs = document.querySelectorAll('.ftab');
-window.addEventListener('scroll', () => {
-  let current = sections[0];
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if (el && window.scrollY >= el.offsetTop - 160) current = id;
-  });
-  tabs.forEach(t => {
-    t.classList.toggle('active', t.getAttribute('href') === '#' + current);
-  });
-});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:0.08});
+document.querySelectorAll('.rw').forEach(r=>obs.observe(r));
 </script>
-
-<script>
-// Cross-page navigation: when going to index.html#rezervo, store intent
-document.querySelectorAll('a[href="index.html#rezervo"]').forEach(function(el) {
-  el.addEventListener('click', function(e) {
-    sessionStorage.setItem('scrollTo', 'rezervo');
-  });
-});
-</script>
-
 </body>
 </html>
