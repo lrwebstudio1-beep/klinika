@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kujdesi për shëndetin është një e drejtë dhe jo privilegj! — Klinika Vera Virhov</title>
+<meta name="description" content="[PERSHKRIMI I SHKURTER I ARTIKULLIT]">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:      #0e1117;
+  --cobalt:   #1b3a6b;
+  --cobalt-l: #245492;
+  --cream:    #f7f4ef;
+  --warm:     #ede9e1;
+  --gold:     #b8965a;
+  --gold-l:   #d4b07a;
+  --white:    #ffffff;
+  --muted:    #8a8f9a;
+  --border:   rgba(14,17,23,0.08);
+  --ease:     cubic-bezier(0.4,0,0.2,1);
+  --ease-out: cubic-bezier(0,0,0.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CURSOR */
+.cursor { width:8px; height:8px; background:var(--cobalt); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width 0.3s var(--ease),height 0.3s var(--ease),background 0.3s; }
+.cursor-ring { width:36px; height:36px; border:1px solid rgba(27,58,107,0.35); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:transform 0.18s var(--ease-out),width 0.4s var(--ease),height 0.4s var(--ease),opacity 0.3s; }
+
+/* NAV */
+nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 500;
+  height: 76px; display: flex; align-items: center; padding: 0 5%;
+  background: rgba(247,244,239,0.96);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--border);
+}
+.nav-inner { width:100%; display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:3px; text-decoration:none; line-height:1; }
+.logo-sep { width:1px; height:22px; background:#d4b07a; margin:0 10px; opacity:0.6; }
+.logo-sub { font-size:0.68rem; font-weight:400; letter-spacing:2.5px; text-transform:uppercase; color:#d4b07a; }
+.nav-menu { display:flex; align-items:center; gap:36px; list-style:none; }
+.nav-menu a { font-size:0.82rem; font-weight:400; letter-spacing:0.8px; text-transform:uppercase; color:#0797b0; text-decoration:none; position:relative; transition:color 0.2s; }
+.nav-menu a::after { content:''; position:absolute; bottom:-3px; left:0; right:100%; height:1px; background:#0797b0; transition:right 0.3s var(--ease); }
+.nav-menu a:hover::after { right:0; }
+.nav-menu a.active { color:var(--gold); }
+.nav-menu a.active::after { background:var(--gold); right:0; }
+.nav-book { display:flex; align-items:center; gap:8px; font-size:0.8rem; font-weight:500; letter-spacing:1.2px; text-transform:uppercase; color:var(--white); text-decoration:none; background:#0797b0; padding:11px 24px; border-radius:2px; transition:background 0.25s,transform 0.2s; }
+.nav-book:hover { background:var(--cobalt-l); transform:translateY(-1px); }
+.hamburger { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:6px; padding:4px; }
+.hamburger span { display:block; width:26px; height:1.5px; background:var(--ink); transition:0.35s var(--ease); }
+
+/* DRAWER */
+.drawer { position:fixed; inset:0; z-index:490; background:#0797b0; display:flex; flex-direction:column; padding:100px 8% 60px; transform:translateX(100%); transition:transform 0.5s var(--ease); }
+.drawer.open { transform:none; }
+.drawer-link { font-family:'Playfair Display',serif; font-size:clamp(2rem,6vw,3rem); font-weight:400; font-style:italic; color:rgba(255,255,255,0.15); text-decoration:none; padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.04); transition:color 0.2s; }
+.drawer-link:hover { color:rgba(255,255,255,0.8); }
+.drawer-link:last-of-type { border:none; }
+.drawer-cta { margin-top:40px; display:inline-flex; align-items:center; gap:10px; background:var(--gold); color:#fff; font-size:0.8rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; text-decoration:none; padding:16px 32px; width:fit-content; }
+
+/* ARTICLE HERO */
+.art-hero {
+  background: linear-gradient(150deg, #1fa1b7 0%, #0e6070 50%, #0a4a58 100%);
+  padding: 140px 5% 80px;
+  position: relative; overflow: hidden;
+}
+.art-hero-bg-num {
+  position: absolute; right: 3%; bottom: -40px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(100px, 18vw, 220px);
+  font-weight: 700; font-style: italic;
+  color: rgba(255,255,255,0.04);
+  pointer-events: none; letter-spacing: -0.04em;
+  line-height: 1;
+}
+.art-hero-inner { max-width: 860px; margin: 0 auto; }
+.breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:28px; font-size:0.72rem; letter-spacing:1px; }
+.breadcrumb a { color:rgba(255,255,255,0.45); text-decoration:none; transition:color 0.2s; }
+.breadcrumb a:hover { color:rgba(255,255,255,0.8); }
+.breadcrumb-sep { color:rgba(255,255,255,0.2); }
+.breadcrumb-cur { color:var(--gold-l); }
+.art-cat {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:0.65rem; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--gold-l); font-weight:500; margin-bottom:20px;
+}
+.art-cat::before { content:''; width:16px; height:1px; background:var(--gold-l); }
+.art-hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 400; line-height: 1.12;
+  color: var(--white); letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+.art-hero-h1 em { font-style:italic; color:var(--gold-l); }
+.art-meta-row {
+  display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+  padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1);
+}
+.art-author { display:flex; align-items:center; gap:12px; }
+.art-author-av {
+  width:42px; height:42px; border-radius:50%;
+  background: rgba(255,255,255,0.15);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Playfair Display',serif; font-style:italic;
+  color:rgba(255,255,255,0.6); font-size:1.1rem; flex-shrink:0;
+}
+.art-author-name { font-size:0.88rem; color:var(--white); font-weight:500; }
+.art-author-title { font-size:0.72rem; color:rgba(255,255,255,0.4); margin-top:2px; }
+.art-meta-sep { width:1px; height:32px; background:rgba(255,255,255,0.1); }
+.art-meta-item { font-size:0.72rem; color:rgba(255,255,255,0.4); }
+.art-meta-item strong { color:rgba(255,255,255,0.7); display:block; font-weight:400; font-size:0.82rem; }
+
+/* ARTICLE BODY LAYOUT */
+.art-layout {
+  max-width: 1260px; margin: 0 auto;
+  padding: 80px 5%;
+  display: grid; grid-template-columns: 1fr 320px;
+  gap: 64px; align-items: start;
+}
+
+/* ARTICLE CONTENT */
+.art-content { }
+.art-lead {
+  font-size: 1.15rem; line-height: 1.85;
+  color: var(--ink); font-weight: 300;
+  border-left: 3px solid #0797b0;
+  padding-left: 24px; margin-bottom: 16px;
+  font-style: italic;
+}
+.art-note {
+  font-size: 0.72rem; color: var(--muted); font-weight: 300;
+  letter-spacing: 0.3px; line-height: 1.7;
+  border-top: 1px solid var(--border); padding-top: 14px;
+  margin-bottom: 48px;
+}
+.art-body h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem; font-weight: 500; color: var(--ink);
+  letter-spacing: -0.02em; margin: 52px 0 20px;
+  line-height: 1.2;
+}
+.art-body h2 em { font-style:italic; color:#0797b0; }
+.art-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 500; color: var(--ink);
+  margin: 36px 0 14px;
+}
+.art-body p {
+  font-size: 0.97rem; line-height: 1.9; color: #444;
+  font-weight: 300; margin-bottom: 24px;
+}
+.art-body ul, .art-body ol {
+  padding-left: 0; margin-bottom: 28px;
+  display: flex; flex-direction: column; gap: 10px;
+  list-style: none;
+}
+.art-body ul li::before { content:'—'; color:#0797b0; margin-right:10px; font-weight:500; }
+.art-body ol { counter-reset: art-counter; }
+.art-body ol li { counter-increment: art-counter; display:flex; gap:14px; }
+.art-body ol li::before {
+  content: counter(art-counter);
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:1.2rem; color:var(--gold); flex-shrink:0;
+  width:24px; line-height:1.6;
+}
+.art-body li { font-size:0.95rem; line-height:1.75; color:#444; font-weight:300; }
+
+/* CALLOUT / HIGHLIGHT BOX */
+.art-callout {
+  background: #0797b0;
+  padding: 32px 36px; margin: 40px 0;
+  position: relative;
+}
+.art-callout::before {
+  content:''; position:absolute; top:0; left:0;
+  width:4px; height:100%; background:var(--gold);
+}
+.art-callout p {
+  color: rgba(255,255,255,0.85) !important;
+  font-size: 1rem !important; margin:0 !important;
+  font-style: italic;
+}
+.art-callout strong { color:white; font-weight:500; }
+
+/* WARNING BOX */
+.art-warning {
+  background: var(--warm);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  padding: 24px 28px; margin: 36px 0;
+}
+.art-warning-label {
+  font-size: 0.65rem; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--gold); font-weight:500; margin-bottom:8px;
+}
+.art-warning p { margin:0 !important; font-size:0.88rem !important; }
+
+/* IMAGE PLACEHOLDER */
+.art-img {
+  width:100%; aspect-ratio:16/7;
+  margin: 40px 0; position:relative; overflow:hidden;
+}
+.art-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.art-img-placeholder {
+  width:100%; height:100%; min-height:260px;
+  position:relative; overflow:hidden;
+  background: linear-gradient(90deg, var(--warm) 25%, #e0dbd2 50%, var(--warm) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.art-img-placeholder .ph-icon {
+  width:64px; height:64px; border-radius:50%;
+  background: rgba(14,17,23,0.07);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.8rem;
+}
+.art-img-placeholder .ph-lines {
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+}
+.art-img-placeholder .ph-line {
+  height:10px; border-radius:4px;
+  background: rgba(14,17,23,0.07);
+}
+.art-img-placeholder .ph-line-l { width:160px; }
+.art-img-placeholder .ph-line-s { width:100px; }
+.art-img-caption {
+  font-size:0.75rem; color:var(--muted); margin-top:-28px;
+  margin-bottom:40px; font-style:italic; padding:0 4px;
+}
+
+/* DIVIDER */
+.art-divider {
+  width:48px; height:2px; background:var(--gold);
+  margin: 48px 0;
+}
+
+/* TAGS */
+.art-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:48px; padding-top:32px; border-top:1px solid var(--border); }
+.art-tag {
+  font-size:0.68rem; letter-spacing:1px; text-transform:uppercase;
+  padding:5px 12px; border:1px solid var(--border); color:#0797b0;
+  background:var(--white); transition:background 0.2s,color 0.2s;
+  cursor:pointer; font-family:'Jost',sans-serif;
+}
+.art-tag:hover { background:#0797b0; color:white; border-color:#0797b0; }
+
+/* AUTHOR CARD */
+.author-card {
+  display:grid; grid-template-columns:80px 1fr; gap:24px;
+  background:var(--white); border:1px solid var(--border);
+  padding:32px; margin-top:48px; align-items:start;
+}
+.author-av {
+  width:80px; height:80px; border-radius:50%;
+  background: linear-gradient(135deg,#0797b0,#045a69);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Playfair Display',serif; font-style:italic;
+  color:rgba(255,255,255,0.5); font-size:2rem;
+}
+.author-label { font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.author-name { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--ink); margin-bottom:4px; }
+.author-spec { font-size:0.78rem; color:#0797b0; margin-bottom:12px; }
+.author-bio { font-size:0.85rem; line-height:1.75; color:var(--muted); font-weight:300; }
+
+/* RELATED ARTICLES */
+.related { margin-top:64px; padding-top:48px; border-top:1px solid var(--border); }
+.related-label { font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
+.related-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.related-card {
+  background:var(--white); border:1px solid var(--border);
+  text-decoration:none; color:inherit;
+  display:flex; gap:0; transition:box-shadow 0.25s;
+}
+.related-card:hover { box-shadow:0 8px 32px rgba(14,17,23,0.1); }
+.related-card-visual {
+  width:90px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem;
+}
+.related-card-body { padding:16px 16px 18px; }
+.related-cat { font-size:0.62rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+.related-title { font-family:'Playfair Display',serif; font-size:0.92rem; font-weight:500; color:var(--ink); line-height:1.3; }
+.related-card:hover .related-title { color:#0797b0; }
+
+/* SIDEBAR */
+.art-sidebar { position:sticky; top:100px; }
+.sidebar-block { background:var(--white); border:1px solid var(--border); padding:28px; margin-bottom:16px; }
+.sidebar-block h4 { font-size:0.65rem; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); margin-bottom:20px; font-weight:500; }
+
+/* TABLE OF CONTENTS */
+.toc-list { display:flex; flex-direction:column; gap:0; list-style:none; }
+.toc-item a {
+  display:block; padding:10px 0;
+  border-bottom:1px solid var(--border);
+  font-size:0.83rem; color:var(--ink); text-decoration:none;
+  transition:color 0.2s, padding-left 0.2s;
+}
+.toc-item:last-child a { border-bottom:none; }
+.toc-item a:hover { color:#0797b0; padding-left:6px; }
+.toc-item a.toc-active { color:#0797b0; font-weight:500; }
+
+/* PROGRESS BAR */
+.read-progress {
+  position:fixed; top:76px; left:0; right:0; z-index:499;
+  height:2px; background:var(--border);
+}
+.read-progress-bar {
+  height:100%; background:var(--gold);
+  width:0%; transition:width 0.1s linear;
+}
+
+/* SHARE */
+.share-btns { display:flex; flex-direction:column; gap:8px; }
+.share-btn {
+  display:flex; align-items:center; gap:10px;
+  padding:10px 14px; border:1px solid var(--border);
+  font-size:0.75rem; letter-spacing:0.5px; color:var(--ink);
+  text-decoration:none; transition:background 0.2s,color 0.2s,border-color 0.2s;
+  cursor:pointer; background:none; font-family:'Jost',sans-serif; width:100%;
+}
+.share-btn:hover { background:#0797b0; color:white; border-color:#0797b0; }
+.share-icon { font-size:1rem; }
+
+/* GDPR */
+.gdpr { position:fixed; bottom:0; left:0; right:0; z-index:900; background:#0797b0; border-top:1px solid rgba(255,255,255,0.06); padding:20px 5%; display:flex; align-items:center; justify-content:space-between; gap:24px; font-size:0.8rem; color:rgba(255,255,255,0.45); backdrop-filter:blur(20px); transform:translateY(0); transition:transform 0.4s var(--ease); }
+.gdpr.hidden { transform:translateY(100%); }
+.gdpr a { color:var(--gold); text-decoration:none; }
+.gdpr-btns { display:flex; gap:10px; flex-shrink:0; }
+.gdpr-acc { background:var(--gold); color:#fff; border:none; padding:9px 22px; font-size:0.75rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; cursor:pointer; font-family:'Jost',sans-serif; }
+.gdpr-dec { background:none; color:rgba(255,255,255,0.3); border:1px solid rgba(255,255,255,0.1); padding:9px 18px; font-size:0.75rem; cursor:pointer; font-family:'Jost',sans-serif; }
+
+/* WA BTN */
+.wa-btn { position:fixed; bottom:32px; right:32px; z-index:400; display:flex; align-items:center; gap:10px; background:#128c7e; color:white; text-decoration:none; padding:12px 20px 12px 16px; border-radius:2px; font-size:0.78rem; font-weight:500; box-shadow:0 8px 32px rgba(0,0,0,0.25); transition:transform 0.2s,background 0.2s; }
+.wa-btn:hover { background:#075e54; transform:translateY(-2px); }
+.wa-icon { font-size:1.2rem; }
+
+/* FOOTER */
+footer { background:#0797b0; padding:80px 5% 40px; }
+.footer-top { display:grid; grid-template-columns:3fr 1.5fr 1.5fr 1.5fr; gap:60px; margin-bottom:60px; padding-bottom:60px; border-bottom:1px solid rgba(255,255,255,0.05); }
+.footer-brand-word { margin-bottom:16px; }
+.footer-desc { font-size:0.83rem; line-height:1.8; color:rgba(255,255,255,0.3); font-weight:300; max-width:300px; margin-bottom:32px; }
+.socials { display:flex; gap:10px; }
+.soc { width:38px; height:38px; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:rgba(255,255,255,0.4); text-decoration:none; transition:border-color 0.2s,color 0.2s; }
+.soc:hover { border-color:var(--gold); color:var(--gold); }
+.footer-col h5 { font-size:0.65rem; letter-spacing:2.5px; text-transform:uppercase; color:rgba(255,255,255,0.25); margin-bottom:20px; font-weight:400; }
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.footer-col ul li a { font-size:0.84rem; color:rgba(255,255,255,0.38); text-decoration:none; font-weight:300; transition:color 0.2s; }
+.footer-col ul li a:hover { color:rgba(255,255,255,0.75); }
+.footer-bottom { display:flex; align-items:center; justify-content:space-between; font-size:0.73rem; color:rgba(255,255,255,0.2); }
+.footer-legal { display:flex; gap:24px; }
+.footer-legal a { color:rgba(255,255,255,0.2); text-decoration:none; transition:color 0.2s; }
+.footer-legal a:hover { color:rgba(255,255,255,0.5); }
+
+/* RESPONSIVE */
+@media (max-width:1000px) {
+  .art-layout { grid-template-columns:1fr; }
+  .art-sidebar { position:static; }
+  .footer-top { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:900px) {
+  .nav-menu,.nav-book { display:none; }
+  .hamburger { display:flex; }
+  .footer-top { grid-template-columns:1fr; gap:40px; }
+  .footer-bottom { flex-direction:column; gap:12px; }
+  .wa-btn .wa-text { display:none; }
+  .wa-btn { padding:14px; border-radius:50%; }
+  .related-grid { grid-template-columns:1fr; }
+}
+@media (max-width:600px) {
+  .art-hero { padding:120px 5% 60px; }
+  .art-layout { padding:48px 5%; }
+  .author-card { grid-template-columns:1fr; }
+  .gdpr { flex-direction:column; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- READ PROGRESS -->
+<div class="read-progress"><div class="read-progress-bar" id="progressBar"></div></div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:44px;width:auto;display:block;">
+      <span class="logo-sep"></span>
+      <span class="logo-sub">Tiranë</span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="sherbimi.html">Shërbimet</a></li>
+      <li><a href="stafi.html">Stafi</a></li>
+      <li><a href="index.html#testimoniale">Testimoniale</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="index.html#rezervo" class="nav-book">Rezervo Vizitë</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- DRAWER -->
+<div class="drawer" id="drawer">
+  <a class="drawer-link" href="index.html#sherbimet" onclick="closeDrawer()">Shërbimet</a>
+  <a class="drawer-link" href="stafi.html" onclick="closeDrawer()">Stafi Mjekësor</a>
+  <a class="drawer-link" href="index.html#testimoniale" onclick="closeDrawer()">Testimoniale</a>
+  <a class="drawer-link" href="blog.html" onclick="closeDrawer()">Blog</a>
+  <a class="drawer-link" href="index.html#kontakt" onclick="closeDrawer()">Kontakt</a>
+  <a class="drawer-cta" href="index.html#rezervo" onclick="closeDrawer()">Rezervo Vizitën →</a>
+</div>
+
+<!-- ARTICLE HERO -->
+<div class="art-hero">
+  <div class="art-hero-bg-num">01</div><!-- NDRYSHO NUMRIN -->
+  <div class="art-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Kreu</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="blog.html">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-cur">Klinika mjekësore Vera & Virhov</span><!-- NDRYSHO KATEGORINE -->
+    </div>
+    <div class="art-cat">Klinika mjekësore Vera & Virhov</div><!-- NDRYSHO KATEGORINE -->
+    <h1 class="art-hero-h1">
+      Klinika mjekësore Vera & Virhov: Kujdesi për shëndetin është një e drejtë dhe <em>jo privilegj!</em>
+    </h1><!-- NDRYSHO TITULLIN -->
+    <div class="art-meta-row">
+      <div class="art-author">
+       
+        <div>
+          
+        </div>
+      </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="art-layout">
+
+  <!-- MAIN CONTENT -->
+  <article>
+
+    <!-- COVER IMAGE (opsionale) -->
+    <div class="art-img">
+      <!-- <img src="foto-artikull.jpg" alt="Pershkrimi i fotos"> -->
+      <img src="http://revistapsikologji.com/wp-content/uploads/2018/12/vera-virhov.jpg" alt="Pershkrimi i fotos">
+            <div class="art-img-placeholder">
+        <div class="ph-icon">&#128444;</div>
+        <div class="ph-lines">
+          <div class="ph-line ph-line-l"></div>
+          <div class="ph-line ph-line-s"></div>
+        </div>
+      </div>
+    </div>
+    <p class="art-img-caption"></p>
+
+    <!-- HYRJA / LEAD -->
+    <p class="art-lead">
+      Klinika Mjekësore Vera-Virhov: Laborator, klinikë pediatrie dhe një sërë shërbimesh të tjera me në fokus vëmendjen ndaj pacientit. Drejtuar nga mjekët Genta Dedej, Edi Tushe dhe Genti Caco, klinika Vera-Virhov operon sipas protokolleve bashkëkohore të diagnozës mjekësore.
+    </p><!-- NDRYSHO TEKSTIN E HYRJES -->
+    <p class="art-note">Klinika jonë është themeluar në vitin 2006-2007, në fillim si Laboratori Mjekësor Virhov dhe në vitin 2015, ajo u bashkua me Klinikën Pediatrike “Vera” me dr.Edi Tushe, duke i dhënë një standard të ri diagnozës mjekësore në klinikën tonë. Moto e klinikës ka qenë dhe mbetet një thënie që ne e kemi shumë për zemër: Pacienti në qendër të vëmendjes dhe zbatimi i protokolleve bashkëkohore të diagnozës mjekësore.</p>
+
+    <!-- TRUPI I ARTIKULLIT -->
+    <div class="art-body" id="artBody">
+
+      <!-- NDRYSHO TITUJT -->
+      <p>
+        Në vitin 2007 falë hulumtimeve shkencore dhe përpjekjes për të pasur një standard të lartë në diagnozën laboratorike, mundësuam kontaktet me një nga prodhuesit më seriozë dhe të akredituar në Evropë me vendndodhje në Gjermani, Duseldorf, në lidhje me diagnozën e alergjisë përmes gjakut. Nga praktikat klinike gjatë viteve të specializimeve post-universitare, vija re një humbje të diagnozës së alergjisë tek pacientët, por sidomos pacientët e moshave të vogla. Diagnoza e alergjisë vihej re nga mjeku kryesisht nga të dhënat klinike të pacientit dhe Prick test, i cili ka kufizimet e veta. Shumë foshnja dhe fëmijë të vegjël diagnostikoheshin kryesisht me vëzhgim klinik dhe historia familjare. Bashkëpunimi me distributorin përkatës në Gjermani, bëri të mundur aplikimin e kësaj metodologjie laboratorike, e cila përmirësoi shumë diagnozën e alergjisë tek pacientët në Shqipëri dhe vetëm kaq. Falë kësaj teknike, pacientët mund të monitorohen më mirë në drejtim të terapisë për alergjinë dhe vaksinimin për alergjinë. Kjo është një nga çështjet që personalisht më bën të ndjehem krenare dhe e kënaqur për këmbënguljen që kam treguar në atë kohë, duke qenë laboratori i parë në Shqipëri për diagnozën e alergjisë përmes gjakut. Përvoja e krijuar në vite, na ndihmon të jemi të qartë në përcaktimin e saktë të paneleve të alergjisë që i nevojiten pacientit, sipas moshës dhe shqetësimeve të tij. Gjithashtu, në klinikën tonë realizohet fotografimi i gjakut në mikroskop, sa herë që unë shoh problematika që lidhen me morfologjinë e gjakut. Ky është një nga standardet më të fundit të vlerësimit të analizës së gjakut komplet me formulë, që nuk e bën asnjë klinikë apo spital në Shqipëri. Ky argument, e ndihmon shumë mjekun klinicist në dallimin e anemive të fshehura apo deviacioneve leukocitare, dhe monitorimin e terapisë përmes ndryshimeve të morfologjisë qelizore. Madje edhe vetë pacientet ndërgjegjësohen për situatën e tyre, duke kuptuar që numrat që dalin nga aparatet nuk tregojnë gjithçka. Protokollet laboratorike mjekësore.
+      </p>
+      <p>
+        Ajo çka na dallon nga laboratorët e tjerë është fakti se ne punojmë me protokolle mjekësore. Çka do të thotë se në laboratorin tone analizat nuk kryhen thjesht si procedurë, por si një logjikë që synon të vërtetojë dyshimin për diagnozën e sëmundjes. Para se të marrim mostrën e analizës, ne sigurohemi që pacienti është në kushtet e duhura për të bërë apo jo analizën. Për ne është e rëndësishme që pacienti të bëjë analizën e duhur, në mënyrën e duhur. Vetëm në këtë mënyrë, mund të kontrollojmë gabimet e asaj që quhet faza përgatitore e pacientit, e cila ndikon drejtpërdrejtë në vlerat e analizës. E thënë më thjesht: një pacient që nuk vjen esëll, nuk mund të masë dot sheqerin në gjak.
+      </p>
+
+      <div class="art-divider"></div>
+
+      
+
+      <h3>Marrja e gjakut te fëmijët e vegjël
+
+      </h3>
+      <p>
+        Marrja e gjakut tek fëmijët e vegjël është një art më vete. Momenti kur mamaja e bebit futet në dhomën e marrjes së gjakut, ajo stresohet shumë dhe përjeton një ankth të madh. Mendoj se jemi një nga klinikat më të mira në Shqipëri në marrjen e gjakut tek fëmijët e vegjël. Gjakun e marrim me sistem vakumi dhe sipas mënyrës bashkëkohore. Gjithçka mbaron shumë shpejt. Madje ndodh që kemi vajtur edhe në spitalin ku fëmija ka qenë i hospitalizuar për t’i marrë gjakun fëmijës për shkak të besimit që prindërit kanë krijuar ndaj nesh.
+      </p>
+
+      <h3>Diagnoza Gjenetike, risi e mjekësisë</h3>
+      <p>
+        Gjithmonë e më shumë po flitet sot për atë që quhet Diagnoza Gjenetike e Sëmundjes. Kjo ka të bëjë me faktin se përmes teknikave të avancuara dhe tejet moderne të zbërthimit të ADN, shkencëtarët po arrijnë të zbulojnë shumë mekanizma që shpjegojnë mënyrën se si zhvillohet një sëmundje nga dëmtimi i ADN, dhe pasojat që sjell dëmtimi i genit në organizëm. Madje shkencëtarët kanë arritur të zbulojnë dhe të përcaktojnë mjekimin e personalizuar të sëmundjes sipas dëmtimit gjenetik. Bëhet fjalë për shkencën e farmakogjenetikës, në të cilën çdo pacient mjekohet sipas ADN personale. Ky hap i ri i shkencës gjenetike do të sjellë shumë shpejt ndryshimin e shumë protokolleve mjekësore të diagnozës dhe mjekimit për pacientët. Për ne ishte një kënaqësi e madhe, kur mundësuam bashkëpunimin me Klinikën Gjenetike CeGat në Gjermani. Kjo klinikë drejtohet nga një shkencëtare me famë botërore, dr.Saskia Biskup, mjeke gjenetiste dhe anëtare e disa bordeve mjekësore të neuroshkencës në Gjermani dhe Amerikë.
+      </p>
+
+      <!-- CALLOUT / THEKSIM -->
+      <div class="art-callout">
+        <p><strong></strong> Falë studimeve të fundit të shkencëtarëve të gjenetikës në botë ku edhe dr.Saskia Biskup ka dhënë kontributin e saj të vyer, është arritur të hidhet dritë mbi shumë zona të errëta, që dikur nuk kuptoheshin dhe pacientët mbeteshin pa diagnozë dhe me mjekime të supozuara. Ky bashkëpunim i vyer për ne, po bën të mundur që edhe pacientët shqiptarë të informohen mbi dëmtimet gjenetike për sëmundjen e kancerit, të epilepsisë, të trurit etj.</p>
+      </div>
+
+     
+      <p>
+        Dr.Edi Tushe është një mjek i mirënjohur në fushën e mjekësisë dhe sidomos nga pacientët. Ata e duan për shkak të korrektësisë që doktori ka ndaj profesionit, një tipar ky që është vlerësuar dhe vlerësohet nga pacientët. Në klinikën tonë vijnë shumë fëmijë të moshave të ndryshme si për këshillime të thjeshta dhe deri tek ata të sëmurë. Gjatë gjithë kohës në klinikë sheh fëmijë, pavarësisht se mund të jenë të sëmurë, por ata na japin një kënaqësi të veçantë. Doktori është një mjek i durueshëm dhe i qetë, dy cilësi për të cilat kanë nevojë sidomos nënat e reja, që sapo kanë filluar mëmësinë. Përvoja e tij gati 40-vjeçare në fushën e neonatologjisë dhe pediatrisë, e bën dr.Edin një aset për mjekësinë shqiptare. Ai është gjithmonë shumë hapa përpara në protokollet e tij të diagnozës klinike dhe të mjekimit, dhe kjo vjen sepse ai nuk rresht së lexuari materialet shkencore të besueshme dhe të akredituara. Dr.Edi është jo vetëm ndër mjekët neonatologë-pediatër nga më të mirë në Shqipëri, por mbi të gjitha është një mjek human, që nuk bën kurrë kompromise mbi pacientin. Falë dijes së tij, jemi klinika e parë në Shqipëri që kemi krijuar protokollet e moshës pediatrike. Tashmë prindërit nuk presin t’jua kujtojmë ne, por vijnë në klinikë për të bërë rikontrollet për aneminë ose vitaminën D, apo imunitetin vaksinal apo ekografitë e moshës fëminore etj.
+      </p>
+
+      
+      <p>
+        Një nga shërbimet e shtuara në klinikën tonë është edhe shërbimi ekografik. Dr.Genti Caco është një nga kirurgët angiovaskularë më të mirë në Shqipëri, dhe ajo çfarë vlen për t’u theksuar, është fakti që edhe dr. Genti është një mjek i cili në principet e tij ka profesionalizmin dhe korrektësinë me pacientin. Ky tipar i kolegëve në klinikën tonë, na bën të punojmë me qetësi dhe kënaqësi së bashku. Dr.Genti realizon ekografinë e enëve të gjakut dhe procedurën e skleroterapisë, trajtimin e variceve dhe komplikacioneve të tyre. Kompetenca e tij profesionale dhe thjeshtësia, janë dy tiparet kryesore të doktorit, duke e bërë atë një nga mjekët më të dashur për pacientët. Të mos harrojmë që pacientët kanë nevojë edhe për humanizëm dhe komunikim, përveçse për profesionalizëm. Dr.Genti ka qenë një nga studentët më të shkëlqyer në brezin e tij, dhe vazhdon të jetë një mjek profesionist po aq i nderuar edhe sot.
+      </p>
+
+      <h3>Shërbimet e tjera</h3>
+      <p>
+        Në klinikën Vera-Virhov ofrohen edhe shërbime të tjera si: gjinekologji, endokrinologji, dermatologji etj. Klinika jonë ka vetëm një synim: Të arrijmë besimin e pacientëve tanë përmes investimeve me standarde të larta bashkëkohore në teknologji, në kombinim me një staf të shkëlqyer bashkëpunëtorësh dhe profesionistësh të lartë dhe të mesëm. Besoj se në klinikën tonë gjen vend shprehja e bukur e Hipokratit “Ata që duan artin e mjekësisë, kanë dashuri për humanizmin”.
+      </p>
+
+      <!-- WARNING BOX -->
+      <div class="art-warning">
+        <div class="art-warning-label">⚠️ E rëndësishme</div>
+        <p>Ky artikull ka qëllim edukativ dhe nuk zëvendëson konsultën mjekësore. Nëse keni dyshime, kontaktoni menjëherë mjekun tuaj ose vizitoni klinikën.</p>
+      </div>
+
+      
+    <!-- RELATED ARTICLES -->
+    <div class="related">
+      <div class="related-label">Artikuj të ngjashëm</div>
+      <div class="related-grid">
+        <a class="related-card" href="#">
+          <div class="related-card-visual" style="background:linear-gradient(135deg,#3a1a00,#1e0d00);">💊</div>
+          <div class="related-card-body">
+            <div class="related-cat">Kardiologji</div>
+            <div class="related-title">Hipertensioni: pse quhet "vrasësi i heshtur"</div>
+          </div>
+        </a>
+        <a class="related-card" href="#">
+          <div class="related-card-visual" style="background:linear-gradient(135deg,#1a4a2a,#0a2515);">🥗</div>
+          <div class="related-card-body">
+            <div class="related-cat">Stil Jetese</div>
+            <div class="related-title">10 zakone ditore që reduktojnë riskun kardiovaskular</div>
+          </div>
+        </a>
+      </div>
+    </div><!-- NDRYSHO ARTIKUJT E NGJASHEM -->
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="art-sidebar">
+
+    <!-- TABLE OF CONTENTS -->
+   
+
+    <!-- SHARE -->
+    <div class="sidebar-block">
+      <h4>Ndani artikullin</h4>
+      <div class="share-btns">
+        <a class="share-btn" id="shareFacebook" href="#" target="_blank"><span class="share-icon">f</span> Facebook</a>
+        <a class="share-btn" id="shareWhatsapp" href="#" target="_blank"><span class="share-icon">💬</span> WhatsApp</a>
+        <a class="share-btn" id="shareLinkedin" href="#" target="_blank"><span class="share-icon">in</span> LinkedIn</a>
+        <button class="share-btn" onclick="copyLink()"><span class="share-icon">🔗</span> Kopjo linkun</button>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="sidebar-block" style="background:#0797b0;border-color:transparent;">
+      <h4 style="color:rgba(255,255,255,0.3);">Keni pyetje?</h4>
+      <p style="font-family:'Playfair Display',serif;font-size:1.2rem;color:white;line-height:1.3;margin-bottom:12px;font-weight:400;">Rezervoni konsultën</p>
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.45);margin-bottom:20px;line-height:1.7;font-weight:300;">Pa pritje. Konfirmim brenda 30 minutave.</p>
+      <a href="index.html#rezervo" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:white;text-decoration:none;padding:12px 22px;font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;">Rezervo Tani →</a>
+    </div><!-- NDRYSHO SPECIALITETIN NE CTA -->
+
+  </aside>
+
+</div><!-- /art-layout -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-word"><img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:48px;width:auto;display:block;"></div>
+      <p class="footer-desc">Klinikë private me standarde ndërkombëtare, e dedikuar shëndetit dhe mirëqenies tuaj nga viti 2009.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.facebook.com/Virhov/" aria-label="Facebook">f</a>
+        <a class="soc" href="https://www.instagram.com/klinika_veravirhov?igsh=YXkxMTQzMG5ncXUy" aria-label="Instagram">ig</a>
+        <a class="soc" href="https://al.linkedin.com/in/klinika-vera-virhov-582290247" aria-label="LinkedIn">in</a>
+        <a class="soc" href="https://www.youtube.com/@klinikaveravirhov9021" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Shërbimet</h5>
+      <ul>
+        <li><a href="sherbimi.html#kardiologji">Kardiologji</a></li>
+        <li><a href="sherbimi.html#neurologji">Neurologji</a></li>
+        <li><a href="sherbimi.html#ortopedi">Ortopedi</a></li>
+        <li><a href="sherbimi.html#oftalmologji">Oftalmologji</a></li>
+        <li><a href="sherbimi.html#dentistri">Dentistri</a></li>
+        <li><a href="sherbimi.html#checkup">Check-Up Ekzekutiv</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Klinika</h5>
+      <ul>
+        <li><a href="index.html#rreth">Filozofia Jonë</a></li>
+        <li><a href="stafi.html">Stafi Mjekësor</a></li>
+        <li><a href="blog.html">Blog & Edukim</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Informacion</h5>
+      <ul>
+        <li><a href="index.html#rezervo">Rezervo Vizitë</a></li>
+        <li><a href="politika-e-privatesise.html">Politika e Privatësisë</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">GDPR</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Klinika Vera Virhov. Të gjitha të drejtat e rezervuara.</span>
+    <div class="footer-legal">
+      <a href="politika-e-privatesise.html">Privacy Policy</a>
+    </div>
+  </div>
+  <div style="width:100%;text-align:center;padding:14px 20px;font-family:sans-serif;font-size:13px;color:#ffffff;background:transparent;border-top:1px solid rgba(255,255,255,0.2);margin-top:40px;">
+    Powered by <strong style="color:#ffffff;">LOREI Web Studio Albania</strong> · Email: <a href="mailto:lrwebstudio1@gmail.com" style="color:#ffffff;text-decoration:none;">lrwebstudio1@gmail.com</a>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="wa-btn" href="https://wa.me/355690000000" target="_blank" aria-label="WhatsApp">
+  <span class="wa-icon">💬</span>
+  <span class="wa-text">Na shkruani</span>
+</a>
+
+<!-- GDPR -->
+<div class="gdpr" id="gdpr">
+  <span>Përdorim cookies esenciale dhe analitike për të përmirësuar përvojën tuaj. <a href="politika-e-privatesise.html">Politika e Cookies.</a></span>
+  <div class="gdpr-btns">
+    <button class="gdpr-acc" onclick="acceptGdpr()">Pranoj të gjitha</button>
+    <button class="gdpr-dec" onclick="acceptGdpr()">Vetëm esenciale</button>
+  </div>
+</div>
+
+<script>
+// CURSOR
+const cur = document.getElementById('cur');
+const curRing = document.getElementById('curRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+function animCursor(){
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+  rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+  curRing.style.left=rx+'px';curRing.style.top=ry+'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';cur.style.background='#b8965a';curRing.style.width='52px';curRing.style.height='52px';curRing.style.opacity='0.5';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';cur.style.background='#1b3a6b';curRing.style.width='36px';curRing.style.height='36px';curRing.style.opacity='1';});
+});
+
+// HAMBURGER
+const ham=document.getElementById('ham');
+const drawer=document.getElementById('drawer');
+let drawerOpen=false;
+ham.addEventListener('click',()=>{
+  drawerOpen=!drawerOpen;
+  drawer.classList.toggle('open',drawerOpen);
+  const spans=ham.querySelectorAll('span');
+  if(drawerOpen){spans[0].style.transform='rotate(45deg) translate(5px,5px)';spans[1].style.opacity='0';spans[2].style.transform='rotate(-45deg) translate(5px,-5px)';}
+  else{spans.forEach(s=>{s.style.transform='';s.style.opacity='';});}
+});
+function closeDrawer(){drawerOpen=false;drawer.classList.remove('open');ham.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity='';});}
+
+// READ PROGRESS
+window.addEventListener('scroll',()=>{
+  const body=document.getElementById('artBody');
+  const rect=body.getBoundingClientRect();
+  const total=body.offsetHeight;
+  const scrolled=Math.max(0,-rect.top);
+  const pct=Math.min(100,(scrolled/total)*100);
+  document.getElementById('progressBar').style.width=pct+'%';
+});
+
+// GDPR
+function acceptGdpr(){document.getElementById('gdpr').classList.add('hidden');sessionStorage.setItem('gdpr','1');}
+if(sessionStorage.getItem('gdpr'))document.getElementById('gdpr').classList.add('hidden');
+
+// PREVIEW IMAGE
+function previewImg(input) {
+  if (!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const ph = input.closest('.art-img');
+    ph.innerHTML = '<img src="' + e.target.result + '" alt="Cover">';
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// SHARE LINKS
+(function(){
+  var url = encodeURIComponent(window.location.href);
+  var title = encodeURIComponent(document.title);
+  var fb = document.getElementById('shareFacebook');
+  var wa = document.getElementById('shareWhatsapp');
+  var li = document.getElementById('shareLinkedin');
+  if(fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+  if(wa) wa.href = 'https://wa.me/?text=' + title + '%20' + url;
+  if(li) li.href = 'https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + title;
+})();
+
+// COPY LINK
+function copyLink(){
+  navigator.clipboard.writeText(window.location.href).then(()=>{
+    const btn=document.querySelector('[onclick="copyLink()"]');
+    btn.innerHTML='<span class="share-icon">✅</span> U kopjua!';
+    setTimeout(()=>{btn.innerHTML='<span class="share-icon">🔗</span> Kopjo linkun';},2500);
+  });
+}
+</script>
+</body>
+</html>
