@@ -2,6 +2,8 @@
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="LOGO.png">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Klinika Vera Virhov — Shëndet me Ekselencë</title>
 <meta name="description" content="Klinikë private me standarde ndërkombëtare. Mjekësi e personalizuar, teknologji e avancuar, rezultate të qëndrueshme.">
@@ -354,11 +356,11 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   margin-top: -10px;
 }
 .services-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(5, 1fr);
   gap: 0; border: 1px solid var(--border);
 }
 .svc {
-  padding: 40px 36px;
+  padding: 28px 24px 24px;
   border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   transition: background 0.3s;
@@ -366,42 +368,45 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   position: relative; overflow: hidden;
   text-decoration: none; color: inherit; display: block;
 }
-.svc:nth-child(3n) { border-right: none; }
-.svc:nth-last-child(-n+3) { border-bottom: none; }
+.svc:nth-child(5n) { border-right: none; }
+.svc:nth-last-child(-n+5) { border-bottom: none; }
 .svc::before {
   content: ''; position: absolute; inset: 0;
   background: #0797b0; transform: scaleY(0); transform-origin: bottom;
-  transition: transform 0.45s var(--ease);
+  transition: transform 0.4s var(--ease);
 }
 .svc:hover::before { transform: scaleY(1); }
 .svc-content { position: relative; z-index: 1; }
 .svc-num {
   font-family: 'Playfair Display', serif;
-  font-size: 0.85rem; color: var(--gold); font-style: italic;
-  margin-bottom: 28px; display: block;
+  font-size: 0.72rem; color: var(--gold); font-style: italic;
+  margin-bottom: 14px; display: block;
   transition: color 0.3s;
 }
 .svc:hover .svc-num { color: var(--gold-l); }
-.svc-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+.svc-icon { font-size: 22px; margin-bottom: 12px; display: block; }
 .svc h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.25rem; font-weight: 500; color: var(--ink);
-  margin-bottom: 12px; transition: color 0.3s;
-  letter-spacing: -0.01em;
+  font-size: 1rem; font-weight: 500; color: var(--ink);
+  margin-bottom: 8px; transition: color 0.3s;
+  letter-spacing: -0.01em; line-height: 1.25;
 }
 .svc:hover h3 { color: var(--white); }
 .svc p {
-  font-size: 0.84rem; line-height: 1.7; color: var(--muted);
+  font-size: 0.78rem; line-height: 1.6; color: var(--muted);
   transition: color 0.3s;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
-.svc:hover p { color: rgba(255,255,255,0.6); }
+.svc:hover p { color: rgba(255,255,255,0.55); }
 .svc-arr {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.72rem; font-weight: 500; letter-spacing: 1.5px;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 1.2px;
   text-transform: uppercase; color: var(--cobalt);
-  margin-top: 24px; transition: color 0.3s, gap 0.25s;
+  margin-top: 14px; transition: color 0.3s, gap 0.2s;
 }
-.svc:hover .svc-arr { color: var(--gold-l); gap: 12px; }
+.svc:hover .svc-arr { color: var(--gold-l); gap: 10px; }
+@media(max-width:1100px){ .services-grid{ grid-template-columns: repeat(4,1fr); } .svc:nth-child(5n){ border-right:1px solid var(--border); } .svc:nth-child(4n){ border-right:none; } }
+@media(max-width:700px){ .services-grid{ grid-template-columns: repeat(2,1fr); } }
 
 /* ─── ABOUT / MANIFESTO ─── */
 .about-bg { background: #0797b0; }
@@ -794,35 +799,6 @@ footer {
 }
 .wa-btn:hover { background: #075e54; transform: translateY(-2px); }
 .wa-icon { font-size: 1.2rem; }
-
-/* ─── GDPR ─── */
-.gdpr {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
-  background: #0797b0;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 20px 5%;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  font-size: 0.8rem; color: rgba(255,255,255,0.45);
-  backdrop-filter: blur(20px);
-  transform: translateY(0); transition: transform 0.4s var(--ease);
-}
-.gdpr.hidden { transform: translateY(100%); }
-.gdpr a { color: var(--gold); text-decoration: none; }
-.gdpr-btns { display: flex; gap: 10px; flex-shrink: 0; }
-.gdpr-acc {
-  background: var(--gold); color: #ffffff;
-  border: none; padding: 9px 22px;
-  font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;
-  text-transform: uppercase; cursor: pointer; font-family: 'Jost', sans-serif;
-}
-.gdpr-dec {
-  background: none; color: rgba(255,255,255,0.3);
-  border: 1px solid rgba(255,255,255,0.1); padding: 9px 18px;
-  font-size: 0.75rem; cursor: pointer; font-family: 'Jost', sans-serif;
-  transition: border-color 0.2s;
-}
-.gdpr-dec:hover { border-color: rgba(255,255,255,0.3); }
-
 /* ─── TOAST ─── */
 .toast {
   position: fixed; top: 92px; right: 32px; z-index: 800;
@@ -907,7 +883,6 @@ footer {
   .docs-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .hero-metrics { display: none; }
-  .gdpr { flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
@@ -978,7 +953,7 @@ footer {
         <div class="metric-l">Pacientë të Kënaqur</div>
       </div>
       <div class="metric-item">
-        <div class="metric-n">12</div>
+        <div class="metric-n">6</div>
         <div class="metric-l">Specialistë</div>
       </div>
     </div>
@@ -990,7 +965,7 @@ footer {
     </div>
     <div class="hero-info-card">
       <div class="hero-ic-label">Disponueshmëria</div>
-      <div class="hero-ic-val">E Hënë – E Shtunë<br>08:00 – 18:00</div>
+      <div class="hero-ic-val">E Hënë – E Shtunë<br>08:00 – 20:00</div>
     </div>
     <div class="hero-rating">
       <div class="rating-score">4.3</div>
@@ -1006,22 +981,26 @@ footer {
 <!-- MARQUEE -->
 <div class="marquee-strip">
   <div class="marquee-track" id="mq">
-    <span class="marquee-item">Kardiologji <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Neurologji <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Ortopedi <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Oftalmologji <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Dentistri <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Endokrinologji <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Pediatri <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Dermatologji <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Kardiologji <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Neurologji <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Ortopedi <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Oftalmologji <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Dentistri <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Endokrinologji <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Pediatri <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Dermatologji <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Analiza Laboratorike <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ekografi <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Encefalograme (EEG) <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Kujdes per Femije & te Rritur <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Monitorim Parametrave Jetike <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Konsulta me Specialiste <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Fizioterapi <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Logopedi <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sherbim Infermieristik <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Haloterapi <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Analiza Laboratorike <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ekografi <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Encefalograme (EEG) <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Kujdes per Femije & te Rritur <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Monitorim Parametrave Jetike <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Konsulta me Specialiste <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Fizioterapi <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Logopedi <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sherbim Infermieristik <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Haloterapi <span class="marquee-dot"></span></span>
   </div>
 </div>
 
@@ -1033,60 +1012,96 @@ footer {
         <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">Shërbimet</span></div>
         <h2 class="h2">Kujdes i specializuar,<br><em>nën një çati</em></h2>
       </div>
-      <div class="services-number">06</div>
+      <div class="services-number">10</div>
     </div>
     <div class="services-grid rw">
-      <a class="svc" href="sherbimi.html#kardiologji">
+      <a class="svc" href="sherbimi.html">
         <div class="svc-content">
           <span class="svc-num">— 01</span>
-          <span class="svc-icon">🫀</span>
-          <h3>Kardiologji</h3>
-          <p>Diagnozë e plotë kardiovaskulare me ekokardiografi 3D, Holter 24h dhe test ergometrik. Kirurgji interventionale minimalisht invazive.</p>
+          <span class="svc-icon"></span>
+          <h3>Analiza Laboratorike</h3>
+          <p>Analiza të sakta dhe të avancuara: hemogram, biokimi, hormonë, markera tumoralë dhe vitamina. Rezultate brenda 24 orëve.</p>
           <span class="svc-arr">Mëso Më Shumë →</span>
         </div>
       </a>
-      <a class="svc" href="sherbimi.html#neurologji">
+      <a class="svc" href="sherbimi.html">
         <div class="svc-content">
           <span class="svc-num">— 02</span>
-          <span class="svc-icon">🧠</span>
-          <h3>Neurologji</h3>
-          <p>EEG dixhital, EMG, potenciale të evokuara. Trajtim i migrenës kronike, epilepsisë dhe sëmundjeve neurodegenerative.</p>
+          <span class="svc-icon"></span>
+          <h3>Ekografi</h3>
+          <p>Ekografi abdominale, pelvike, tiroideje dhe vaskulare me pajisje të gjeneratës së re dhe interpretim të menjëhershëm klinik.</p>
           <span class="svc-arr">Mëso Më Shumë →</span>
         </div>
       </a>
-      <a class="svc" href="sherbimi.html#ortopedi">
+      <a class="svc" href="sherbimi.html">
         <div class="svc-content">
           <span class="svc-num">— 03</span>
-          <span class="svc-icon">🦴</span>
-          <h3>Ortopedi</h3>
-          <p>Kirurgji artroskopike e kyçeve, implante totale dhe parciale, fizioterapi dhe rehabilitim pas operacionit.</p>
+          <span class="svc-icon"></span>
+          <h3>Encefalograme (EEG)</h3>
+          <p>Regjistrim dixhital i aktivitetit elektrik të trurit për diagnozën e epilepsisë, çrregullimeve të gjumit dhe sëmundjeve neurologjike.</p>
           <span class="svc-arr">Mëso Më Shumë →</span>
         </div>
       </a>
-      <a class="svc" href="sherbimi.html#oftalmologji">
+      <a class="svc" href="sherbimi.html">
         <div class="svc-content">
           <span class="svc-num">— 04</span>
-          <span class="svc-icon">👁️</span>
-          <h3>Oftalmologji</h3>
-          <p>Kirurgji lazer LASIK dhe LASEK, trajtim i kataraktës me lente premium, diagnozë e sëmundjeve të retinës dhe glaukomës.</p>
+          <span class="svc-icon"></span>
+          <h3>Kujdes Fëmijë &amp; të Rritur</h3>
+          <p>Pediatri, mjekësi e përgjithshme dhe shërbime specializuara për çdo moshë. Ekip i dedikuar për të gjithë anëtarët e familjes.</p>
           <span class="svc-arr">Mëso Më Shumë →</span>
         </div>
       </a>
-      <a class="svc" href="sherbimi.html#dentistri">
+      <a class="svc" href="sherbimi.html">
         <div class="svc-content">
           <span class="svc-num">— 05</span>
-          <span class="svc-icon">🦷</span>
-          <h3>Dentistri Estetike</h3>
-          <p>Implantime titanike, veneer porcelani, ortodonti invisalign, kirurgji peridontale dhe zbardhim profesional.</p>
+          <span class="svc-icon"></span>
+          <h3>Monitorim Parametrash</h3>
+          <p>EKG, Holter 24h, ABPM dhe pulsoksimetri. Filozofi që synon parandalimin, jo vetëm trajtimin.</p>
           <span class="svc-arr">Mëso Më Shumë →</span>
         </div>
       </a>
-      <a class="svc" href="sherbimi.html#checkup">
+      <a class="svc" href="sherbimi.html">
         <div class="svc-content">
           <span class="svc-num">— 06</span>
-          <span class="svc-icon">🩺</span>
-          <h3>Check-Up Ekzekutiv</h3>
-          <p>Program i plotë diagnostik gjysmëditor me 40+ tregues laboratorikë, imagjistikë dhe konsultë me internist të specializuar.</p>
+          <span class="svc-icon"></span>
+          <h3>Konsulta me Specialistë</h3>
+          <p>Psikiatri, neurologji, kirurgji vaskulare, alergologji, dermatologji dhe shumë të tjera. Pa pritje të gjata.</p>
+          <span class="svc-arr">Mëso Më Shumë →</span>
+        </div>
+      </a>
+      <a class="svc" href="sherbimi.html">
+        <div class="svc-content">
+          <span class="svc-num">— 07</span>
+          <span class="svc-icon"></span>
+          <h3>Fizioterapi</h3>
+          <p>Rehabilitim muskuloskeletal, post-kirurgjik dhe neurologjik me fizioterapistë të certifikuar dhe pajisje moderne.</p>
+          <span class="svc-arr">Mëso Më Shumë →</span>
+        </div>
+      </a>
+      <a class="svc" href="sherbimi.html">
+        <div class="svc-content">
+          <span class="svc-num">— 08</span>
+          <span class="svc-icon"></span>
+          <h3>Logopedi</h3>
+          <p>Vlerësim dhe terapi e çrregullimeve të të folurit, gjuhës dhe gëlltitjes tek fëmijët dhe të rriturit.</p>
+          <span class="svc-arr">Mëso Më Shumë →</span>
+        </div>
+      </a>
+      <a class="svc" href="sherbimi.html">
+        <div class="svc-content">
+          <span class="svc-num">— 09</span>
+          <span class="svc-icon"></span>
+          <h3>Shërbim Infermieristik</h3>
+          <p>Injeksione, infuzione, matje dhe monitorim i herëpashershëm. Kujdes profesional gjatë gjithë orarit të klinikës.</p>
+          <span class="svc-arr">Mëso Më Shumë →</span>
+        </div>
+      </a>
+      <a class="svc" href="sherbimi.html">
+        <div class="svc-content">
+          <span class="svc-num">— 10</span>
+          <span class="svc-icon"></span>
+          <h3>Haloterapi</h3>
+          <p>Terapi me ajër të pasur me kripë natyrore për sëmundje respiratore, alergji dhe stres kronik. Dimension unik i mirëqenies.</p>
           <span class="svc-arr">Mëso Më Shumë →</span>
         </div>
       </a>
@@ -1249,35 +1264,35 @@ footer {
     </div>
     <div class="testi-grid">
       <div class="t-card rw">
-        <p class="t-quote">"Pas dy klinikave që nuk arritën të diagnostikonin problemin tim kardiovaskular, Dr. Hoxha e gjeti brenda orës së parë të vizitës. Profesionalizmi dhe humanizmi i tij janë të jashtëzakonshëm."</p>
+        <p class="t-quote">"Highly recommended clinic. The staff is very helpful, friendly and what is more important very qualified and professional. Among the best in the field. Also a well designed place - very clean and tidy."</p>
         <div class="t-author">
           <div class="t-av">M</div>
           <div>
             <div class="t-stars">★★★★★</div>
-            <div class="t-name">Mentor Doda, 52 vjeç</div>
-            <div class="t-meta">Tiranë · Kardiologji · Mars 2025</div>
+            <div class="t-name">Ejona Hakrama</div>
+            <div class="t-meta"></div>
           </div>
         </div>
       </div>
       <div class="t-card rw rw-d1">
-        <p class="t-quote">"Bëra operacion lazer sytë me Dr. Gjokën. 24 orë më vonë shihja 20/20. I gjithë procesi ishte transparent, pa stres dhe pa dhimbe. Ndihem keq që nuk e bëra shumë vjet më parë."</p>
+        <p class="t-quote">"Very friendly, pleasant and professional staff ready to help and listen. Genuinely care about your health and well-being! Highly recommended!"</p>
         <div class="t-author">
           <div class="t-av" style="background:var(--cobalt-l);">A</div>
           <div>
             <div class="t-stars">★★★★★</div>
-            <div class="t-name">Albana Koci, 34 vjeç</div>
-            <div class="t-meta">Durrës · Oftalmologji · Janar 2025</div>
+            <div class="t-name">Aleksandra Pango</div>
+            <div class="t-meta"></div>
           </div>
         </div>
       </div>
       <div class="t-card rw rw-d2">
-        <p class="t-quote">"Dr. Çela më propozoi një plan trajtimi konservator para operacionit, shpjegoi çdo hap me qetësi dhe durim. Pas 3 muajsh fizioterapi, mund të luaj tenis sërisht. Falënderime të thella."</p>
+        <p class="t-quote">"Excellent service! Everyone at the clinic was professional, courteous and helpful. Procedures all carried out very efficiently."</p>
         <div class="t-author">
           <div class="t-av" style="background:#1a3d20;">G</div>
           <div>
             <div class="t-stars">★★★★★</div>
-            <div class="t-name">Genti Lika, 45 vjeç</div>
-            <div class="t-meta">Vlorë · Ortopedi · Shkurt 2025</div>
+            <div class="t-name">Sean Groombridge</div>
+            <div class="t-meta"></div>
           </div>
         </div>
       </div>
@@ -1315,7 +1330,7 @@ footer {
           <div class="bp-item">
             <span class="bp-icon">✦</span>
             <div class="bp-text">
-              <h4>Pa paradhënie, pa zotimet</h4>
+              <h4>Pa paradhënie</h4>
               <p>Rezervimi është falas dhe mund të anulohet deri 24 orë para vizitës pa asnjë pasojë.</p>
             </div>
           </div>
@@ -1342,16 +1357,18 @@ footer {
             </div>
             <div class="f-group full">
               <label class="f-label">Shërbimi i Kërkuar</label>
-              <select class="f-input">
-                <option value="">Zgjidhni specialitetin...</option>
-                <option>Kardiologji</option>
-                <option>Neurologji</option>
-                <option>Ortopedi &amp; Traumatologji</option>
-                <option>Oftalmologji</option>
-                <option>Dentistri Estetike</option>
-                <option>Check-Up Ekzekutiv</option>
-                <option>Endokrinologji</option>
-                <option>Dermatologji</option>
+              <select class="f-input" name="sherbimi">
+                <option value="">Zgjidhni shërbimin...</option>
+                <option>Analiza Laboratorike</option>
+                <option>Ekografi</option>
+                <option>Encefalograme (EEG)</option>
+                <option>Kujdes Fëmijë &amp; të Rritur</option>
+                <option>Monitorim Parametrash</option>
+                <option>Konsulta me Specialistë</option>
+                <option>Fizioterapi</option>
+                <option>Logopedi</option>
+                <option>Shërbim Infermieristik</option>
+                <option>Haloterapi</option>
               </select>
             </div>
             <div class="f-group">
@@ -1398,30 +1415,29 @@ footer {
         <div class="blog-meta">
           <span>Dr. Genta Dedej</span>
           <span class="blog-meta-sep"></span>
-          <span>21 Prill 2026</span>
+          <span></span>
           
           <span></span>
         </div>
       </a>
       <div class="blog-side">
-        <a class="blog-small" href="#">
-          <div class="blog-cat">Oftalmologji</div>
-          <h3 class="blog-h">Kirurgjia LASIK: çfarë duhet të dini para vendimit</h3>
-          <p class="blog-excerpt">Pyetjet reale që duhen bërë, rreziqet e vërteta dhe kush nuk është kandidat ideal.</p>
+        <a class="blog-small" href="artikull2.html">
+          <div class="blog-cat"></div>
+          <h3 class="blog-h">Klinika Vera-Virhov / Dr. Genta Dedej: Analizat inteligjente për një menopauzë të shëndetshme</h3>
+          <p class="blog-excerpt">Kujdesi për veten nuk ka moshë. Menopauza menaxhohet kur je në duar të sigurta. Diagnostikimi i hershëm dhe monitorimi i rregullt mjekësor janë çelësi për një menopauzë të shëndetshme dhe aktive.</p>
           <div class="blog-meta">
-            <span>Dr. Lira Gjoka</span>
+            <span>Dr. Genta Dedej</span>
             <span class="blog-meta-sep"></span>
-            <span>5 Mars 2025</span>
+            <span></span>
           </div>
         </a>
-        <a class="blog-small" href="#">
-          <div class="blog-cat">Ortopedi</div>
-          <h3 class="blog-h">Dhimbja e shpinës: kur duhet vizita dhe kur jo</h3>
-          <p class="blog-excerpt">Udhëzues klinik i thjeshtë për të kuptuar kur dhimbja e shpinës kërkon ndërhyrje specialiste.</p>
+        <a class="blog-small" href="artikull3.html">
+          <div class="blog-cat"></div>
+          <h3 class="blog-h">Dr. Genta Dedej: Testet laboratorike tek fëmijët, analizat e para</h3>
+          <p class="blog-excerpt">Analizat laboratorike tek fëmijët që pas lindjes, janë shumë të rëndësishme për përcaktimin e shëndetit të tyre, kapjen e hershme të problematikave dhe përcaktimin e trajtimit sipas problemit të identifikuar.</p>
           <div class="blog-meta">
-            <span>Dr. Erion Çela</span>
-            <span class="blog-meta-sep"></span>
-            <span>18 Feb 2025</span>
+            <span>Dr. Genta Dedej</span>
+            
           </div>
         </a>
       </div>
@@ -1441,35 +1457,35 @@ footer {
             <div class="ci-icon">📞</div>
             <div>
               <div class="ci-label">Telefon</div>
-              <div class="ci-val"><a href="tel:+35542000000">+355 42 000 000</a></div>
+              <div class="ci-val"><a href="tel:+355 68 606 4320">+355 68 606 4320</a></div>
             </div>
           </div>
           <div class="ci">
             <div class="ci-icon">💬</div>
             <div>
               <div class="ci-label">WhatsApp</div>
-              <div class="ci-val"><a href="https://wa.me/355690000000" target="_blank">+355 69 000 0000</a></div>
+              <div class="ci-val"><a href="https://wa.me/355677020000" target="_blank">+355 67 702 0000</a></div>
             </div>
           </div>
           <div class="ci">
             <div class="ci-icon">✉️</div>
             <div>
               <div class="ci-label">Email</div>
-              <div class="ci-val"><a href="mailto:info@klinikacentralevla">info@klinikacentralale.al</a></div>
+              <div class="ci-val"><a href="mailto:info@klinikacentralevla">info@klinikavera-virhov.com</a></div>
             </div>
           </div>
           <div class="ci">
             <div class="ci-icon">📍</div>
             <div>
               <div class="ci-label">Adresa</div>
-              <div class="ci-val">Rruga Myslym Shyri, Nr. 25, Tiranë 1001</div>
+              <div class="ci-val">Rruga ``Islam Alla``, Tiranë</div>
             </div>
           </div>
           <div class="ci">
             <div class="ci-icon">🕐</div>
             <div>
               <div class="ci-label">Orari i Punës</div>
-              <div class="ci-val">E Hënë – E Premte: 08:00–18:00<br>E Shtunë: 09:00–13:00</div>
+              <div class="ci-val">E Hënë – E Shtunë: 08:00–20:00<br>E Dielë: Pushim</div>
             </div>
           </div>
         </div>
@@ -1513,37 +1529,29 @@ footer {
         <a class="soc" href="https://www.youtube.com/@klinikaveravirhov9021" aria-label="YouTube">▶</a>
       </div>
     </div>
-    <div class="footer-col">
+        <div class="footer-col">
       <h5>Shërbimet</h5>
       <ul>
-        <li><a href="#">Kardiologji</a></li>
-        <li><a href="#">Neurologji</a></li>
-        <li><a href="#">Ortopedi</a></li>
-        <li><a href="#">Oftalmologji</a></li>
-        <li><a href="#">Dentistri</a></li>
-        <li><a href="#">Kontroll Ekzekutiv</a></li>
+        <li><a href="sherbimi.html">Analiza Laboratorike</a></li>
+        <li><a href="sherbimi.html">Ekografi</a></li>
+        <li><a href="sherbimi.html">Encefalograme (EEG)</a></li>
+        <li><a href="sherbimi.html">Kujdes Fëmijë &amp; të Rritur</a></li>
+        <li><a href="sherbimi.html">Monitorim Parametrave</a></li>
+        <li><a href="sherbimi.html">Konsulta me Specialistë</a></li>
+        <li><a href="sherbimi.html">Fizioterapi</a></li>
+        <li><a href="sherbimi.html">Logopedi</a></li>
+        <li><a href="sherbimi.html">Shërbim Infermieristik</a></li>
+        <li><a href="sherbimi.html">Haloterapi</a></li>
       </ul>
     </div>
-    <div class="footer-col">
-      <h5>Klinika</h5>
-      <ul>
-        <li><a href="#">Filozofia Jonë</a></li>
-        <li><a href="#">Stafi Mjekësor</a></li>
-        <li><a href="#">Teknologjia</a></li>
-        <li><a href="#">Blog & Edukim</a></li>
-        <li><a href="#">Media & Intervista</a></li>
-        <li><a href="#">Kariera</a></li>
-      </ul>
-    </div>
+    
     <div class="footer-col">
       <h5>Informacion</h5>
       <ul>
-        <li><a href="#">Rezervo Vizitë</a></li>
-        <li><a href="#">Kontakt</a></li>
-        <li><a href="#">Politika e Privatësisë</a></li>
-        <li><a href="#">Kushtet e Shërbimit</a></li>
-        <li><a href="#">Cookie Policy</a></li>
-        <li><a href="#">GDPR</a></li>
+        <li><a href="index.html#rezervo">Rezervo Vizitë</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><a href="politika-e-privatesise.html">Politika e Privatësisë</a></li>
+       
       </ul>
     </div>
   </div>
@@ -1560,19 +1568,12 @@ footer {
 </footer>
 
 <!-- WHATSAPP -->
-<a class="wa-btn" href="https://wa.me/355690000000" target="_blank" aria-label="WhatsApp">
+<a class="wa-btn" href="https://wa.me/355677020000" target="_blank" aria-label="WhatsApp">
   <span class="wa-icon">💬</span>
   <span class="wa-text">Na shkruani</span>
 </a>
 
-<!-- GDPR -->
-<div class="gdpr" id="gdpr">
-  <span>Përdorim cookies esenciale dhe analitike për të përmirësuar përvojën tuaj. <a href="politika-e-privatesise.html">Politika e Cookies.</a></span>
-  <div class="gdpr-btns">
-    <button class="gdpr-acc" onclick="acceptGdpr()">Pranoj të gjitha</button>
-    <button class="gdpr-dec" onclick="acceptGdpr()">Vetëm esenciale</button>
-  </div>
-</div>
+
 
 <!-- TOAST -->
 <div class="toast" id="toast">
@@ -1641,13 +1642,6 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
 }, { threshold: 0.1 });
 rws.forEach(r => obs.observe(r));
-
-// GDPR
-function acceptGdpr() {
-  document.getElementById('gdpr').classList.add('hidden');
-  sessionStorage.setItem('gdpr','1');
-}
-if (sessionStorage.getItem('gdpr')) document.getElementById('gdpr').classList.add('hidden');
 
 // TOAST
 function showToast(icon, title, body) {
