@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="LOGO.png">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog & Edukim — Klinika Vera Virhov</title>
 <meta name="description" content="Artikuj shëndetësorë dhe këshilla mjekësore nga specialistët e Klinikës Vera Virhov, Tiranë.">
@@ -372,21 +374,7 @@ nav {
 .rw-d2 { transition-delay: 0.2s; }
 .rw-d3 { transition-delay: 0.3s; }
 
-/* GDPR */
-.gdpr {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
-  background: #0797b0; border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 20px 5%;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  font-size: 0.8rem; color: rgba(255,255,255,0.45);
-  backdrop-filter: blur(20px);
-  transform: translateY(0); transition: transform 0.4s var(--ease);
-}
-.gdpr.hidden { transform: translateY(100%); }
-.gdpr a { color: var(--gold); text-decoration: none; }
-.gdpr-btns { display: flex; gap: 10px; flex-shrink: 0; }
-.gdpr-acc { background: var(--gold); color: #fff; border: none; padding: 9px 22px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; font-family: 'Jost', sans-serif; }
-.gdpr-dec { background: none; color: rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 9px 18px; font-size: 0.75rem; cursor: pointer; font-family: 'Jost', sans-serif; transition: border-color 0.2s; }
+
 .gdpr-dec:hover { border-color: rgba(255,255,255,0.3); }
 
 /* WA BTN */
@@ -525,23 +513,19 @@ footer { background: #0797b0; padding: 80px 5% 40px; }
       <div>
 
         <!-- FEATURED -->
-        <a class="feat-article rw" href="#" data-cat="kardiologji">
+        <a class="feat-article rw" href="artikull2.html" data-cat="klinika">
           <div class="feat-art-body">
-            <div class="blog-cat">Kardiologji</div>
-            <h2 class="blog-h">Pesë shenjat e hershme të infarktit që njerëzit i nënvlerësojnë dhe çfarë të bëni</h2>
-            <p class="blog-excerpt">Infarkti nuk fillon gjithmonë me dhimbe të forta gjoksi. Dr. Artan Hoxha shpjegon simptomat e heshtura — lodhja e pazakontë, gulçimi, dhimbja në shpatull — që mund të paraqiten ditë para ngjarjes. Njohja e tyre mund të shpëtojë jetë.</p>
+            <div class="blog-cat">Klinika mjekësore Vera &amp; Virhov</div>
+            <h2 class="blog-h">Klinika Vera-Virhov / Dr. Genta Dedej: Analizat inteligjente për një menopauzë të shëndetshme</h2>
+            <p class="blog-excerpt">Laborator, klinikë pediatrie dhe një sërë shërbimesh me në fokus vëmendjen ndaj pacientit. Drejtuar nga mjekët Genta Dedej, Edi Tushe dhe Genti Caco.</p>
             <div class="blog-meta">
-              <span>Dr. Artan Hoxha</span>
-              <span class="blog-meta-sep"></span>
-              <span>20 Mars 2025</span>
-              <span class="blog-meta-sep"></span>
-              <span>7 min lexim</span>
+              <span>Dr. Genta Dedej</span>
+             
             </div>
             <div class="blog-read-more">Lexo artikullin →</div>
           </div>
-          <div class="feat-art-visual" style="background: linear-gradient(150deg,#1a6bb5,#0d3d70);">
-            <div class="feat-art-visual-num">01</div>
-            <div class="feat-art-visual-icon">🫀</div>
+          <div class="feat-art-visual" style="background:none;padding:0;overflow:hidden;">
+            <img src="mjeket-vera-virhov-952x620.jpg" alt="Mjekët Vera Virhov" style="width:100%;height:100%;object-fit:cover;display:block;">
             <div class="feat-art-visual-tag">E Rekomanduara</div>
           </div>
         </a>
@@ -549,211 +533,80 @@ footer { background: #0797b0; padding: 80px 5% 40px; }
         <!-- GRID 3 -->
         <div class="articles-grid" style="margin-top:3px;">
 
-          <a class="art-card rw" href="#" data-cat="oftalmologji">
-            <div class="art-card-visual" style="background: linear-gradient(150deg,#0e4f5c,#07303a);">
-              <div class="art-card-visual-num">02</div>
-              <div class="art-card-visual-icon">👁️</div>
+          <a class="art-card rw" href="artikull.html" data-cat="klinika">
+            <div class="art-card-visual" style="background:none;padding:0;height:180px;overflow:hidden;">
+              <img src="vera-virhov.jpg" alt="Menopauza" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
             <div class="art-card-body">
-              <div class="blog-cat">Oftalmologji</div>
-              <h3 class="blog-h">Kirurgjia LASIK: çfarë duhet të dini para vendimit</h3>
-              <p class="blog-excerpt">Pyetjet reale, rreziqet e vërteta dhe kush nuk është kandidat ideal për ndërhyrjen.</p>
-              <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
-                <span>Dr. Lira Gjoka</span>
-                <span class="blog-meta-sep"></span>
-                <span>5 Mars 2025</span>
-                <span class="blog-meta-sep"></span>
-                <span>5 min</span>
-              </div>
-              <div class="blog-read-more">Lexo →</div>
-            </div>
-          </a>
-
-          <a class="art-card rw rw-d1" href="#" data-cat="ortopedi">
-            <div class="art-card-visual" style="background: linear-gradient(150deg,#1a3d20,#0a1f10);">
-              <div class="art-card-visual-num">03</div>
-              <div class="art-card-visual-icon">🦴</div>
-            </div>
-            <div class="art-card-body">
-              <div class="blog-cat">Ortopedi</div>
-              <h3 class="blog-h">Dhimbja e shpinës: kur duhet vizita dhe kur jo</h3>
-              <p class="blog-excerpt">Udhëzues klinik i thjeshtë për të kuptuar kur dhimbja kërkon specialist dhe kur mund të trajtohet në shtëpi.</p>
-              <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
-                <span>Dr. Erion Çela</span>
-                <span class="blog-meta-sep"></span>
-                <span>18 Feb 2025</span>
-                <span class="blog-meta-sep"></span>
-                <span>6 min</span>
-              </div>
-              <div class="blog-read-more">Lexo →</div>
-            </div>
-          </a>
-
-          <a class="art-card rw rw-d2" href="#" data-cat="pediatri">
-            <div class="art-card-visual" style="background: linear-gradient(150deg,#4a2a00,#2a1500);">
-              <div class="art-card-visual-num">04</div>
-              <div class="art-card-visual-icon">👶</div>
-            </div>
-            <div class="art-card-body">
-              <div class="blog-cat">Pediatri</div>
-              <h3 class="blog-h">Vaksinat e fëmijëve: orari i plotë dhe pse nuk duhen anashkaluar</h3>
-              <p class="blog-excerpt">Dr. Edi Tushe shpjegon çdo vaksinë të rekomanduar sipas moshës dhe efektet anësore normale kundrejt alarmantes.</p>
-              <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
-                <span>Dr. Edi Tushe</span>
-                <span class="blog-meta-sep"></span>
-                <span>10 Feb 2025</span>
-                <span class="blog-meta-sep"></span>
-                <span>8 min</span>
-              </div>
-              <div class="blog-read-more">Lexo →</div>
-            </div>
-          </a>
-
-        </div>
-
-        <!-- WIDE CARDS x2 -->
-        <div class="articles-wide rw" style="margin-top:3px;">
-
-          <a class="art-wide" href="#" data-cat="neurologji">
-            <div class="art-wide-visual" style="background: linear-gradient(150deg,#2a0a4a,#150025);">
-              <div class="art-wide-visual-num">05</div>
-              <div class="art-wide-visual-icon">🧠</div>
-            </div>
-            <div class="art-wide-body">
-              <div class="blog-cat">Neurologji</div>
-              <h3 class="blog-h">Migrena kronike: trajtimet e reja që ndryshojnë jetën e pacientëve</h3>
-              <p class="blog-excerpt">Injeksionet anti-CGRP dhe biofeedback si alternativa moderne ndaj medikamenteve tradicionale. Rezultate nga pacientët e klinikës.</p>
-              <div class="blog-meta" style="margin-top:20px;">
-                <span>Dr. Blerina Hasa</span>
-                <span class="blog-meta-sep"></span>
-                <span>28 Jan 2025</span>
-                <span class="blog-meta-sep"></span>
-                <span>9 min</span>
-              </div>
-              <div class="blog-read-more">Lexo artikullin →</div>
-            </div>
-          </a>
-
-          <a class="art-wide" href="#" data-cat="gjinekologji">
-            <div class="art-wide-visual" style="background: linear-gradient(150deg,#4a1520,#280a10);">
-              <div class="art-wide-visual-num">06</div>
-              <div class="art-wide-visual-icon">🌸</div>
-            </div>
-            <div class="art-wide-body">
-              <div class="blog-cat">Gjinekologji</div>
-              <h3 class="blog-h">Endometrioza: sëmundja e heshtur që prek 1 në 10 gra</h3>
-              <p class="blog-excerpt">Simptomat e zakonshme që gabohen me dhimbje menstruale dhe hapat diagnostikë për diagnozë të hershme dhe trajtim efektiv.</p>
-              <div class="blog-meta" style="margin-top:20px;">
-                <span>Dr. Moza Keta</span>
-                <span class="blog-meta-sep"></span>
-                <span>15 Jan 2025</span>
-                <span class="blog-meta-sep"></span>
-                <span>7 min</span>
-              </div>
-              <div class="blog-read-more">Lexo artikullin →</div>
-            </div>
-          </a>
-
-        </div>
-
-        <!-- GRID 3 — more articles -->
-        <div class="articles-grid" style="margin-top:3px;">
-
-          <a class="art-card rw" href="#" data-cat="dentistri">
-            <div class="art-card-visual" style="background: linear-gradient(150deg,#0a3a5c,#051e30);">
-              <div class="art-card-visual-num">07</div>
-              <div class="art-card-visual-icon">🦷</div>
-            </div>
-            <div class="art-card-body">
-              <div class="blog-cat">Dentistri</div>
-              <h3 class="blog-h">Implantimi dentar kundër urës fikse: cila zgjidhje është për ju?</h3>
-              <p class="blog-excerpt">Krahasim i detajuar i kostove, kohëzgjatjes, procesit kirurgjik dhe rezultateve afatgjata të të dy opsioneve.</p>
-              <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
-                <span>Dr. Altin Muka</span>
-                <span class="blog-meta-sep"></span>
-                <span>5 Jan 2025</span>
-                <span class="blog-meta-sep"></span>
-                <span>6 min</span>
-              </div>
-              <div class="blog-read-more">Lexo →</div>
-            </div>
-          </a>
-
-          <a class="art-card rw rw-d1" href="#" data-cat="jetese">
-            <div class="art-card-visual" style="background: linear-gradient(150deg,#1a4a2a,#0a2515);">
-              <div class="art-card-visual-num">08</div>
-              <div class="art-card-visual-icon">🥗</div>
-            </div>
-            <div class="art-card-body">
-              <div class="blog-cat">Stil Jetese</div>
-              <h3 class="blog-h">10 zakone ditore që reduktojnë riskun kardiovaskular me 40%</h3>
-              <p class="blog-excerpt">Studime të fundit tregojnë se ndryshime të vogla si: ecja 30 minuta, gjumi 7 orë, ngrënia mesdhetare kanë ndikim të madh.</p>
+              <div class="blog-cat"></div>
+              <h3 class="blog-h">Klinika mjekësore Vera & Virhov: Kujdesi për shëndetin është një e drejtë dhe jo privilegj!
+              </h3>
+              <p class="blog-excerpt">Klinika Mjekësore Vera-Virhov: Laborator, klinikë pediatrie dhe një sërë shërbimesh të tjera me në fokus vëmendjen ndaj pacientit. Drejtuar nga mjekët Genta Dedej, Edi Tushe dhe Genti Caco, klinika Vera-Virhov operon sipas protokolleve bashkëkohore të diagnozës mjekësore.</p>
               <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
                 <span>Dr. Genta Dedej</span>
-                <span class="blog-meta-sep"></span>
-                <span>22 Dhj 2024</span>
-                <span class="blog-meta-sep"></span>
-                <span>5 min</span>
+                
               </div>
               <div class="blog-read-more">Lexo →</div>
             </div>
           </a>
 
-          <a class="art-card rw rw-d2" href="#" data-cat="kardiologji">
-            <div class="art-card-visual" style="background: linear-gradient(150deg,#3a1a00,#1e0d00);">
-              <div class="art-card-visual-num">09</div>
-              <div class="art-card-visual-icon">💊</div>
+          <a class="art-card rw rw-d1" href="artikull3.html" data-cat="ortopedi">
+            <div class="art-card-visual" style="background: linear-gradient(150deg,#1a3d20,#0a1f10);">
+              <img src="image.jpg" alt="Menopauza" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
             <div class="art-card-body">
-              <div class="blog-cat">Kardiologji</div>
-              <h3 class="blog-h">Hipertensioni: pse quhet "vrasësi i heshtur" dhe si kontrollohet</h3>
-              <p class="blog-excerpt">Mbi 30% e shqiptarëve kanë hipertension pa e ditur. Matja e rregullt dhe dieta pa kripë mund të parandalojnë goditjen cerebrale.</p>
+              <div class="blog-cat"></div>
+              <h3 class="blog-h">Dr. Genta Dedej: Testet laboratorike tek fëmijët, analizat e para</h3>
+              <p class="blog-excerpt">Analizat laboratorike tek fëmijët që pas lindjes, janë shumë të rëndësishme për përcaktimin e shëndetit të tyre, kapjen e hershme të problematikave dhe përcaktimin e trajtimit sipas problemit të identifikuar.</p>
               <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
-                <span>Dr. Elton Qeli</span>
-                <span class="blog-meta-sep"></span>
-                <span>10 Dhj 2024</span>
-                <span class="blog-meta-sep"></span>
-                <span>7 min</span>
+                <span>Dr. Genta Dedej</span>
+                
+              </div>
+              <div class="blog-read-more">Lexo →</div>
+            </div>
+          </a>
+
+          <a class="art-card rw rw-d2" href="artikull4.html" data-cat="pediatri">
+            <div class="art-card-visual" style="background: linear-gradient(150deg,#4a2a00,#2a1500);">
+              <img src="revista.jpg" alt="Menopauza" style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <div class="art-card-body">
+              <div class="blog-cat"></div>
+              <h3 class="blog-h">Klinika Mjekësore Vera-Virhov, Dr.Genta Dedej: Analizat Gjenetike në Autizëm</h3>
+              <p class="blog-excerpt">Ekspertiza më e avancuar e interpretimit të të dhënave në ADN, e saktë dhe e besueshme, arrihet falë bashkëpunimit me Klinikën Gjenetike Gjermane Ce-GaT, e cila drejtohet nga shkencëtarja gjenetiste me famë botërore dr. Saskia Biskup. Vera-Virhov, e para klinikë mjekësore në Shqipëri që mundëson këtë analizë të rrallë.</p>
+              <div class="blog-meta" style="margin-top:auto;padding-top:20px;">
+                <span>Dr. Genta Dedej</span>
+                
               </div>
               <div class="blog-read-more">Lexo →</div>
             </div>
           </a>
 
         </div>
+
+        
 
         <!-- ONE MORE WIDE -->
         <div style="margin-top:3px;">
-          <a class="art-wide rw" href="#" data-cat="jetese" style="display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);text-decoration:none;color:inherit;transition:box-shadow 0.3s;">
+          <a class="art-wide rw" href="artikull5.html" data-cat="jetese" style="display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);text-decoration:none;color:inherit;transition:box-shadow 0.3s;">
             <div class="art-wide-visual" style="background: linear-gradient(150deg,#1b3a6b,#0a1f40);">
-              <div class="art-wide-visual-num">10</div>
-              <div class="art-wide-visual-icon">🩺</div>
+              <img src="anemia.jpg" alt="Menopauza" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
             <div class="art-wide-body">
-              <div class="blog-cat">Stil Jetese</div>
-              <h3 class="blog-h">Check-up vjetor: çfarë ekzaminimesh duhet të bëni sipas moshës</h3>
-              <p class="blog-excerpt">Udhëzuesi i plotë i testeve të rekomanduara për meshkuj dhe femra nga 20 deri 70+ vjeç — për çdo buxhet dhe prioritet shëndetësor.</p>
+              <div class="blog-cat"></div>
+              <h3 class="blog-h">Anemia / Dr. Genta Dedej: Mjekimi intravenoz në aneminë ferriprive në Klinikën Vera-Virhov</h3>
+              <p class="blog-excerpt">    Comments
+                Anemia nga mungesa e hekurit është një pandemi globale, që e hasim edhe në moshat e vogla.</p>
               <div class="blog-meta" style="margin-top:20px;">
                 <span>Dr. Genta Dedej</span>
-                <span class="blog-meta-sep"></span>
-                <span>1 Dhj 2024</span>
-                <span class="blog-meta-sep"></span>
-                <span>10 min</span>
+                
               </div>
               <div class="blog-read-more">Lexo artikullin →</div>
             </div>
           </a>
         </div>
 
-        <!-- PAGINATION -->
-        <div class="pagination rw">
-          <a class="page-btn active">1</a>
-          <a class="page-btn" href="#">2</a>
-          <a class="page-btn" href="#">3</a>
-          <a class="page-btn" href="#">4</a>
-          <span class="page-btn" style="border:none;cursor:default;">…</span>
-          <a class="page-btn" href="#">12</a>
-          <a class="page-btn wide" href="#">Tjetri →</a>
-        </div>
+        
 
       </div><!-- /left col -->
 
@@ -763,58 +616,45 @@ footer { background: #0797b0; padding: 80px 5% 40px; }
         <div class="sidebar-block rw">
           <h4>Artikujt më të lexuar</h4>
           <div class="pop-list">
-            <a class="pop-item" href="#">
+            <a class="pop-item" href="artikull.html">
               <div class="pop-num">1</div>
               <div>
-                <div class="pop-title">Pesë shenjat e hershme të infarktit</div>
-                <div class="pop-cat">Kardiologji · 7 min</div>
+                <div class="pop-title">Klinika mjekësore Vera & Virhov: Kujdesi për shëndetin është një e drejtë dhe jo privilegj!</div>
+                
               </div>
             </a>
-            <a class="pop-item" href="#">
+            <a class="pop-item" href="artikull2.html">
               <div class="pop-num">2</div>
               <div>
-                <div class="pop-title">Check-up vjetor sipas moshës</div>
-                <div class="pop-cat">Stil Jetese · 10 min</div>
+                <div class="pop-title">Klinika Vera-Virhov / Dr. Genta Dedej: Analizat inteligjente për një menopauzë të shëndetshme</div>
+               
               </div>
             </a>
-            <a class="pop-item" href="#">
+            <a class="pop-item" href="artikull3.html">
               <div class="pop-num">3</div>
               <div>
-                <div class="pop-title">Kirurgjia LASIK: para vendimit</div>
-                <div class="pop-cat">Oftalmologji · 5 min</div>
+                <div class="pop-title">Dr. Genta Dedej: Testet laboratorike tek fëmijët, analizat e para</div>
+                
               </div>
             </a>
-            <a class="pop-item" href="#">
+            <a class="pop-item" href="artikull4.html">
               <div class="pop-num">4</div>
               <div>
-                <div class="pop-title">Endometrioza: sëmundja e heshtur</div>
-                <div class="pop-cat">Gjinekologji · 7 min</div>
+                <div class="pop-title">Klinika Mjekësore Vera-Virhov, Dr.Genta Dedej: Analizat Gjenetike në Autizëm</div>
+                
               </div>
             </a>
-            <a class="pop-item" href="#">
+            <a class="pop-item" href="artikull5.html">
               <div class="pop-num">5</div>
               <div>
-                <div class="pop-title">Vaksinat e fëmijëve orari i plotë</div>
-                <div class="pop-cat">Pediatri · 8 min</div>
+                <div class="pop-title">Anemia / Dr. Genta Dedej: Mjekimi intravenoz në aneminë ferriprive në Klinikën Vera-Virhov</div>
+                
               </div>
             </a>
           </div>
         </div>
 
-        <div class="sidebar-block rw rw-d1">
-          <h4>Kategoritë</h4>
-          <div class="cat-list">
-            <button class="cat-pill active" onclick="filterArticles('të gjitha', null)">Të gjitha <span class="cat-count">10</span></button>
-            <button class="cat-pill" onclick="filterArticles('kardiologji', null)">Kardiologji <span class="cat-count">3</span></button>
-            <button class="cat-pill" onclick="filterArticles('neurologji', null)">Neurologji <span class="cat-count">1</span></button>
-            <button class="cat-pill" onclick="filterArticles('ortopedi', null)">Ortopedi <span class="cat-count">1</span></button>
-            <button class="cat-pill" onclick="filterArticles('oftalmologji', null)">Oftalmologji <span class="cat-count">1</span></button>
-            <button class="cat-pill" onclick="filterArticles('dentistri', null)">Dentistri <span class="cat-count">1</span></button>
-            <button class="cat-pill" onclick="filterArticles('pediatri', null)">Pediatri <span class="cat-count">1</span></button>
-            <button class="cat-pill" onclick="filterArticles('gjinekologji', null)">Gjinekologji <span class="cat-count">1</span></button>
-            <button class="cat-pill" onclick="filterArticles('jetese', null)">Stil Jetese <span class="cat-count">2</span></button>
-          </div>
-        </div>
+        
 
         <div class="sidebar-block rw rw-d2" style="background:#0797b0;border-color:transparent;">
           <h4 style="color:rgba(255,255,255,0.3);">Rezervo Vizitë</h4>
@@ -823,39 +663,7 @@ footer { background: #0797b0; padding: 80px 5% 40px; }
           <a href="index.html#rezervo" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:white;text-decoration:none;padding:13px 24px;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;">Rezervo Tani →</a>
         </div>
 
-        <div class="sidebar-block rw rw-d3">
-          <h4>Mjekët Autorë</h4>
-          <div style="display:flex;flex-direction:column;gap:14px;">
-            <div style="display:flex;gap:12px;align-items:center;">
-              <div style="width:40px;height:40px;border-radius:50%;background:#0797b0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,0.6);font-size:1rem;flex-shrink:0;">A</div>
-              <div>
-                <div style="font-size:0.85rem;font-weight:500;color:var(--ink);">Dr. Artan Hoxha</div>
-                <div style="font-size:0.72rem;color:var(--muted);">Kardiolog · 3 artikuj</div>
-              </div>
-            </div>
-            <div style="display:flex;gap:12px;align-items:center;">
-              <div style="width:40px;height:40px;border-radius:50%;background:#1a3d20;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,0.6);font-size:1rem;flex-shrink:0;">G</div>
-              <div>
-                <div style="font-size:0.85rem;font-weight:500;color:var(--ink);">Dr. Genta Dedej</div>
-                <div style="font-size:0.72rem;color:var(--muted);">Drejtuese · 2 artikuj</div>
-              </div>
-            </div>
-            <div style="display:flex;gap:12px;align-items:center;">
-              <div style="width:40px;height:40px;border-radius:50%;background:#2a0a4a;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,0.6);font-size:1rem;flex-shrink:0;">M</div>
-              <div>
-                <div style="font-size:0.85rem;font-weight:500;color:var(--ink);">Dr. Moza Keta</div>
-                <div style="font-size:0.72rem;color:var(--muted);">Gjinekologe · 1 artikull</div>
-              </div>
-            </div>
-            <div style="display:flex;gap:12px;align-items:center;">
-              <div style="width:40px;height:40px;border-radius:50%;background:#4a2a00;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,0.6);font-size:1rem;flex-shrink:0;">E</div>
-              <div>
-                <div style="font-size:0.85rem;font-weight:500;color:var(--ink);">Dr. Edi Tushe</div>
-                <div style="font-size:0.72rem;color:var(--muted);">Pediatër · 1 artikull</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
       </aside>
 
@@ -878,24 +686,19 @@ footer { background: #0797b0; padding: 80px 5% 40px; }
         <a class="soc" href="#" aria-label="YouTube">▶</a>
       </div>
     </div>
-    <div class="footer-col">
+        <div class="footer-col">
       <h5>Shërbimet</h5>
       <ul>
-        <li><a href="sherbimi.html#kardiologji">Kardiologji</a></li>
-        <li><a href="sherbimi.html#neurologji">Neurologji</a></li>
-        <li><a href="sherbimi.html#ortopedi">Ortopedi</a></li>
-        <li><a href="sherbimi.html#oftalmologji">Oftalmologji</a></li>
-        <li><a href="sherbimi.html#dentistri">Dentistri</a></li>
-        <li><a href="sherbimi.html#checkup">Check-Up Ekzekutiv</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Klinika</h5>
-      <ul>
-        <li><a href="index.html#rreth">Filozofia Jonë</a></li>
-        <li><a href="stafi.html">Stafi Mjekësor</a></li>
-        <li><a href="blog.html">Blog & Edukim</a></li>
-        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><a href="sherbimi.html">Analiza Laboratorike</a></li>
+        <li><a href="sherbimi.html">Ekografi</a></li>
+        <li><a href="sherbimi.html">Encefalograme (EEG)</a></li>
+        <li><a href="sherbimi.html">Kujdes Fëmijë &amp; të Rritur</a></li>
+        <li><a href="sherbimi.html">Monitorim Parametrave</a></li>
+        <li><a href="sherbimi.html">Konsulta me Specialistë</a></li>
+        <li><a href="sherbimi.html">Fizioterapi</a></li>
+        <li><a href="sherbimi.html">Logopedi</a></li>
+        <li><a href="sherbimi.html">Shërbim Infermieristik</a></li>
+        <li><a href="sherbimi.html">Haloterapi</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -903,8 +706,6 @@ footer { background: #0797b0; padding: 80px 5% 40px; }
       <ul>
         <li><a href="index.html#rezervo">Rezervo Vizitë</a></li>
         <li><a href="politika-e-privatesise.html">Politika e Privatësisë</a></li>
-        <li><a href="#">Cookie Policy</a></li>
-        <li><a href="#">GDPR</a></li>
       </ul>
     </div>
   </div>
@@ -926,13 +727,6 @@ footer { background: #0797b0; padding: 80px 5% 40px; }
   <span class="wa-text">Na shkruani</span>
 </a>
 
-<!-- GDPR -->
-<div class="gdpr" id="gdpr">
-  <span>Përdorim cookies esenciale dhe analitike për të përmirësuar përvojën tuaj. <a href="politika-e-privatesise.html">Politika e Cookies.</a></span>
-  <div class="gdpr-btns">
-    <button class="gdpr-acc" onclick="acceptGdpr()">Pranoj të gjitha</button>
-    <button class="gdpr-dec" onclick="acceptGdpr()">Vetëm esenciale</button>
-  </div>
 </div>
 
 <script>
@@ -991,13 +785,6 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 rws.forEach(r => obs.observe(r));
 
-// GDPR
-function acceptGdpr() {
-  document.getElementById('gdpr').classList.add('hidden');
-  sessionStorage.setItem('gdpr', '1');
-}
-if (sessionStorage.getItem('gdpr')) document.getElementById('gdpr').classList.add('hidden');
-
 // FILTER
 function filterArticles(cat, btnEl) {
   // Update filter bar buttons
@@ -1018,15 +805,6 @@ function filterArticles(cat, btnEl) {
   });
 }
 
-// NEWSLETTER
-document.querySelector('.nl-btn').addEventListener('click', () => {
-  const inp = document.querySelector('.nl-input');
-  if (!inp.value.includes('@')) { inp.style.borderColor = '#e74c3c'; return; }
-  inp.style.borderColor = '';
-  inp.value = '';
-  inp.placeholder = 'Faleminderit! Do merrni emailin e parë së shpejti.';
-  setTimeout(() => { inp.placeholder = 'emaili@juaj.al'; }, 4000);
-});
 </script>
 </body>
 </html>
