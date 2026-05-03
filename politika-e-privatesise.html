@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="LOGO.png">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politika e Privatësisë — Klinika Vera Virhov</title>
 <meta name="description" content="Politika e Privatësisë së Klinikës Vera Virhov. Mësoni si i mbrojmë dhe i përdorim të dhënat tuaja personale në përputhje me GDPR.">
@@ -455,33 +457,7 @@ footer {
   .pp-hero h1 { font-size: 2.4rem; }
 }
 
-/* ─── GDPR BANNER ─── */
-.gdpr {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
-  background: var(--cobalt);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 20px 5%;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  font-size: 0.8rem; color: rgba(255,255,255,0.45);
-  transition: transform 0.4s var(--ease);
-}
-.gdpr.hidden { transform: translateY(100%); }
-.gdpr-btns { display: flex; gap: 12px; flex-shrink: 0; }
-.gdpr-acc {
-  background: var(--gold); border: none; color: white;
-  padding: 9px 20px; font-size: 0.75rem; font-weight: 600;
-  letter-spacing: 1px; text-transform: uppercase;
-  font-family: 'Jost', sans-serif; cursor: pointer; border-radius: 1px;
-  transition: background 0.2s;
-}
-.gdpr-acc:hover { background: var(--gold-l); }
-.gdpr-dec {
-  background: transparent; border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.5); padding: 9px 20px;
-  font-size: 0.75rem; font-family: 'Jost', sans-serif;
-  cursor: pointer; border-radius: 1px; transition: border-color 0.2s;
-}
-.gdpr-dec:hover { border-color: rgba(255,255,255,0.4); }
+
 </style>
 </head>
 <body>
@@ -499,8 +475,9 @@ footer {
       <span class="logo-sub">Tiranë</span>
     </a>
     <ul class="nav-menu">
-      <li><a href="index.html#sherbimet">Shërbimet</a></li>
-      <li><a href="index.html#stafi">Stafi</a></li>
+      <li><a href="sherbimi.html">Shërbimet</a></li>
+      <li><a href="stafi.html">Stafi</a></li>
+      <li><a href="blog.html">Blog</a></li>
       <li><a href="index.html#testimoniale">Testimoniale</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
     </ul>
@@ -541,7 +518,6 @@ footer {
     <a class="toc-item" href="#shperndarja"><span class="toc-num">iv.</span> Shpërndarja</a>
     <a class="toc-item" href="#ruajtja"><span class="toc-num">v.</span> Ruajtja</a>
     <a class="toc-item" href="#te-drejtat"><span class="toc-num">vi.</span> Të drejtat</a>
-    <a class="toc-item" href="#cookies"><span class="toc-num">vii.</span> Cookies</a>
     <a class="toc-item" href="#siguria"><span class="toc-num">viii.</span> Siguria</a>
     <a class="toc-item" href="#ndryshimet"><span class="toc-num">ix.</span> Ndryshimet</a>
     <a class="toc-item" href="#kontakt"><span class="toc-num">x.</span> Kontakt</a>
@@ -561,7 +537,6 @@ footer {
       <li><a href="#shperndarja"><span class="s-num">iv.</span> Shpërndarja e të dhënave</a></li>
       <li><a href="#ruajtja"><span class="s-num">v.</span> Ruajtja e të dhënave</a></li>
       <li><a href="#te-drejtat"><span class="s-num">vi.</span> Të drejtat e përdoruesit</a></li>
-      <li><a href="#cookies"><span class="s-num">vii.</span> Cookies</a></li>
       <li><a href="#siguria"><span class="s-num">viii.</span> Siguria e të dhënave</a></li>
       <li><a href="#ndryshimet"><span class="s-num">ix.</span> Ndryshimet në politikë</a></li>
       <li><a href="#kontakt-pp"><span class="s-num">x.</span> Kontakt</a></li>
@@ -835,53 +810,10 @@ footer {
       </div>
     </section>
 
-    <!-- 7. COOKIES -->
-    <section class="pp-section rw" id="cookies">
-      <div class="section-header">
-        <span class="section-n">07</span>
-        <h2 class="section-h">Cookies dhe <em>teknologjitë e gjurmimit</em></h2>
-      </div>
-
-      <p class="pp-p">
-        Faqja jonë e internetit përdor cookies dhe teknologji të ngjashme për të siguruar funksionimin e saj, për të analizuar trafikun dhe për të përmirësuar përvojën tuaj si vizitor.
-      </p>
-
-      <ul class="pp-list">
-        <li>
-          <span class="li-dot"></span>
-          <div>
-            <strong>Cookies esenciale</strong> — Të domosdoshme për funksionimin bazë të faqes (p.sh. sesioni i formularit të rezervimit). Nuk kërkojnë pëlqim.
-          </div>
-        </li>
-        <li>
-          <span class="li-dot"></span>
-          <div>
-            <strong>Cookies analitike</strong> — Na ndihmojnë të kuptojmë si e përdorin vizitorët faqen tonë (p.sh. Google Analytics). Aktivizohen vetëm me pëlqimin tuaj.
-          </div>
-        </li>
-        <li>
-          <span class="li-dot"></span>
-          <div>
-            <strong>Cookies funksionale</strong> — Kujtojnë preferencat tuaja (p.sh. gjuha, zona juaj) për të personalizuar përvojën. Aktivizohen me pëlqimin tuaj.
-          </div>
-        </li>
-        <li>
-          <span class="li-dot"></span>
-          <div>
-            <strong>Cookies marketingu</strong> — Përdoren për reklama të personalizuara. Ne aktualisht <strong>nuk i përdorim</strong> cookies marketingu në faqen tonë.
-          </div>
-        </li>
-      </ul>
-
-      <p class="pp-p">
-        Mund të menaxhoni preferencat tuaja të cookies në çdo moment nëpërmjet pandelit të cookies që shfaqet në vizitën tuaj të parë, ose nëpërmjet cilësimeve të shfletuesit tuaj. Vini re se çaktivizimi i cookies esenciale mund të ndikojë negativisht në funksionimin e faqes.
-      </p>
-    </section>
-
     <!-- 8. SIGURIA -->
     <section class="pp-section rw" id="siguria">
       <div class="section-header">
-        <span class="section-n">08</span>
+        <span class="section-n">07</span>
         <h2 class="section-h">Siguria e <em>të dhënave</em></h2>
       </div>
 
@@ -909,7 +841,7 @@ footer {
     <!-- 9. NDRYSHIMET -->
     <section class="pp-section rw" id="ndryshimet">
       <div class="section-header">
-        <span class="section-n">09</span>
+        <span class="section-n">08</span>
         <h2 class="section-h">Ndryshimet në <em>këtë politikë</em></h2>
       </div>
 
@@ -927,7 +859,7 @@ footer {
     <!-- 10. KONTAKT -->
     <section class="pp-section rw" id="kontakt-pp">
       <div class="section-header">
-        <span class="section-n">10</span>
+        <span class="section-n">09</span>
         <h2 class="section-h">Na <em>kontaktoni</em></h2>
       </div>
 
@@ -958,7 +890,7 @@ footer {
             </tr>
             <tr>
               <td class="td-label">🕐 Orari</td>
-              <td>E Hënë – E Premte: 08:00 – 18:00 · E Shtunë: 09:00 – 13:00</td>
+              <td>E Hënë – E Shtunë: 08:00 – 20:00 · E Dielë: Pushim</td>
             </tr>
             <tr>
               <td class="td-label">⚖️ Autoriteti mbikëqyrës</td>
@@ -983,23 +915,19 @@ footer {
       <div class="footer-brand-word"><img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:48px;width:auto;display:block;"></div>
       <p class="footer-desc">Klinikë private me standarde të larta, e dedikuar shëndetit dhe mirëqenies tuaj që nga viti 2009. Rruga "Islam Alla", Tiranë.</p>
     </div>
-    <div class="footer-col">
+        <div class="footer-col">
       <h5>Shërbimet</h5>
       <ul>
-        <li><a href="index.html#sherbimet">Laboratori i Analizave</a></li>
-        <li><a href="index.html#sherbimet">Gjenetikë</a></li>
-        <li><a href="index.html#sherbimet">Pediatri</a></li>
-        <li><a href="index.html#sherbimet">Ekografi</a></li>
-        <li><a href="index.html#sherbimet">Gjinekologji</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Klinika</h5>
-      <ul>
-        <li><a href="index.html#rreth">Filozofia Jonë</a></li>
-        <li><a href="index.html#stafi">Stafi Mjekësor</a></li>
-        <li><a href="index.html#rezervo">Rezervo Vizitë</a></li>
-        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><a href="sherbimi.html">Analiza Laboratorike</a></li>
+        <li><a href="sherbimi.html">Ekografi</a></li>
+        <li><a href="sherbimi.html">Encefalograme (EEG)</a></li>
+        <li><a href="sherbimi.html">Kujdes Fëmijë &amp; të Rritur</a></li>
+        <li><a href="sherbimi.html">Monitorim Parametrave</a></li>
+        <li><a href="sherbimi.html">Konsulta me Specialistë</a></li>
+        <li><a href="sherbimi.html">Fizioterapi</a></li>
+        <li><a href="sherbimi.html">Logopedi</a></li>
+        <li><a href="sherbimi.html">Shërbim Infermieristik</a></li>
+        <li><a href="sherbimi.html">Haloterapi</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1007,8 +935,6 @@ footer {
       <ul>
         <li><a href="#">Politika e Privatësisë</a></li>
         <li><a href="#">Kushtet e Shërbimit</a></li>
-        <li><a href="#">Cookie Policy</a></li>
-        <li><a href="#">GDPR</a></li>
       </ul>
     </div>
   </div>
@@ -1022,13 +948,6 @@ footer {
   </div>
 </footer>
 
-<!-- GDPR -->
-<div class="gdpr" id="gdpr">
-  <span>Përdorim cookies esenciale dhe analitike për të përmirësuar përvojën tuaj. <a href="#" style="color:var(--gold-l);">Politika e Cookies.</a></span>
-  <div class="gdpr-btns">
-    <button class="gdpr-acc" onclick="acceptGdpr()">Pranoj të gjitha</button>
-    <button class="gdpr-dec" onclick="acceptGdpr()">Vetëm esenciale</button>
-  </div>
 </div>
 
 <script>
@@ -1076,13 +995,6 @@ window.addEventListener('scroll', () => {
     a.classList.toggle('active', a.getAttribute('href') === '#' + current);
   });
 }, { passive: true });
-
-// GDPR
-function acceptGdpr() {
-  document.getElementById('gdpr').classList.add('hidden');
-  sessionStorage.setItem('gdpr','1');
-}
-if (sessionStorage.getItem('gdpr')) document.getElementById('gdpr').classList.add('hidden');
 
 // HAMBURGER
 document.getElementById('ham').addEventListener('click', () => {

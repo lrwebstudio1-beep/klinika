@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="LOGO.png">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sherbimet - Klinika Vera Virhov</title>
 <meta name="description" content="Sherbimet mjekesore te Klinikes Vera Virhov: analiza, ekografi, EEG, fizioterapi, logopedi, haloterapi dhe me shume.">
@@ -88,6 +90,21 @@ nav{position:fixed;inset:0 0 auto 0;z-index:500;height:76px;display:flex;align-i
 .tab-panel-features li{display:flex;align-items:flex-start;gap:14px;font-size:.88rem;line-height:1.7;color:var(--slate);}
 .tab-panel-features li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:8px;}
 
+
+/* INTRO PARAGRAPH */
+.services-intro{max-width:1260px;margin:0 auto;padding:72px 5% 0;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;}
+.services-intro-left{}
+.services-intro-left .si-label{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:500;display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.services-intro-left .si-label::before{content:'';width:20px;height:1px;background:var(--teal);}
+.services-intro-left h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3vw,2.8rem);font-weight:400;color:var(--ink);line-height:1.15;letter-spacing:-.02em;}
+.services-intro-left h2 em{font-style:italic;color:var(--teal);}
+.services-intro-right{}
+.services-intro-right p{font-size:.97rem;line-height:1.95;color:var(--muted);font-weight:300;margin-bottom:20px;}
+.services-intro-right p:last-child{margin-bottom:0;}
+.services-intro-right strong{color:var(--ink);font-weight:500;}
+@media(max-width:900px){
+  .services-intro{grid-template-columns:1fr;gap:32px;padding:48px 5% 0;}
+}
 @media(max-width:900px){
   .tab-btn{padding:14px 18px;font-size:.7rem;}
   .tab-panel.active{grid-template-columns:1fr;}
@@ -215,7 +232,7 @@ footer{background:#0797b0;padding:80px 5% 40px;}
         <div class="tab-panel-left">
           <div class="tab-panel-eyebrow"><span></span><span>Sherbim 01</span></div>
           <h2>Analiza <em>Laboratorike</em></h2>
-          <p class="tab-panel-desc">Analiza te sakta dhe te avancuara: hemogram i plote, biokimi, hormone, markera tumorale, vitamina dhe shume te tjera. Rezultate brenda 24 oreve me raporte te detajuara dixhitale.</p>
+          <p class="tab-panel-desc">Analizat laboratorike të avancuara përbejnë gurin themeltar të çdo diagnoze të saktë. Çdo rezultat interpretohet me përgjegjësi të plotë profesionale, sepse për ne një analizë nuk është thjesht një raport — është një orientim klinik që ndikon drejtpërdrejt në vendimmarrjen mjekësore.</p>
           <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
         </div>
         <div class="tab-panel-right">
@@ -236,7 +253,7 @@ footer{background:#0797b0;padding:80px 5% 40px;}
         <div class="tab-panel-left">
           <div class="tab-panel-eyebrow"><span></span><span>Sherbim 02</span></div>
           <h2><em>Ekografi</em></h2>
-          <p class="tab-panel-desc">Ekografi abdominale, pelvike, tiroideje dhe vaskulare me pajisje te gjenerates se re. Imazhe me rezolucion te larte dhe interpretim i menjehershem nga specialisti.</p>
+          <p class="tab-panel-desc">Klinika ofron ekografi diagnostike që mundeson vlerësim të detajuar dhe të integruar të pacientit. Pajisje të gjenerates së fundit, shërbyer nga specialistë të certifikuar për imazhe të qarta dhe interpretim të menjehërshem klinik.</p>
           <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
         </div>
         <div class="tab-panel-right">
@@ -256,7 +273,7 @@ footer{background:#0797b0;padding:80px 5% 40px;}
         <div class="tab-panel-left">
           <div class="tab-panel-eyebrow"><span></span><span>Sherbim 03</span></div>
           <h2>Encefalograme <em>(EEG)</em></h2>
-          <p class="tab-panel-desc">Regjistrimi dixhital i aktivitetit elektrik te trurit per diagnozim te epilepsise, cregullimeve te gjumit dhe semundjeve neurologjike. Procedura e padhemshmeshme dhe e shpejte.</p>
+          <p class="tab-panel-desc">Encefalogramet (EEG) mundesonë vlerësim të detajuar dhe të integruar të pacientit në fushen neurologjike. Regjistrimi dixhital i aktivitetit elektrik të trurit kryhet sipas protokolleve më të reja shkencore, si pjesë e një qasje diagnostike të plotë.</p>
           <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
         </div>
         <div class="tab-panel-right">
@@ -276,7 +293,7 @@ footer{background:#0797b0;padding:80px 5% 40px;}
         <div class="tab-panel-left">
           <div class="tab-panel-eyebrow"><span></span><span>Sherbim 04</span></div>
           <h2>Kujdes per <em>Femije &amp; te Rritur</em></h2>
-          <p class="tab-panel-desc">Pediatri, mjekesi e pergjithshme dhe sherbime specializuara per cdo moshe. Nje ekip i dedikuar per te gjithe anetaret e familjes, nga lindja deri ne moshe te plote.</p>
+          <p class="tab-panel-desc">Ekipi ynë multidisiplinar përfshin profesionistë të kualifikuar në pediatri, gjinekologji dhe mjekësi të përgjithshme. Çdo pacient trajtohet në mënyrë të plotë dhe jo të fragmentuar — nga fëmijëria deri në moshë të plotë.</p>
           <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
         </div>
         <div class="tab-panel-right">
@@ -296,7 +313,7 @@ footer{background:#0797b0;padding:80px 5% 40px;}
         <div class="tab-panel-left">
           <div class="tab-panel-eyebrow"><span></span><span>Sherbim 05</span></div>
           <h2>Monitorim <em>Parametrave Jetike</em></h2>
-          <p class="tab-panel-desc">Matje dhe monitorim i presionit te gjakut, pulsit, saturimit te oksigjenit dhe EKG. Holter 24h per vleresim te plote kardiovaskular ne kushte jete reale.</p>
+          <p class="tab-panel-desc">Monitorimi i parametrave jetikë dhe ndjekja sistematike e gjendjeh shëndëtsore janë pjesë e një filozofie që synon <strong>parandalimin, jo vetëm trajtimin</strong>. EKG, Holter 24h dhe ABPM kryhen me përgjegjsi të plotë klinike.</p>
           <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
         </div>
         <div class="tab-panel-right">
@@ -316,7 +333,7 @@ footer{background:#0797b0;padding:80px 5% 40px;}
         <div class="tab-panel-left">
           <div class="tab-panel-eyebrow"><span></span><span>Sherbim 06</span></div>
           <h2>Konsulta me <em>Specialiste</em></h2>
-          <p class="tab-panel-desc">Konsulte me mjeke specialiste te fushave te ndryshme pa pritje te gjata. Konfirmim vizite brenda 30 minutave dhe raport dixhital pas cdo konsulte.</p>
+          <p class="tab-panel-desc">Ekipi ynë multidisiplinar përfshin profesionistë të kualifikuar në fusha kyeçe: kirurgji vaskulare, psikiatri, neurologji, alergologji dhe dermatologji. Çdo specialist kontribuon në një qasje të koordinuar ku pacienti trajtohet në mënyrë të plotë.</p>
           <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
         </div>
         <div class="tab-panel-right">
@@ -337,7 +354,7 @@ footer{background:#0797b0;padding:80px 5% 40px;}
         <div class="tab-panel-left">
           <div class="tab-panel-eyebrow"><span></span><span>Sherbim 07</span></div>
           <h2><em>Fizioterapi</em></h2>
-          <p class="tab-panel-desc">Program i personalizuar rehabilitimi muskuloskeletal, post-kirurgjik dhe neurologjik me fizioterapiste te certifikuar. Pajisje moderne dhe protokolle te bazuara ne evidence.</p>
+          <p class="tab-panel-desc">Sherbimi i fizioterapisë plotëson ciklin e kujdesit duke adresuar nevojat funksionale dhe rehabilituese të pacientëve. Program i personalizuar me fizioterapisë të certifikuar, pajisje moderne dhe protokolle të bazuara në evidençën më të reëb shkencore.</p>
           <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
         </div>
         <div class="tab-panel-right">
@@ -358,7 +375,7 @@ footer{background:#0797b0;padding:80px 5% 40px;}
         <div class="tab-panel-left">
           <div class="tab-panel-eyebrow"><span></span><span>Sherbim 08</span></div>
           <h2><em>Logopedi</em></h2>
-          <p class="tab-panel-desc">Vleresim dhe terapi e cregullimeve te te folurit, gjuhes dhe gelltitjes tek femijte dhe te rriturit. Seanca individuale te personalizuara me logopediste te specializuar.</p>
+          <p class="tab-panel-desc">Sherbimi i logopedisë plotëson ciklin e kujdesit duke adresuar nevojat komunikuese dhe rehabilituese të pacientëve. Seança individuale të personalizuara me logopedistë të specializuar për fëmijë dhe të rritur.</p>
           <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
         </div>
         <div class="tab-panel-right">
@@ -378,7 +395,7 @@ footer{background:#0797b0;padding:80px 5% 40px;}
         <div class="tab-panel-left">
           <div class="tab-panel-eyebrow"><span></span><span>Sherbim 09</span></div>
           <h2>Sherbim <em>Infermieristik</em></h2>
-          <p class="tab-panel-desc">Kujdes infermieristik profesional ne ambiente te sterilizuara: injeksione, infuzione, matje dhe monitorim i herepashereshem. Disponueshem gjate gjithe orarit te klinikes.</p>
+          <p class="tab-panel-desc">Kujdesi infermieristik plotëson ciklin e shërbimeve të klinikës, duke adresuar nevojat e përditshme funksionale dhe përcjelljesë së pacientëve. Profesionalizm, saktesi dhe pjesë e pandashme e filozofisë sonë të kujdesit të plotë.</p>
           <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
         </div>
         <div class="tab-panel-right">
@@ -398,7 +415,7 @@ footer{background:#0797b0;padding:80px 5% 40px;}
         <div class="tab-panel-left">
           <div class="tab-panel-eyebrow"><span></span><span>Sherbim 10</span></div>
           <h2><em>Haloterapi</em></h2>
-          <p class="tab-panel-desc">Terapi me ajer te pasur me kripe natyrore per trajtimin e semundjeve respiratore, alergive dhe stresit kronik. Ambient i qete dhe relaksues per rezultate optimale.</p>
+          <p class="tab-panel-desc">Haloterapia reflekton angazhimin tonë për të integruar metoda mbeshtetese që ndikojnë pozitivisht në mirëqenien respiratore dhe relaksimin e organizmit. Një dimension unik i klinikës që shkon pëtej mjekësisë konvencionale.</p>
           <a href="index.html#rezervo" class="tab-panel-cta">Rezervo Viziten &#8594;</a>
         </div>
         <div class="tab-panel-right">
@@ -444,18 +461,14 @@ footer{background:#0797b0;padding:80px 5% 40px;}
       <ul>
         <li><a href="sherbimi.html">Analiza Laboratorike</a></li>
         <li><a href="sherbimi.html">Ekografi</a></li>
-        <li><a href="sherbimi.html">EEG</a></li>
+        <li><a href="sherbimi.html">Encefalograme (EEG)</a></li>
+        <li><a href="sherbimi.html">Kujdes Fëmijë &amp; të Rritur</a></li>
+        <li><a href="sherbimi.html">Monitorim Parametrave</a></li>
+        <li><a href="sherbimi.html">Konsulta me Specialistë</a></li>
         <li><a href="sherbimi.html">Fizioterapi</a></li>
+        <li><a href="sherbimi.html">Logopedi</a></li>
+        <li><a href="sherbimi.html">Shërbim Infermieristik</a></li>
         <li><a href="sherbimi.html">Haloterapi</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Klinika</h5>
-      <ul>
-        <li><a href="index.html#rreth">Filozofia Jone</a></li>
-        <li><a href="stafi.html">Stafi Mjekesor</a></li>
-        <li><a href="blog.html">Blog dhe Edukim</a></li>
-        <li><a href="index.html#kontakt">Kontakt</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -463,8 +476,6 @@ footer{background:#0797b0;padding:80px 5% 40px;}
       <ul>
         <li><a href="index.html#rezervo">Rezervo Vizite</a></li>
         <li><a href="politika-e-privatesise.html">Politika e Privatesise</a></li>
-        <li><a href="#">Cookie Policy</a></li>
-        <li><a href="#">GDPR</a></li>
       </ul>
     </div>
   </div>
