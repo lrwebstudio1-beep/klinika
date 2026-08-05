@@ -2,7 +2,7 @@
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="LOGO.png">
+<link rel="icon" type="image/png" href="favicon.png">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Klinika Vera Virhov — Shëndet me Ekselencë</title>
@@ -23,6 +23,7 @@
 }
 
 :root {
+  --accent: #2e3092;   /* blu per tekstet e vogla mbi sfond te celet */
   --aceh-bold: 0.3px;  /* trashesia e teksteve te vogla Aceh */
   --ink:      #0e1117;
   --ink-mid:  #1c2333;
@@ -32,8 +33,8 @@
   --sky:      #4c82c4;
   --cream:    #f7f4ef;
   --warm:     #ede9e1;
-  --gold:     #b8965a;
-  --gold-l:   #d4b07a;
+  --gold:     #2e3092;
+  --gold-l:   #3f44bd;
   --white:    #ffffff;
   --muted:    #626873;
   --border:   rgba(14,17,23,0.08);
@@ -41,6 +42,7 @@
   --ease:     cubic-bezier(0.4,0,0.2,1);
   --ease-out: cubic-bezier(0,0,0.2,1);
 }
+.hero, .hero-left, .hero-photo, .marquee-strip, .about-bg, .doc-silhouette, .booking-bg, footer, .drawer { --accent: #ffffff; }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -109,11 +111,11 @@ nav.scrolled {
 .logo-word em { font-style: italic; color: var(--cobalt); }
 .logo-sep {
   width: 1px; height: 22px;
-  background: #d4b07a; margin: 0 10px; opacity: 0.6;
+  background: #3f44bd; margin: 0 10px; opacity: 0.6;
 }
 .logo-sub {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 2.5px;
-  text-transform: uppercase; color: #d4b07a;
+  text-transform: uppercase; color: var(--accent);
 }
 .nav-menu {
   display: flex; align-items: center; gap: 36px; list-style: none;
@@ -171,11 +173,11 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   margin-bottom: 52px;
 }
 .hero-tag-line {
-  width: 32px; height: 1px; background: #d4b07a; flex-shrink: 0;
+  width: 32px; height: 1px; background: #3f44bd; flex-shrink: 0;
 }
 .hero-tag-text {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.79rem; font-weight: 400; letter-spacing: 3px;
-  text-transform: uppercase; color: #d4b07a;
+  text-transform: uppercase; color: var(--accent);
 }
 .hero-h1 {
   font-family: 'Playfair Display', serif;
@@ -184,7 +186,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   color: var(--white); margin-bottom: 36px;
   letter-spacing: -0.02em;
 }
-.hero-h1 em { font-style: italic; color: var(--gold-l); }
+.hero-h1 em { font-style: italic; color: var(--accent); }
 .hero-desc {
   font-size: 1.07rem; line-height: 1.85;
   color: rgba(255,255,255,0.75); max-width: 400px;
@@ -229,7 +231,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   font-size: 2.8rem; font-weight: 400; line-height: 1;
   color: var(--white); letter-spacing: -0.03em;
 }
-.metric-n sup { font-size: 1.2rem; vertical-align: super; color: var(--gold); }
+.metric-n sup { font-size: 1.2rem; vertical-align: super; color: var(--accent); }
 .metric-l {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.79rem; letter-spacing: 1.5px; text-transform: uppercase;
   color: rgba(255,255,255,0.66); margin-top: 4px;
@@ -274,7 +276,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 }
 .hero-ic-label {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 10px;
+  color: var(--accent); margin-bottom: 10px;
 }
 .hero-ic-val {
   font-family: 'Playfair Display', serif;
@@ -341,7 +343,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 .eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
 .eyebrow-text {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.77rem; font-weight: 500; letter-spacing: 3px;
-  text-transform: uppercase; color: #d4b07a;
+  text-transform: uppercase; color: var(--accent);
 }
 .h2 {
   font-family: 'Playfair Display', serif;
@@ -351,7 +353,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 }
 .h2 em { font-style: italic; color: var(--cobalt); }
 .h2-w { color: var(--white); }
-.h2-w em { color: var(--gold-l); }
+.h2-w em { color: var(--accent); }
 .body-txt {
   font-size: 1.04rem; line-height: 1.85; color: var(--muted);
   font-weight: 300; max-width: 560px;
@@ -395,11 +397,11 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 .svc-content { position: relative; z-index: 1; }
 .svc-num {
   font-family: 'Playfair Display', serif;
-  font-size: 0.79rem; color: var(--gold); font-style: italic;
+  font-size: 0.79rem; color: var(--accent); font-style: italic;
   margin-bottom: 14px; display: block;
   transition: color 0.3s;
 }
-.svc:hover .svc-num { color: var(--gold-l); }
+.svc:hover .svc-num { color: var(--accent); }
 .svc-icon { font-size: 22px; margin-bottom: 12px; display: block; }
 .svc h3 {
   font-family: 'Playfair Display', serif;
@@ -420,7 +422,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   text-transform: uppercase; color: var(--cobalt);
   margin-top: 14px; transition: color 0.3s, gap 0.2s;
 }
-.svc:hover .svc-arr { color: var(--gold-l); gap: 10px; }
+.svc:hover .svc-arr { color: var(--accent); gap: 10px; }
 @media(max-width:1100px){ .services-grid{ grid-template-columns: repeat(4,1fr); } .svc:nth-child(5n){ border-right:1px solid var(--border); } .svc:nth-child(4n){ border-right:none; } }
 @media(max-width:700px){ .services-grid{ grid-template-columns: repeat(2,1fr); } }
 
@@ -460,7 +462,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   font-size: 3.6rem; font-weight: 400; line-height: 1;
   color: var(--white); letter-spacing: -0.04em;
 }
-.about-stat-n span { color: var(--gold); }
+.about-stat-n span { color: var(--accent); }
 .about-stat-l {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.83rem; letter-spacing: 1.5px; text-transform: uppercase;
   color: rgba(255,255,255,0.62); margin-top: 8px;
@@ -472,7 +474,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   display: flex; align-items: center; gap: 12px;
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; color: rgba(255,255,255,0.7);
 }
-.cert-check { color: var(--gold); -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; }
+.cert-check { color: var(--accent); -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; }
 
 /* ─── DOCTORS ─── */
 .doctors-bg { background: var(--cream); }
@@ -659,7 +661,7 @@ select.f-input option { background: #1c2333; }
 .blog-small:hover { background: var(--warm); }
 .blog-cat {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold); font-weight: 500; margin-bottom: 14px;
+  color: var(--accent); font-weight: 500; margin-bottom: 14px;
   display: flex; align-items: center; gap: 8px;
 }
 .blog-cat::before { content: ''; width: 16px; height: 1px; background: var(--gold); }
@@ -766,7 +768,7 @@ footer {
   font-size: 1.35rem; font-weight: 500;
   color: var(--white); letter-spacing: -0.01em; margin-bottom: 16px;
 }
-.footer-brand-word em { font-style: italic; color: var(--gold); }
+.footer-brand-word em { font-style: italic; color: var(--accent); }
 .footer-desc {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.91rem; line-height: 1.8;
   color: rgba(255,255,255,0.62); font-weight: 400; max-width: 300px;
@@ -780,7 +782,7 @@ footer {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.83rem; color: rgba(255,255,255,0.7);
   text-decoration: none; transition: border-color 0.2s, color 0.2s;
 }
-.soc:hover { border-color: var(--gold); color: var(--gold); }
+.soc:hover { border-color: var(--gold); color: var(--accent); }
 .footer-col h5 {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
   color: rgba(255,255,255,0.6); margin-bottom: 20px; font-weight: 400;
@@ -912,7 +914,7 @@ footer {
 <nav id="nav">
   <div class="nav-inner">
     <a href="#" class="logo">
-      <img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:44px;width:auto;display:block;">
+      <img src="logo-virhov.png" alt="Klinika Vera Virhov" style="height:30px;width:auto;display:block;">
       <span class="logo-sep"></span>
       <span class="logo-sub">Tiranë</span>
     </a>
@@ -974,7 +976,7 @@ footer {
   <div class="hero-right">
     <div class="hero-photo">
       <div class="hero-photo-overlay"></div>
-      <img src="LOGO.png" alt="Logo" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:320px;opacity:0.15;pointer-events:none;user-select:none;">
+      <img src="logo-virhov.png" alt="" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:380px;opacity:0.15;pointer-events:none;user-select:none;">
     </div>
     <div class="hero-info-card">
       <div class="hero-ic-label">Disponueshmëria</div>
@@ -1023,7 +1025,7 @@ footer {
     <div class="services-header rw">
       <div>
         <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">Shërbimet</span></div>
-        <h2 class="h2">Kujdes i specializuar,<br><em>nën një çati</em></h2>
+        <h2 class="h2">Kujdes i specializuar<br><em>në Klinikën Virhov</em></h2>
       </div>
       <div class="services-number">10</div>
     </div>
@@ -1531,7 +1533,7 @@ footer {
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand-word"><img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:48px;width:auto;display:block;"></div>
+      <div class="footer-brand-word"><img src="logo-virhov.png" alt="Klinika Vera Virhov" style="height:36px;width:auto;display:block;"></div>
       <p class="footer-desc">Klinikë private me standarde ndërkombëtare, e dedikuar shëndetit dhe mirëqenies tuaj nga viti 2009.</p>
       <div class="socials">
         <a class="soc" href="https://www.facebook.com/Virhov/" aria-label="Facebook">f</a>
@@ -1608,7 +1610,7 @@ animCursor();
 document.querySelectorAll('a, button, .svc, .blog-feat, .blog-small').forEach(el => {
   el.addEventListener('mouseenter', () => {
     cur.style.width = '16px'; cur.style.height = '16px';
-    cur.style.background = '#b8965a';
+    cur.style.background = '#2e3092';
     curRing.style.width = '52px'; curRing.style.height = '52px';
     curRing.style.opacity = '0.5';
   });

@@ -2,7 +2,7 @@
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="LOGO.png">
+<link rel="icon" type="image/png" href="favicon.png">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politika e Privatësisë — Klinika Vera Virhov</title>
@@ -21,6 +21,7 @@
 }
 
 :root {
+  --accent: #2e3092;   /* blu per tekstet e vogla mbi sfond te celet */
   --aceh-bold: 0.3px;  /* trashesia e teksteve te vogla Aceh */
   --ink:      #0e1117;
   --ink-mid:  #1c2333;
@@ -30,8 +31,8 @@
   --sky:      #4c82c4;
   --cream:    #f7f4ef;
   --warm:     #ede9e1;
-  --gold:     #b8965a;
-  --gold-l:   #d4b07a;
+  --gold:     #2e3092;
+  --gold-l:   #3f44bd;
   --teal:     #0797b0;
   --white:    #ffffff;
   --muted:    #626873;
@@ -39,6 +40,7 @@
   --ease:     cubic-bezier(0.4,0,0.2,1);
   --ease-out: cubic-bezier(0,0,0.2,1);
 }
+.pp-hero, .toc-strip, .sidebar-contact, .pp-highlight, footer { --accent: #ffffff; }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -103,11 +105,11 @@ nav {
 .logo-word em { font-style: italic; color: var(--cobalt); }
 .logo-sep {
   width: 1px; height: 22px;
-  background: #d4b07a; margin: 0 10px; opacity: 0.6;
+  background: #3f44bd; margin: 0 10px; opacity: 0.6;
 }
 .logo-sub {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 2.5px;
-  text-transform: uppercase; color: #d4b07a;
+  text-transform: uppercase; color: var(--accent);
 }
 .nav-menu {
   display: flex; align-items: center; gap: 36px; list-style: none;
@@ -169,7 +171,7 @@ nav {
 .eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
 .eyebrow-text {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.77rem; font-weight: 500; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--gold-l);
+  text-transform: uppercase; color: var(--accent);
 }
 .pp-hero h1 {
   font-family: 'Playfair Display', serif;
@@ -178,7 +180,7 @@ nav {
   color: var(--white); letter-spacing: -0.02em;
   margin-bottom: 24px;
 }
-.pp-hero h1 em { font-style: italic; color: var(--gold-l); }
+.pp-hero h1 em { font-style: italic; color: var(--accent); }
 .pp-hero-meta {
   display: flex; align-items: center; gap: 24px;
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; color: rgba(255,255,255,0.72);
@@ -209,11 +211,11 @@ nav {
   gap: 10px;
 }
 .toc-item:first-child { border-left: 1px solid rgba(255,255,255,0.06); }
-.toc-item:hover { color: var(--gold-l); background: rgba(255,255,255,0.03); }
+.toc-item:hover { color: var(--accent); background: rgba(255,255,255,0.03); }
 .toc-num {
   font-family: 'Playfair Display', serif;
   font-style: italic; font-size: 0.88rem;
-  color: var(--gold); opacity: 0.6;
+  color: var(--accent); opacity: 0.6;
 }
 
 /* ─── MAIN LAYOUT ─── */
@@ -246,7 +248,7 @@ nav {
 }
 .sidebar-nav a:hover { color: var(--teal); }
 .sidebar-nav a.active { color: var(--ink); font-weight: 500; }
-.sidebar-nav a.active .s-num { color: var(--gold); }
+.sidebar-nav a.active .s-num { color: var(--accent); }
 .s-num {
   font-family: 'Playfair Display', serif;
   font-style: italic; font-size: 0.83rem;
@@ -280,7 +282,7 @@ nav {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; color: rgba(255,255,255,0.85);
   line-height: 1.7; font-weight: 400;
 }
-.sc-val a { color: var(--gold-l); text-decoration: none; }
+.sc-val a { color: var(--accent); text-decoration: none; }
 .sc-val a:hover { color: var(--white); }
 
 /* ─── CONTENT ─── */
@@ -422,7 +424,7 @@ footer {
   font-size: 1.3rem; font-weight: 500;
   color: var(--white); margin-bottom: 14px;
 }
-.footer-brand-word em { font-style: italic; color: var(--gold); }
+.footer-brand-word em { font-style: italic; color: var(--accent); }
 .footer-desc {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; line-height: 1.8;
   color: rgba(255,255,255,0.62); font-weight: 400; max-width: 300px;
@@ -486,7 +488,7 @@ footer {
 <nav id="nav">
   <div class="nav-inner">
     <a href="index.html" class="logo">
-      <img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:44px;width:auto;display:block;">
+      <img src="logo-virhov.png" alt="Klinika Vera Virhov" style="height:30px;width:auto;display:block;">
       <span class="logo-sep"></span>
       <span class="logo-sub">Tiranë</span>
     </a>
@@ -928,7 +930,7 @@ footer {
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand-word"><img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:48px;width:auto;display:block;"></div>
+      <div class="footer-brand-word"><img src="logo-virhov.png" alt="Klinika Vera Virhov" style="height:36px;width:auto;display:block;"></div>
       <p class="footer-desc">Klinikë private me standarde të larta, e dedikuar shëndetit dhe mirëqenies tuaj që nga viti 2009. Rruga "Islam Alla", Tiranë.</p>
     </div>
         <div class="footer-col">
@@ -982,7 +984,7 @@ animCursor();
 document.querySelectorAll('a, button').forEach(el => {
   el.addEventListener('mouseenter', () => {
     cur.style.width = '16px'; cur.style.height = '16px';
-    cur.style.background = '#b8965a';
+    cur.style.background = '#2e3092';
     curRing.style.width = '52px'; curRing.style.height = '52px';
   });
   el.addEventListener('mouseleave', () => {

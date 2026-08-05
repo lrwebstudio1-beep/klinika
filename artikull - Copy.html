@@ -2,10 +2,8 @@
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="favicon.png">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kujdesi për shëndetin është një e drejtë dhe jo privilegj! — Klinika Vera Virhov</title>
+<title>[TITULLI I ARTIKULLIT] — Klinika Vera Virhov</title>
 <meta name="description" content="[PERSHKRIMI I SHKURTER I ARTIKULLIT]">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +34,7 @@
   --ease:     cubic-bezier(0.4,0,0.2,1);
   --ease-out: cubic-bezier(0,0,0.2,1);
 }
-.drawer, .art-hero, .art-callout, .author-av, footer { --accent: #ffffff; }
+.drawer, .art-hero, .art-callout, .art-img, .author-av, .gdpr, footer { --accent: #ffffff; }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -156,14 +154,8 @@ nav {
   font-size: 1.15rem; line-height: 1.85;
   color: var(--ink); font-weight: 300;
   border-left: 3px solid #0797b0;
-  padding-left: 24px; margin-bottom: 16px;
+  padding-left: 24px; margin-bottom: 48px;
   font-style: italic;
-}
-.art-note {
-  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.79rem; color: var(--muted); font-weight: 400;
-  letter-spacing: 0.3px; line-height: 1.7;
-  border-top: 1px solid var(--border); padding-top: 14px;
-  margin-bottom: 48px;
 }
 .art-body h2 {
   font-family: 'Playfair Display', serif;
@@ -230,37 +222,14 @@ nav {
 /* IMAGE PLACEHOLDER */
 .art-img {
   width:100%; aspect-ratio:16/7;
+  background: linear-gradient(150deg, #1fa1b7 0%, #0e6070 100%);
+  display:flex; align-items:center; justify-content:center;
   margin: 40px 0; position:relative; overflow:hidden;
 }
-.art-img img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; object-position:center; display:block; background:#f0ece4; }
-.art-img img ~ .art-img-placeholder { display:none; }
+.art-img img { width:100%; height:100%; object-fit:cover; display:block; }
 .art-img-placeholder {
-  width:100%; height:100%; min-height:260px;
-  position:relative; overflow:hidden;
-  background: linear-gradient(90deg, var(--warm) 25%, #e0dbd2 50%, var(--warm) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.6s infinite;
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
+  font-size: 3rem; opacity:0.3;
 }
-@keyframes shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-.art-img-placeholder .ph-icon {
-  width:64px; height:64px; border-radius:50%;
-  background: rgba(14,17,23,0.07);
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.8rem;
-}
-.art-img-placeholder .ph-lines {
-  display:flex; flex-direction:column; align-items:center; gap:8px;
-}
-.art-img-placeholder .ph-line {
-  height:10px; border-radius:4px;
-  background: rgba(14,17,23,0.07);
-}
-.art-img-placeholder .ph-line-l { width:160px; }
-.art-img-placeholder .ph-line-s { width:100px; }
 .art-img-caption {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size:0.83rem; color:var(--muted); margin-top:-28px;
   margin-bottom:40px; font-style:italic; padding:0 4px;
@@ -359,7 +328,13 @@ nav {
 .share-btn:hover { background:#0797b0; color:white; border-color:#0797b0; }
 .share-icon { font-size:1rem; }
 
-
+/* GDPR */
+.gdpr { position:fixed; bottom:0; left:0; right:0; z-index:900; background:#0797b0; border-top:1px solid rgba(255,255,255,0.06); padding:20px 5%; display:flex; align-items:center; justify-content:space-between; gap:24px; -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size:0.88rem; color:rgba(255,255,255,0.72); backdrop-filter:blur(20px); transform:translateY(0); transition:transform 0.4s var(--ease); }
+.gdpr.hidden { transform:translateY(100%); }
+.gdpr a { color: var(--accent); text-decoration:none; }
+.gdpr-btns { display:flex; gap:10px; flex-shrink:0; }
+.gdpr-acc { background:var(--gold); color:#fff; border:none; padding:9px 22px; font-size:0.83rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; cursor:pointer; font-family:'Jost',sans-serif; }
+.gdpr-dec { background:none; color:rgba(255,255,255,0.62); border:1px solid rgba(255,255,255,0.1); padding:9px 18px; font-size:0.83rem; cursor:pointer; font-family:'Jost',sans-serif; }
 
 /* WA BTN */
 .wa-btn { position:fixed; bottom:32px; right:32px; z-index:400; display:flex; align-items:center; gap:10px; background:#128c7e; color:white; text-decoration:none; padding:12px 20px 12px 16px; border-radius:2px; -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size:0.86rem; font-weight:500; box-shadow:0 8px 32px rgba(0,0,0,0.25); transition:transform 0.2s,background 0.2s; }
@@ -424,7 +399,7 @@ footer { background:#0797b0; padding:80px 5% 40px; }
       <span class="logo-sub">Tiranë</span>
     </a>
     <ul class="nav-menu">
-      <li><a href="sherbimi.html">Shërbimet</a></li>
+      <li><a href="index.html#sherbimet">Shërbimet</a></li>
       <li><a href="stafi.html">Stafi</a></li>
       <li><a href="index.html#testimoniale">Testimoniale</a></li>
       <li><a href="blog.html" class="active">Blog</a></li>
@@ -456,20 +431,30 @@ footer { background:#0797b0; padding:80px 5% 40px; }
       <span class="breadcrumb-sep">›</span>
       <a href="blog.html">Blog</a>
       <span class="breadcrumb-sep">›</span>
-      <span class="breadcrumb-cur">Klinika mjekësore Vera & Virhov</span><!-- NDRYSHO KATEGORINE -->
+      <span class="breadcrumb-cur">Kardiologji</span><!-- NDRYSHO KATEGORINE -->
     </div>
-    <div class="art-cat">Klinika mjekësore Vera & Virhov</div><!-- NDRYSHO KATEGORINE -->
+    <div class="art-cat">Kardiologji</div><!-- NDRYSHO KATEGORINE -->
     <h1 class="art-hero-h1">
-      Klinika Vera-Virhov / Dr. Genta Dedej: Analizat inteligjente për një menopauzë të shëndetshme</em>
+      Pesë shenjat e hershme të infarktit<br>
+      që njerëzit i <em>nënvlerësojnë</em>
     </h1><!-- NDRYSHO TITULLIN -->
     <div class="art-meta-row">
       <div class="art-author">
-       
+        <div class="art-author-av">A</div><!-- NDRYSHO INICIALIN -->
         <div>
-          
+          <div class="art-author-name">Dr. Artan Hoxha</div><!-- NDRYSHO EMRIN -->
+          <div class="art-author-title">Kardiolog · Klinika Vera Virhov</div><!-- NDRYSHO SPECIALITETIN -->
         </div>
       </div>
-      
+      <div class="art-meta-sep"></div>
+      <div class="art-meta-item">
+        <strong>20 Mars 2025</strong><!-- NDRYSHO DATEN -->
+        Data e publikimit
+      </div>
+      <div class="art-meta-sep"></div>
+      <div class="art-meta-item">
+        <strong>7 min lexim</strong><!-- NDRYSHO KOHEZGJATJEN -->
+        Kohëzgjatja
       </div>
     </div>
   </div>
@@ -484,71 +469,124 @@ footer { background:#0797b0; padding:80px 5% 40px; }
     <!-- COVER IMAGE (opsionale) -->
     <div class="art-img">
       <!-- <img src="foto-artikull.jpg" alt="Pershkrimi i fotos"> -->
-      <img src="0-Copy.jpg" alt="Pershkrimi i fotos">
-            <div class="art-img-placeholder">
-        <div class="ph-icon">&#128444;</div>
-        <div class="ph-lines">
-          <div class="ph-line ph-line-l"></div>
-          <div class="ph-line ph-line-s"></div>
-        </div>
-      </div>
+      <div class="art-img-placeholder">🫀</div><!-- NDRYSHO IKONËN OSE VENDOS FOTO -->
     </div>
-    <p class="art-img-caption"></p>
+    <p class="art-img-caption">Legjendë e fotos — përshkruani imazhin këtu (opsionale)</p>
 
     <!-- HYRJA / LEAD -->
     <p class="art-lead">
-      Kujdesi për veten nuk ka moshë. Menopauza menaxhohet kur je në duar të sigurta. Diagnostikimi i hershëm dhe monitorimi i rregullt mjekësor janë çelësi për një menopauzë të shëndetshme dhe aktive.
+      Infarkti nuk fillon gjithmonë me dhimbje të forta gjoksi. Simptomat e hershme — shpesh të heshtura dhe të nënvlerësuara — mund të paraqiten ditë apo javë para ngjarjes kritike. Njohja e tyre mund të shpëtojë jetë.
     </p><!-- NDRYSHO TEKSTIN E HYRJES -->
-    
 
     <!-- TRUPI I ARTIKULLIT -->
     <div class="art-body" id="artBody">
 
-      <!-- NDRYSHO TITUJT -->
+      <h2>Pse i injorojmë shenjat e hershme?</h2><!-- NDRYSHO TITUJT -->
       <p>
-        Në Klinika Vera–VIRHOV ofrohen: analiza hormonale të personalizuara; vlerësim metabolik dhe kardiovaskular; këshillim mjekësor individual për çdo grua; ndjekje profesionale për mirëqenie afatgjatë.
-
-Menopauza nuk është fundi i shëndetit, është një fazë e re që kërkon kujdes të zgjuar.
-
-Për shëndetin mendor të gruas në menopauzë, në Vera-Virhov, Dr. Fatbardha Xhani Myslimaj ju vjen në ndihmë për ta kaluar këtë periudhë delikate me më shumë siguri dhe mirëqenie.
-
-Vaksinimi gjatë shtatzënisë, një domosdoshmëri për nënat e ardhshme. Dr. Edi Tushe në Vera-Virhov, këshillon vaksinimin, si një mbrojtje thelbësore për shëndetin e nënave dhe zhvillimin e shëndetshëm të bebit.
-
-Truri i njeriut dhe shoqëria moderne: si po ndryshon mënyra jonë e të menduarit. Dr. Meri Papajani, neurologe, analizon ndikimin në sistemin nervor dhe kujdesin që duhet të tregojmë për të. Ajo realizon konsulta neurologjike në Klinikën Vera-Virhov.
+        Shumë pacientë që vijnë pas infarktit raportojnë se kishin simptoma ditë para ngjarjes, por i atribuonin lodhjes, stresit apo moshës. Kjo është një nga arsyet kryesore pse infarkti mbetet shkaku numër një i vdekshmërisë në mbarë botën.
+      </p>
+      <p>
+        Sipas Shoqatës Amerikane të Kardiologjisë, rreth 50% e infarkteve ndodhin pa ndonjë simptomë të rëndë paraprake. Megjithatë, kur pacientët pyeten me kujdes, shumica kujtojnë shenja të vogla që i kishin anashkaluar.
       </p>
 
       <div class="art-divider"></div>
-      <div class="art-img">
-        <img src="mjeket-vera-virhov-952x620.jpg" alt="Mjeket Vera Virhov">
-        <div class="art-img-placeholder"><div class="ph-icon">&#128444;</div><div class="ph-lines"><div class="ph-line ph-line-l"></div><div class="ph-line ph-line-s"></div></div></div>
-      </div>
 
-      
+      <h2>5 shenjat që nuk duhen <em>anashkaluar</em></h2>
 
-      
+      <h3>1. Lodhja e pazakontë</h3>
       <p>
-        Klinika Mjekësore Vera – VIRHOV
-Adresa: Rruga “Islam Alla”, Tiranë
-
-Tel: 04-222 6 441   |   Cel: 0686064320 / 0682031903
-Email: vrhov@outlook.com
-
-Facebook: Dr.Genta Dedej/Dr.Edi Tushe/Klinika Vera-VIRHOV
-
-Instagram: @klinika_vera_virhov
-
-email: info@klinikavera-virhov.com
+        Ndjesia e rraskapitjes ekstreme — veçanërisht tek gratë — është një nga simptomat më të hershme dhe më të anashkaluara. Nëse ndiheni të lodhur jashtëzakonisht pas aktiviteteve normale, konsultohuni me mjekun.
       </p>
 
+      <h3>2. Gulçimi pa shkak</h3>
+      <p>
+        Vështirësia në frymëmarrje kur jeni në qetësi apo me aktivitet minimal mund të jetë shenjë se zemra po punon me vështirësi. Shpesh shoqërohet me gulçim kur shtriheni.
+      </p>
+
+      <!-- CALLOUT / THEKSIM -->
+      <div class="art-callout">
+        <p><strong>Kujdes:</strong> Nëse keni dy ose më shumë nga këto simptoma njëkohësisht, kontaktoni menjëherë shërbimin e urgjencës ose vizitoni klinikën tonë.</p>
+      </div>
+
+      <h3>3. Dhimbja ose shqetësimi në shpatull, qafë, nofull</h3>
+      <p>
+        Dhimbja e infarktit nuk është gjithmonë në gjoks. Shumë pacientë ndiejnë shqetësim në shpatullën e majtë, qafë, nofull apo madje në dhëmbë. Ky fenomen quhet "dhimbje e referuar" dhe shpjegon pse shpesh diagnostikohet gabimisht.
+      </p>
+
+      <h3>4. Djersitja e ftohtë</h3>
+      <p>
+        Djersitja e papritur dhe e ftohtë, pa shkak të dukshëm, veçanërisht kur shoqërohet me ndjesi ankthie apo presioni në gjoks, është simptomë alarmuese që kërkon vëmendjen e menjëhershme mjekësore.
+      </p>
+
+      <h3>5. Nauze dhe moti i keq i stomakut</h3>
+      <p>
+        Shumë pacientë — veçanërisht gratë — raportojnë nauze, vjellje apo dhimbje stomaku para infarktit. Kjo simptomë shpesh ngatërrohet me gastrit apo intoksikacion ushqimor.
+      </p>
 
       <!-- WARNING BOX -->
       <div class="art-warning">
         <div class="art-warning-label">⚠️ E rëndësishme</div>
-        <p>© Nuk lejohet riprodhimi i shkrimeve pa vendosur autorësinë e revistës "Psikologjia" dhe pa cituar burimin.</p>
+        <p>Ky artikull ka qëllim edukativ dhe nuk zëvendëson konsultën mjekësore. Nëse keni dyshime, kontaktoni menjëherë mjekun tuaj ose vizitoni klinikën.</p>
       </div>
 
-      
-    
+      <div class="art-divider"></div>
+
+      <h2>Çfarë duhet të bëni nëse keni këto simptoma?</h2>
+      <ol>
+        <li>Mos prisni — kontaktoni menjëherë shërbimin e urgjencës ose mjekun tuaj.</li>
+        <li>Mos ngisni vetë — lëreni dikë tjetër t'ju shoqërojë.</li>
+        <li>Merrni aspirinë (nëse nuk jeni alergjik) — 325mg sipas rekomandimit mjekësor.</li>
+        <li>Qëndroni i qetë dhe uluni ose shtrihuni në një pozicion komod.</li>
+        <li>Informoni mjekët për të gjitha simptomat, edhe ato që ju duken jo të rëndësishme.</li>
+      </ol>
+
+      <h2>Parandalimi: <em>investimi më i mirë</em> shëndetësor</h2>
+      <p>
+        Kontrolli i rregullt kardiologjik, matja e presionit të gjakut, kolesterolit dhe glukozës, si dhe ndryshimet në stilin e jetesës janë mjetet kryesore të parandalimit. Klinika Vera Virhov ofron paketa të plota diagnostike kardiovaskulare.
+      </p>
+
+    </div><!-- /art-body -->
+
+    <!-- TAGS -->
+    <div class="art-tags">
+      <button class="art-tag">Kardiologji</button>
+      <button class="art-tag">Infarkti</button>
+      <button class="art-tag">Parandalimi</button>
+      <button class="art-tag">Zemra</button>
+      <button class="art-tag">Shëndet</button>
+    </div><!-- NDRYSHO TAGS -->
+
+    <!-- AUTHOR CARD -->
+    <div class="author-card">
+      <div class="art-author-av" style="width:80px;height:80px;font-size:2rem;">A</div><!-- NDRYSHO INICIALIN -->
+      <div>
+        <div class="author-label">Autori i artikullit</div>
+        <div class="author-name">Dr. Artan Hoxha</div><!-- NDRYSHO EMRIN -->
+        <div class="author-spec">Kardiolog · Klinika Vera Virhov</div><!-- NDRYSHO SPECIALITETIN -->
+        <p class="author-bio">Kardiolog me mbi 15 vite eksperiencë klinike, i specializuar në diagnozën dhe trajtimin e sëmundjeve kardiovaskulare. Pedagog i kardiologjisë dhe autor i mbi 20 publikimeve shkencore.</p><!-- NDRYSHO BIOGRAFINE -->
+      </div>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <div class="related">
+      <div class="related-label">Artikuj të ngjashëm</div>
+      <div class="related-grid">
+        <a class="related-card" href="#">
+          <div class="related-card-visual" style="background:linear-gradient(135deg,#3a1a00,#1e0d00);">💊</div>
+          <div class="related-card-body">
+            <div class="related-cat">Kardiologji</div>
+            <div class="related-title">Hipertensioni: pse quhet "vrasësi i heshtur"</div>
+          </div>
+        </a>
+        <a class="related-card" href="#">
+          <div class="related-card-visual" style="background:linear-gradient(135deg,#1a4a2a,#0a2515);">🥗</div>
+          <div class="related-card-body">
+            <div class="related-cat">Stil Jetese</div>
+            <div class="related-title">10 zakone ditore që reduktojnë riskun kardiovaskular</div>
+          </div>
+        </a>
+      </div>
+    </div><!-- NDRYSHO ARTIKUJT E NGJASHEM -->
 
   </article>
 
@@ -556,15 +594,23 @@ email: info@klinikavera-virhov.com
   <aside class="art-sidebar">
 
     <!-- TABLE OF CONTENTS -->
-   
+    <div class="sidebar-block">
+      <h4>Përmbajtja</h4>
+      <ul class="toc-list">
+        <li class="toc-item"><a href="#" class="toc-active">Pse i injorojmë shenjat</a></li>
+        <li class="toc-item"><a href="#">5 shenjat kryesore</a></li>
+        <li class="toc-item"><a href="#">Çfarë duhet të bëni</a></li>
+        <li class="toc-item"><a href="#">Parandalimi</a></li>
+      </ul>
+    </div><!-- NDRYSHO PERMBAJTJEN SIPAS TITUJVE -->
 
     <!-- SHARE -->
     <div class="sidebar-block">
       <h4>Ndani artikullin</h4>
       <div class="share-btns">
-        <a class="share-btn" id="shareFacebook" href="#" target="_blank"><span class="share-icon">f</span> Facebook</a>
-        <a class="share-btn" id="shareWhatsapp" href="#" target="_blank"><span class="share-icon">💬</span> WhatsApp</a>
-        <a class="share-btn" id="shareLinkedin" href="#" target="_blank"><span class="share-icon">in</span> LinkedIn</a>
+        <a class="share-btn" href="#" target="_blank"><span class="share-icon">f</span> Facebook</a>
+        <a class="share-btn" href="#" target="_blank"><span class="share-icon">ig</span> Instagram</a>
+        <a class="share-btn" href="#" target="_blank"><span class="share-icon">💬</span> WhatsApp</a>
         <button class="share-btn" onclick="copyLink()"><span class="share-icon">🔗</span> Kopjo linkun</button>
       </div>
     </div>
@@ -572,7 +618,7 @@ email: info@klinikavera-virhov.com
     <!-- CTA -->
     <div class="sidebar-block" style="background:#0797b0;border-color:transparent;">
       <h4 style="color:rgba(255,255,255,0.62);">Keni pyetje?</h4>
-      <p style="font-family:'Playfair Display',serif;font-size:1.2rem;color:white;line-height:1.3;margin-bottom:12px;font-weight:400;">Rezervoni konsultën</p>
+      <p style="font-family:'Playfair Display',serif;font-size:1.2rem;color:white;line-height:1.3;margin-bottom:12px;font-weight:400;">Rezervoni konsultë me kardiologun tonë</p>
       <p style="font-size:0.88rem;color:rgba(255,255,255,0.72);margin-bottom:20px;line-height:1.7;font-weight:300;">Pa pritje. Konfirmim brenda 30 minutave.</p>
       <a href="index.html#rezervo" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:white;text-decoration:none;padding:12px 22px;font-size:0.79rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;">Rezervo Tani →</a>
     </div><!-- NDRYSHO SPECIALITETIN NE CTA -->
@@ -594,19 +640,15 @@ email: info@klinikavera-virhov.com
         <a class="soc" href="https://www.youtube.com/@klinikaveravirhov9021" aria-label="YouTube">▶</a>
       </div>
     </div>
-        <div class="footer-col">
+    <div class="footer-col">
       <h5>Shërbimet</h5>
       <ul>
-        <li><a href="sherbimi.html">Analiza Laboratorike</a></li>
-        <li><a href="sherbimi.html">Ekografi</a></li>
-        <li><a href="sherbimi.html">Encefalograme (EEG)</a></li>
-        <li><a href="sherbimi.html">Kujdes Fëmijë &amp; të Rritur</a></li>
-        <li><a href="sherbimi.html">Monitorim Parametrave</a></li>
-        <li><a href="sherbimi.html">Konsulta me Specialistë</a></li>
-        <li><a href="sherbimi.html">Fizioterapi</a></li>
-        <li><a href="sherbimi.html">Logopedi</a></li>
-        <li><a href="sherbimi.html">Shërbim Infermieristik</a></li>
-        <li><a href="sherbimi.html">Haloterapi</a></li>
+        <li><a href="sherbimi.html#kardiologji">Kardiologji</a></li>
+        <li><a href="sherbimi.html#neurologji">Neurologji</a></li>
+        <li><a href="sherbimi.html#ortopedi">Ortopedi</a></li>
+        <li><a href="sherbimi.html#oftalmologji">Oftalmologji</a></li>
+        <li><a href="sherbimi.html#dentistri">Dentistri</a></li>
+        <li><a href="sherbimi.html#checkup">Check-Up Ekzekutiv</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -634,6 +676,13 @@ email: info@klinikavera-virhov.com
   <span class="wa-text">Na shkruani</span>
 </a>
 
+<!-- GDPR -->
+<div class="gdpr" id="gdpr">
+  <span>Përdorim cookies esenciale dhe analitike për të përmirësuar përvojën tuaj. <a href="politika-e-privatesise.html">Politika e Cookies.</a></span>
+  <div class="gdpr-btns">
+    <button class="gdpr-acc" onclick="acceptGdpr()">Pranoj të gjitha</button>
+    <button class="gdpr-dec" onclick="acceptGdpr()">Vetëm esenciale</button>
+  </div>
 </div>
 
 <script>
@@ -677,29 +726,9 @@ window.addEventListener('scroll',()=>{
   document.getElementById('progressBar').style.width=pct+'%';
 });
 
-
-// PREVIEW IMAGE
-function previewImg(input) {
-  if (!input.files || !input.files[0]) return;
-  const reader = new FileReader();
-  reader.onload = e => {
-    const ph = input.closest('.art-img');
-    ph.innerHTML = '<img src="' + e.target.result + '" alt="Cover">';
-  };
-  reader.readAsDataURL(input.files[0]);
-}
-
-// SHARE LINKS
-(function(){
-  var url = encodeURIComponent(window.location.href);
-  var title = encodeURIComponent(document.title);
-  var fb = document.getElementById('shareFacebook');
-  var wa = document.getElementById('shareWhatsapp');
-  var li = document.getElementById('shareLinkedin');
-  if(fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
-  if(wa) wa.href = 'https://wa.me/?text=' + title + '%20' + url;
-  if(li) li.href = 'https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=' + title;
-})();
+// GDPR
+function acceptGdpr(){document.getElementById('gdpr').classList.add('hidden');sessionStorage.setItem('gdpr','1');}
+if(sessionStorage.getItem('gdpr'))document.getElementById('gdpr').classList.add('hidden');
 
 // COPY LINK
 function copyLink(){

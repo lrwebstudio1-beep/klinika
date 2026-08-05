@@ -2,7 +2,7 @@
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="LOGO.png">
+<link rel="icon" type="image/png" href="favicon.png">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog & Edukim — Klinika Vera Virhov</title>
@@ -21,6 +21,7 @@
 }
 
 :root {
+  --accent: #2e3092;   /* blu per tekstet e vogla mbi sfond te celet */
   --aceh-bold: 0.3px;  /* trashesia e teksteve te vogla Aceh */
   --ink:      #0e1117;
   --ink-mid:  #1c2333;
@@ -30,14 +31,15 @@
   --sky:      #4c82c4;
   --cream:    #f7f4ef;
   --warm:     #ede9e1;
-  --gold:     #b8965a;
-  --gold-l:   #d4b07a;
+  --gold:     #2e3092;
+  --gold-l:   #3f44bd;
   --white:    #ffffff;
   --muted:    #626873;
   --border:   rgba(14,17,23,0.08);
   --ease:     cubic-bezier(0.4,0,0.2,1);
   --ease-out: cubic-bezier(0,0,0.2,1);
 }
+.drawer, .page-hero, .feat-art-visual, .newsletter-strip, footer { --accent: #ffffff; }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -82,8 +84,8 @@ nav {
 .logo { display: flex; align-items: baseline; gap: 3px; text-decoration: none; line-height: 1; }
 .logo-word { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
 .logo-word em { font-style: italic; color: var(--cobalt); }
-.logo-sep { width: 1px; height: 22px; background: #d4b07a; margin: 0 10px; opacity: 0.6; }
-.logo-sub { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 2.5px; text-transform: uppercase; color: #d4b07a; }
+.logo-sep { width: 1px; height: 22px; background: #3f44bd; margin: 0 10px; opacity: 0.6; }
+.logo-sub { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); }
 .nav-menu { display: flex; align-items: center; gap: 36px; list-style: none; }
 .nav-menu a {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.8px;
@@ -95,7 +97,7 @@ nav {
   height: 1px; background: #0797b0; transition: right 0.3s var(--ease);
 }
 .nav-menu a:hover::after { right: 0; }
-.nav-menu a.active { color: var(--gold); }
+.nav-menu a.active { color: var(--accent); }
 .nav-menu a.active::after { background: var(--gold); right: 0; }
 .nav-book {
   display: flex; align-items: center; gap: 8px;
@@ -151,14 +153,14 @@ nav {
 .page-hero-inner { max-width: 1260px; margin: 0 auto; }
 .eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
 .eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
-.eyebrow-text { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.77rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #d4b07a; }
+.eyebrow-text { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.77rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); }
 .page-h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.8rem, 5vw, 4.5rem);
   font-weight: 400; line-height: 1.1; color: var(--white);
   letter-spacing: -0.02em; margin-bottom: 24px;
 }
-.page-h1 em { font-style: italic; color: var(--gold-l); }
+.page-h1 em { font-style: italic; color: var(--accent); }
 .page-desc { font-size: 1.04rem; color: rgba(255,255,255,0.75); font-weight: 300; max-width: 520px; line-height: 1.85; }
 
 /* FILTER BAR */
@@ -222,7 +224,7 @@ nav {
 }
 .blog-cat {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold); font-weight: 500; margin-bottom: 16px;
+  color: var(--accent); font-weight: 500; margin-bottom: 16px;
   display: flex; align-items: center; gap: 8px;
 }
 .blog-cat::before { content: ''; width: 16px; height: 1px; background: var(--gold); }
@@ -313,7 +315,7 @@ nav {
   font-weight: 400; color: var(--white); line-height: 1.15;
   letter-spacing: -0.02em;
 }
-.nl-h em { font-style: italic; color: var(--gold-l); }
+.nl-h em { font-style: italic; color: var(--accent); }
 .nl-desc { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.97rem; color: rgba(255,255,255,0.7); font-weight: 400; margin-top: 16px; line-height: 1.8; }
 .nl-form { display: flex; gap: 0; }
 .nl-input {
@@ -355,7 +357,7 @@ nav {
   font-size: 1.4rem; color: var(--warm); font-weight: 700;
   line-height: 1; flex-shrink: 0; width: 28px;
 }
-.pop-item:hover .pop-num { color: var(--gold); }
+.pop-item:hover .pop-num { color: var(--accent); }
 .pop-title { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; color: var(--ink); line-height: 1.5; font-weight: 400; }
 .pop-item:hover .pop-title { color: #0797b0; }
 .pop-cat { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
@@ -413,11 +415,11 @@ footer { background: #0797b0; padding: 80px 5% 40px; }
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .footer-brand-word { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 500; color: var(--white); letter-spacing: -0.01em; margin-bottom: 16px; }
-.footer-brand-word em { font-style: italic; color: var(--gold); }
+.footer-brand-word em { font-style: italic; color: var(--accent); }
 .footer-desc { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.91rem; line-height: 1.8; color: rgba(255,255,255,0.62); font-weight: 400; max-width: 300px; margin-bottom: 32px; }
 .socials { display: flex; gap: 10px; }
 .soc { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.83rem; color: rgba(255,255,255,0.7); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
-.soc:hover { border-color: var(--gold); color: var(--gold); }
+.soc:hover { border-color: var(--gold); color: var(--accent); }
 .footer-col h5 { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 20px; font-weight: 400; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-col ul li a { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.92rem; color: rgba(255,255,255,0.68); text-decoration: none; font-weight: 400; transition: color 0.2s; }
@@ -468,7 +470,7 @@ footer { background: #0797b0; padding: 80px 5% 40px; }
 <nav id="nav">
   <div class="nav-inner">
     <a href="index.html" class="logo">
-      <img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:44px;width:auto;display:block;">
+      <img src="logo-virhov.png" alt="Klinika Vera Virhov" style="height:30px;width:auto;display:block;">
       <span class="logo-sep"></span>
       <span class="logo-sub">Tiranë</span>
     </a>
@@ -693,7 +695,7 @@ footer { background: #0797b0; padding: 80px 5% 40px; }
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand-word"><img src="LOGO.png" alt="Klinika Vera - Virhov" style="height:48px;width:auto;display:block;"></div>
+      <div class="footer-brand-word"><img src="logo-virhov.png" alt="Klinika Vera Virhov" style="height:36px;width:auto;display:block;"></div>
       <p class="footer-desc">Klinikë private me standarde ndërkombëtare, e dedikuar shëndetit dhe mirëqenies tuaj nga viti 2009.</p>
       <div class="socials">
         <a class="soc" href="#" aria-label="Facebook">f</a>
@@ -761,7 +763,7 @@ animCursor();
 document.querySelectorAll('a, button').forEach(el => {
   el.addEventListener('mouseenter', () => {
     cur.style.width = '16px'; cur.style.height = '16px';
-    cur.style.background = '#b8965a';
+    cur.style.background = '#2e3092';
     curRing.style.width = '52px'; curRing.style.height = '52px';
     curRing.style.opacity = '0.5';
   });
