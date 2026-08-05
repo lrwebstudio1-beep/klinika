@@ -13,14 +13,15 @@
 <style>
 /* ─── ACEH (tekstet e vogla) ─── */
 @font-face {
-  font-family: 'Aceh';
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh';
   src: url('fonts/Aceh-Light.ttf') format('truetype');
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
+  --aceh-bold: 0.3px;  /* trashesia e teksteve te vogla Aceh */
   --ink:      #0e1117;
   --ink-mid:  #1c2333;
   --slate:    #2d3a4f;
@@ -105,14 +106,14 @@ nav {
   background: #d4b07a; margin: 0 10px; opacity: 0.6;
 }
 .logo-sub {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 2.5px;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 2.5px;
   text-transform: uppercase; color: #d4b07a;
 }
 .nav-menu {
   display: flex; align-items: center; gap: 36px; list-style: none;
 }
 .nav-menu a {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.8px;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.8px;
   text-transform: uppercase; color: var(--teal);
   text-decoration: none; position: relative;
   transition: color 0.2s;
@@ -125,7 +126,7 @@ nav {
 .nav-menu a:hover::after { right: 0; }
 .nav-book {
   display: flex; align-items: center; gap: 8px;
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; font-weight: 500; letter-spacing: 1.2px;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; font-weight: 500; letter-spacing: 1.2px;
   text-transform: uppercase; color: var(--white);
   text-decoration: none;
   background: var(--teal);
@@ -167,7 +168,7 @@ nav {
 }
 .eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
 .eyebrow-text {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.77rem; font-weight: 500; letter-spacing: 3px;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.77rem; font-weight: 500; letter-spacing: 3px;
   text-transform: uppercase; color: var(--gold-l);
 }
 .pp-hero h1 {
@@ -180,8 +181,8 @@ nav {
 .pp-hero h1 em { font-style: italic; color: var(--gold-l); }
 .pp-hero-meta {
   display: flex; align-items: center; gap: 24px;
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; color: rgba(255,255,255,0.72);
-  letter-spacing: 0.3px; font-weight: 300;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; color: rgba(255,255,255,0.72);
+  letter-spacing: 0.3px; font-weight: 400;
 }
 .pp-hero-meta-dot { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; }
 
@@ -200,7 +201,7 @@ nav {
 .toc-item {
   display: flex; align-items: center;
   padding: 18px 24px;
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.79rem; font-weight: 400; letter-spacing: 1.5px;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.79rem; font-weight: 400; letter-spacing: 1.5px;
   text-transform: uppercase; color: rgba(255,255,255,0.72);
   text-decoration: none; white-space: nowrap;
   border-right: 1px solid rgba(255,255,255,0.06);
@@ -230,7 +231,7 @@ nav {
   position: sticky; top: 100px;
 }
 .sidebar-label {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase;
   color: var(--muted); margin-bottom: 20px; font-weight: 500;
 }
 .sidebar-nav { list-style: none; }
@@ -239,8 +240,8 @@ nav {
   display: flex; align-items: center; gap: 12px;
   padding: 11px 0;
   border-bottom: 1px solid var(--border);
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.92rem; color: var(--muted);
-  text-decoration: none; font-weight: 300;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.92rem; color: var(--muted);
+  text-decoration: none; font-weight: 400;
   transition: color 0.2s;
 }
 .sidebar-nav a:hover { color: var(--teal); }
@@ -258,7 +259,7 @@ nav {
   padding: 24px;
 }
 .sb-label {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--muted); margin-bottom: 10px;
 }
 .sb-val {
@@ -272,12 +273,12 @@ nav {
   padding: 24px;
 }
 .sc-label {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase;
   color: rgba(255,255,255,0.72); margin-bottom: 10px;
 }
 .sc-val {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; color: rgba(255,255,255,0.85);
-  line-height: 1.7; font-weight: 300;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; color: rgba(255,255,255,0.85);
+  line-height: 1.7; font-weight: 400;
 }
 .sc-val a { color: var(--gold-l); text-decoration: none; }
 .sc-val a:hover { color: var(--white); }
@@ -346,12 +347,12 @@ nav {
   margin: 28px 0;
 }
 .pp-box-label {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--teal); font-weight: 500; margin-bottom: 10px;
 }
 .pp-box p {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.97rem; line-height: 1.8;
-  color: #4a5060; font-weight: 300;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.97rem; line-height: 1.8;
+  color: #4a5060; font-weight: 400;
 }
 .pp-box p strong { color: var(--ink); font-weight: 500; }
 
@@ -361,8 +362,8 @@ nav {
   margin: 28px 0;
 }
 .pp-highlight p {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.99rem; line-height: 1.8;
-  color: rgba(255,255,255,0.6); font-weight: 300;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.99rem; line-height: 1.8;
+  color: rgba(255,255,255,0.6); font-weight: 400;
 }
 .pp-highlight strong { color: var(--white); font-weight: 500; }
 
@@ -378,22 +379,22 @@ nav {
 }
 .right-icon { font-size: 1.3rem; margin-bottom: 12px; display: block; }
 .right-title {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; font-weight: 500;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; font-weight: 500;
   color: var(--ink); margin-bottom: 6px;
 }
 .right-desc {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; line-height: 1.7;
-  color: var(--muted); font-weight: 300;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; line-height: 1.7;
+  color: var(--muted); font-weight: 400;
 }
 
 .table-wrap { overflow-x: auto; margin: 28px 0; }
 .pp-table {
   width: 100%; border-collapse: collapse;
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.97rem;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.97rem;
 }
 .pp-table th {
   background: var(--cobalt); color: rgba(255,255,255,0.75);
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
   font-weight: 400; padding: 14px 20px; text-align: left;
 }
 .pp-table td {
@@ -403,7 +404,7 @@ nav {
 }
 .pp-table tr:last-child td { border-bottom: none; }
 .pp-table tr:nth-child(even) td { background: var(--warm); }
-.td-label { font-weight: 500; color: var(--ink); font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.92rem; }
+.td-label { font-weight: 500; color: var(--ink); -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.92rem; }
 
 /* ─── FOOTER ─── */
 footer {
@@ -423,23 +424,23 @@ footer {
 }
 .footer-brand-word em { font-style: italic; color: var(--gold); }
 .footer-desc {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; line-height: 1.8;
-  color: rgba(255,255,255,0.62); font-weight: 300; max-width: 300px;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; line-height: 1.8;
+  color: rgba(255,255,255,0.62); font-weight: 400; max-width: 300px;
   margin-bottom: 28px;
 }
 .footer-col h5 {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
   color: rgba(255,255,255,0.6); margin-bottom: 18px; font-weight: 400;
 }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-col ul li a {
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.92rem; color: rgba(255,255,255,0.68);
-  text-decoration: none; font-weight: 300; transition: color 0.2s;
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.92rem; color: rgba(255,255,255,0.68);
+  text-decoration: none; font-weight: 400; transition: color 0.2s;
 }
 .footer-col ul li a:hover { color: rgba(255,255,255,0.75); }
 .footer-bottom {
   display: flex; align-items: center; justify-content: space-between;
-  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.58);
+  -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.58);
 }
 .footer-legal { display: flex; gap: 24px; }
 .footer-legal a {
