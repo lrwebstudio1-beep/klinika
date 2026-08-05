@@ -11,6 +11,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* ─── ACEH (tekstet e vogla) ─── */
+@font-face {
+  font-family: 'Aceh';
+  src: url('fonts/Aceh-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ink:      #0e1117;
   --ink-mid:  #1c2333;
@@ -24,7 +33,7 @@
   --gold-l:   #d4b07a;
   --teal:     #0797b0;
   --white:    #ffffff;
-  --muted:    #8a8f9a;
+  --muted:    #626873;
   --border:   rgba(14,17,23,0.08);
   --ease:     cubic-bezier(0.4,0,0.2,1);
   --ease-out: cubic-bezier(0,0,0.2,1);
@@ -60,6 +69,12 @@ body {
   transform: translate(-50%,-50%);
   transition: transform 0.18s var(--ease-out), width 0.4s var(--ease), height 0.4s var(--ease), opacity 0.3s;
 }
+/* Hiq kursorin custom ne mobile / touch */
+@media (hover: none), (pointer: coarse) {
+  html, body, a, button { cursor: auto; }
+  .cursor, .cursor-ring { display: none !important; }
+}
+
 
 /* ─── NAV ─── */
 nav {
@@ -90,14 +105,14 @@ nav {
   background: #d4b07a; margin: 0 10px; opacity: 0.6;
 }
 .logo-sub {
-  font-size: 0.68rem; font-weight: 400; letter-spacing: 2.5px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 2.5px;
   text-transform: uppercase; color: #d4b07a;
 }
 .nav-menu {
   display: flex; align-items: center; gap: 36px; list-style: none;
 }
 .nav-menu a {
-  font-size: 0.82rem; font-weight: 400; letter-spacing: 0.8px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.8px;
   text-transform: uppercase; color: var(--teal);
   text-decoration: none; position: relative;
   transition: color 0.2s;
@@ -110,7 +125,7 @@ nav {
 .nav-menu a:hover::after { right: 0; }
 .nav-book {
   display: flex; align-items: center; gap: 8px;
-  font-size: 0.8rem; font-weight: 500; letter-spacing: 1.2px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; font-weight: 500; letter-spacing: 1.2px;
   text-transform: uppercase; color: var(--white);
   text-decoration: none;
   background: var(--teal);
@@ -152,7 +167,7 @@ nav {
 }
 .eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
 .eyebrow-text {
-  font-size: 0.7rem; font-weight: 500; letter-spacing: 3px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.77rem; font-weight: 500; letter-spacing: 3px;
   text-transform: uppercase; color: var(--gold-l);
 }
 .pp-hero h1 {
@@ -165,7 +180,7 @@ nav {
 .pp-hero h1 em { font-style: italic; color: var(--gold-l); }
 .pp-hero-meta {
   display: flex; align-items: center; gap: 24px;
-  font-size: 0.8rem; color: rgba(255,255,255,0.45);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; color: rgba(255,255,255,0.72);
   letter-spacing: 0.3px; font-weight: 300;
 }
 .pp-hero-meta-dot { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; }
@@ -185,8 +200,8 @@ nav {
 .toc-item {
   display: flex; align-items: center;
   padding: 18px 24px;
-  font-size: 0.72rem; font-weight: 400; letter-spacing: 1.5px;
-  text-transform: uppercase; color: rgba(255,255,255,0.45);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.79rem; font-weight: 400; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.72);
   text-decoration: none; white-space: nowrap;
   border-right: 1px solid rgba(255,255,255,0.06);
   transition: color 0.2s, background 0.2s;
@@ -196,7 +211,7 @@ nav {
 .toc-item:hover { color: var(--gold-l); background: rgba(255,255,255,0.03); }
 .toc-num {
   font-family: 'Playfair Display', serif;
-  font-style: italic; font-size: 0.8rem;
+  font-style: italic; font-size: 0.88rem;
   color: var(--gold); opacity: 0.6;
 }
 
@@ -215,7 +230,7 @@ nav {
   position: sticky; top: 100px;
 }
 .sidebar-label {
-  font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase;
   color: var(--muted); margin-bottom: 20px; font-weight: 500;
 }
 .sidebar-nav { list-style: none; }
@@ -224,7 +239,7 @@ nav {
   display: flex; align-items: center; gap: 12px;
   padding: 11px 0;
   border-bottom: 1px solid var(--border);
-  font-size: 0.84rem; color: var(--muted);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.92rem; color: var(--muted);
   text-decoration: none; font-weight: 300;
   transition: color 0.2s;
 }
@@ -233,7 +248,7 @@ nav {
 .sidebar-nav a.active .s-num { color: var(--gold); }
 .s-num {
   font-family: 'Playfair Display', serif;
-  font-style: italic; font-size: 0.75rem;
+  font-style: italic; font-size: 0.83rem;
   color: rgba(14,17,23,0.2); flex-shrink: 0; width: 20px;
 }
 .sidebar-badge {
@@ -243,7 +258,7 @@ nav {
   padding: 24px;
 }
 .sb-label {
-  font-size: 0.62rem; letter-spacing: 2.5px; text-transform: uppercase;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--muted); margin-bottom: 10px;
 }
 .sb-val {
@@ -257,11 +272,11 @@ nav {
   padding: 24px;
 }
 .sc-label {
-  font-size: 0.62rem; letter-spacing: 2.5px; text-transform: uppercase;
-  color: rgba(255,255,255,0.45); margin-bottom: 10px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.72); margin-bottom: 10px;
 }
 .sc-val {
-  font-size: 0.85rem; color: rgba(255,255,255,0.85);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; color: rgba(255,255,255,0.85);
   line-height: 1.7; font-weight: 300;
 }
 .sc-val a { color: var(--gold-l); text-decoration: none; }
@@ -298,7 +313,7 @@ nav {
 .section-h em { font-style: italic; color: var(--teal); }
 
 .pp-p {
-  font-size: 0.95rem; line-height: 1.9;
+  font-size: 1.04rem; line-height: 1.9;
   color: #4a5060; font-weight: 300;
   margin-bottom: 20px;
 }
@@ -314,7 +329,7 @@ nav {
   display: flex; align-items: flex-start; gap: 16px;
   padding: 14px 0;
   border-bottom: 1px solid var(--border);
-  font-size: 0.92rem; line-height: 1.7;
+  font-size: 1.01rem; line-height: 1.7;
   color: #4a5060; font-weight: 300;
 }
 .pp-list li:first-child { border-top: 1px solid var(--border); }
@@ -331,11 +346,11 @@ nav {
   margin: 28px 0;
 }
 .pp-box-label {
-  font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--teal); font-weight: 500; margin-bottom: 10px;
 }
 .pp-box p {
-  font-size: 0.88rem; line-height: 1.8;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.97rem; line-height: 1.8;
   color: #4a5060; font-weight: 300;
 }
 .pp-box p strong { color: var(--ink); font-weight: 500; }
@@ -346,7 +361,7 @@ nav {
   margin: 28px 0;
 }
 .pp-highlight p {
-  font-size: 0.9rem; line-height: 1.8;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.99rem; line-height: 1.8;
   color: rgba(255,255,255,0.6); font-weight: 300;
 }
 .pp-highlight strong { color: var(--white); font-weight: 500; }
@@ -363,22 +378,22 @@ nav {
 }
 .right-icon { font-size: 1.3rem; margin-bottom: 12px; display: block; }
 .right-title {
-  font-size: 0.85rem; font-weight: 500;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; font-weight: 500;
   color: var(--ink); margin-bottom: 6px;
 }
 .right-desc {
-  font-size: 0.8rem; line-height: 1.7;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; line-height: 1.7;
   color: var(--muted); font-weight: 300;
 }
 
 .table-wrap { overflow-x: auto; margin: 28px 0; }
 .pp-table {
   width: 100%; border-collapse: collapse;
-  font-size: 0.88rem;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.97rem;
 }
 .pp-table th {
   background: var(--cobalt); color: rgba(255,255,255,0.75);
-  font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
   font-weight: 400; padding: 14px 20px; text-align: left;
 }
 .pp-table td {
@@ -388,7 +403,7 @@ nav {
 }
 .pp-table tr:last-child td { border-bottom: none; }
 .pp-table tr:nth-child(even) td { background: var(--warm); }
-.td-label { font-weight: 500; color: var(--ink); font-size: 0.84rem; }
+.td-label { font-weight: 500; color: var(--ink); font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.92rem; }
 
 /* ─── FOOTER ─── */
 footer {
@@ -408,29 +423,29 @@ footer {
 }
 .footer-brand-word em { font-style: italic; color: var(--gold); }
 .footer-desc {
-  font-size: 0.82rem; line-height: 1.8;
-  color: rgba(255,255,255,0.3); font-weight: 300; max-width: 300px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; line-height: 1.8;
+  color: rgba(255,255,255,0.62); font-weight: 300; max-width: 300px;
   margin-bottom: 28px;
 }
 .footer-col h5 {
-  font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase;
-  color: rgba(255,255,255,0.25); margin-bottom: 18px; font-weight: 400;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.6); margin-bottom: 18px; font-weight: 400;
 }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-col ul li a {
-  font-size: 0.84rem; color: rgba(255,255,255,0.38);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.92rem; color: rgba(255,255,255,0.68);
   text-decoration: none; font-weight: 300; transition: color 0.2s;
 }
 .footer-col ul li a:hover { color: rgba(255,255,255,0.75); }
 .footer-bottom {
   display: flex; align-items: center; justify-content: space-between;
-  font-size: 0.73rem; color: rgba(255,255,255,0.2);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.58);
 }
 .footer-legal { display: flex; gap: 24px; }
 .footer-legal a {
-  color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.2s;
+  color: rgba(255,255,255,0.58); text-decoration: none; transition: color 0.2s;
 }
-.footer-legal a:hover { color: rgba(255,255,255,0.5); }
+.footer-legal a:hover { color: rgba(255,255,255,0.75); }
 
 /* ─── SCROLL REVEAL ─── */
 .rw {

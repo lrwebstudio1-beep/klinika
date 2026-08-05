@@ -13,6 +13,15 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>emailjs.init('4_mRESX4XIIFZDeHN');</script>
 <style>
+/* ─── ACEH (tekstet e vogla) ─── */
+@font-face {
+  font-family: 'Aceh';
+  src: url('fonts/Aceh-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ink:      #0e1117;
   --ink-mid:  #1c2333;
@@ -25,7 +34,7 @@
   --gold:     #b8965a;
   --gold-l:   #d4b07a;
   --white:    #ffffff;
-  --muted:    #8a8f9a;
+  --muted:    #626873;
   --border:   rgba(14,17,23,0.08);
   --border-w: rgba(255,255,255,0.1);
   --ease:     cubic-bezier(0.4,0,0.2,1);
@@ -102,14 +111,14 @@ nav.scrolled {
   background: #d4b07a; margin: 0 10px; opacity: 0.6;
 }
 .logo-sub {
-  font-size: 0.75rem; font-weight: 400; letter-spacing: 2.5px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 2.5px;
   text-transform: uppercase; color: #d4b07a;
 }
 .nav-menu {
   display: flex; align-items: center; gap: 36px; list-style: none;
 }
 .nav-menu a {
-  font-size: 0.9rem; font-weight: 400; letter-spacing: 0.8px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.8px;
   text-transform: uppercase; color: #ffffff;
   text-decoration: none; position: relative;
   transition: color 0.2s;
@@ -126,7 +135,7 @@ nav.scrolled .nav-menu a::after { background: #0797b0; }
 nav.scrolled .nav-menu a:hover { color: #0797b0; }
 .nav-book {
   display: flex; align-items: center; gap: 8px;
-  font-size: 0.88rem; font-weight: 500; letter-spacing: 1.2px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; font-weight: 500; letter-spacing: 1.2px;
   text-transform: uppercase; color: var(--white);
   text-decoration: none;
   background: #0797b0;
@@ -164,7 +173,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   width: 32px; height: 1px; background: #d4b07a; flex-shrink: 0;
 }
 .hero-tag-text {
-  font-size: 0.79rem; font-weight: 400; letter-spacing: 3px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.79rem; font-weight: 400; letter-spacing: 3px;
   text-transform: uppercase; color: #d4b07a;
 }
 .hero-h1 {
@@ -177,7 +186,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 .hero-h1 em { font-style: italic; color: var(--gold-l); }
 .hero-desc {
   font-size: 1.07rem; line-height: 1.85;
-  color: rgba(255,255,255,0.5); max-width: 400px;
+  color: rgba(255,255,255,0.75); max-width: 400px;
   font-weight: 300; margin-bottom: 56px;
 }
 .hero-actions {
@@ -195,8 +204,8 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 .btn-gold:hover { background: var(--gold-l); transform: translateY(-2px); }
 .btn-ghost-w {
   display: inline-flex; align-items: center; gap: 10px;
-  font-size: 0.88rem; font-weight: 400; letter-spacing: 1px;
-  color: rgba(255,255,255,0.55); text-decoration: none;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; font-weight: 400; letter-spacing: 1px;
+  color: rgba(255,255,255,0.78); text-decoration: none;
   transition: color 0.2s;
 }
 .btn-ghost-w:hover { color: white; }
@@ -221,8 +230,8 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 }
 .metric-n sup { font-size: 1.2rem; vertical-align: super; color: var(--gold); }
 .metric-l {
-  font-size: 0.79rem; letter-spacing: 1.5px; text-transform: uppercase;
-  color: rgba(255,255,255,0.35); margin-top: 4px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.79rem; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.66); margin-top: 4px;
 }
 
 /* HERO RIGHT — photo panel */
@@ -263,7 +272,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   z-index: 3;
 }
 .hero-ic-label {
-  font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
   color: var(--gold); margin-bottom: 10px;
 }
 .hero-ic-val {
@@ -283,8 +292,8 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   font-size: 2rem; font-weight: 500; color: var(--ink); line-height: 1;
 }
 .rating-details { }
-.rating-stars { color: #d97706; font-size: 0.83rem; letter-spacing: 2px; }
-.rating-count { font-size: 0.77rem; color: var(--muted); margin-top: 2px; letter-spacing: 0.3px; }
+.rating-stars { color: #d97706; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.83rem; letter-spacing: 2px; }
+.rating-count { font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.77rem; color: var(--muted); margin-top: 2px; letter-spacing: 0.3px; }
 
 /* Large bg text */
 .hero-bg-text {
@@ -316,7 +325,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 .marquee-item {
   display: inline-flex; align-items: center; gap: 24px;
   padding: 0 32px;
-  font-size: 0.79rem; font-weight: 400; letter-spacing: 2px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.79rem; font-weight: 400; letter-spacing: 2px;
   text-transform: uppercase; color: rgba(255,255,255,0.6);
 }
 .marquee-dot { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; }
@@ -330,7 +339,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 }
 .eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
 .eyebrow-text {
-  font-size: 0.77rem; font-weight: 500; letter-spacing: 3px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.77rem; font-weight: 500; letter-spacing: 3px;
   text-transform: uppercase; color: #d4b07a;
 }
 .h2 {
@@ -346,7 +355,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   font-size: 1.04rem; line-height: 1.85; color: var(--muted);
   font-weight: 300; max-width: 560px;
 }
-.body-txt-w { color: rgba(255,255,255,0.5); }
+.body-txt-w { color: rgba(255,255,255,0.75); }
 
 /* ─── SERVICES ─── */
 .services-bg { background: var(--cream); }
@@ -399,14 +408,14 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 }
 .svc:hover h3 { color: var(--white); }
 .svc p {
-  font-size: 0.86rem; line-height: 1.6; color: var(--muted);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.86rem; line-height: 1.6; color: var(--muted);
   transition: color 0.3s;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
-.svc:hover p { color: rgba(255,255,255,0.55); }
+.svc:hover p { color: rgba(255,255,255,0.78); }
 .svc-arr {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.75rem; font-weight: 500; letter-spacing: 1.2px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 1.2px;
   text-transform: uppercase; color: var(--cobalt);
   margin-top: 14px; transition: color 0.3s, gap 0.2s;
 }
@@ -430,14 +439,14 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 .pillar-n {
   font-family: 'Playfair Display', serif;
   font-size: 1rem; font-style: italic;
-  color: rgba(255,255,255,0.2); line-height: 1.6;
+  color: rgba(255,255,255,0.58); line-height: 1.6;
 }
 .pillar h4 {
-  font-size: 0.99rem; font-weight: 500; color: rgba(255,255,255,0.85);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.99rem; font-weight: 500; color: rgba(255,255,255,0.85);
   margin-bottom: 6px; letter-spacing: 0.2px;
 }
 .pillar p {
-  font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.38);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.68);
   font-weight: 300;
 }
 .about-right { padding-top: 8px; }
@@ -452,23 +461,23 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 }
 .about-stat-n span { color: var(--gold); }
 .about-stat-l {
-  font-size: 0.83rem; letter-spacing: 1.5px; text-transform: uppercase;
-  color: rgba(255,255,255,0.3); margin-top: 8px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.83rem; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.62); margin-top: 8px;
 }
 .about-cert {
   margin-top: 36px; display: flex; flex-direction: column; gap: 10px;
 }
 .cert-row {
   display: flex; align-items: center; gap: 12px;
-  font-size: 0.88rem; color: rgba(255,255,255,0.4);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; color: rgba(255,255,255,0.7);
 }
-.cert-check { color: var(--gold); font-size: 0.94rem; }
+.cert-check { color: var(--gold); font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; }
 
 /* ─── DOCTORS ─── */
 .doctors-bg { background: var(--cream); }
 .doctors-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 72px; }
 .doctors-link {
-  font-size: 0.86rem; font-weight: 400; letter-spacing: 1.5px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.86rem; font-weight: 400; letter-spacing: 1.5px;
   text-transform: uppercase; color: var(--cobalt); text-decoration: none;
   display: flex; align-items: center; gap: 8px;
   border-bottom: 1px solid var(--cobalt); padding-bottom: 2px;
@@ -499,7 +508,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 .doc-initial {
   font-family: 'Playfair Display', serif;
   font-size: 3rem; font-weight: 400; font-style: italic;
-  color: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.55);
 }
 .doc-photo-overlay {
   position: absolute; inset: 0;
@@ -508,7 +517,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 .doc-spec-tag {
   position: absolute; top: 16px; left: 16px;
   background: var(--cobalt);
-  font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase;
   color: rgba(255,255,255,0.8); padding: 5px 10px;
 }
 .doc-name {
@@ -516,10 +525,10 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   font-size: 1.1rem; font-weight: 500; color: var(--ink);
   margin-bottom: 4px; letter-spacing: -0.01em;
 }
-.doc-title { font-size: 0.86rem; color: var(--muted); font-weight: 300; margin-bottom: 14px; }
+.doc-title { font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.86rem; color: var(--muted); font-weight: 300; margin-bottom: 14px; }
 .doc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .doc-tag {
-  font-size: 0.74rem; letter-spacing: 0.8px; padding: 4px 9px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.74rem; letter-spacing: 0.8px; padding: 4px 9px;
   border: 1px solid var(--border); color: var(--slate); border-radius: 1px;
 }
 .doc-card:hover .doc-photo { box-shadow: 0 20px 60px rgba(27,58,107,0.15); }
@@ -558,15 +567,15 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   background: var(--cobalt);
   display: flex; align-items: center; justify-content: center;
   font-family: 'Playfair Display', serif;
-  font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.5);
+  font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.75);
   flex-shrink: 0;
 }
 .t-name {
-  font-size: 0.97rem; font-weight: 500; color: var(--ink);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.97rem; font-weight: 500; color: var(--ink);
   margin-bottom: 2px;
 }
-.t-meta { font-size: 0.8rem; color: var(--muted); }
-.t-stars { color: #b45309; font-size: 0.77rem; letter-spacing: 2px; margin-bottom: 2px; }
+.t-meta { font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.8rem; color: var(--muted); }
+.t-stars { color: #b45309; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.77rem; letter-spacing: 2px; margin-bottom: 2px; }
 
 /* ─── BOOKING ─── */
 .booking-bg { background: #0797b0; }
@@ -585,8 +594,8 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
 }
 .f-group.full { grid-column: 1/-1; }
 .f-label {
-  font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
-  color: rgba(255,255,255,0.35); font-weight: 400;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.66); font-weight: 400;
 }
 .f-input {
   background: rgba(255,255,255,0.05);
@@ -597,7 +606,7 @@ nav.scrolled .nav-menu a:hover { color: #0797b0; }
   outline: none; transition: border-color 0.25s, background 0.25s;
   width: 100%;
 }
-.f-input::placeholder { color: rgba(255,255,255,0.2); }
+.f-input::placeholder { color: rgba(255,255,255,0.58); }
 .f-input:focus { border-color: var(--gold); background: rgba(255,255,255,0.07); }
 select.f-input option { background: #1c2333; }
 .f-btn {
@@ -620,9 +629,9 @@ select.f-input option { background: #1c2333; }
 .bp-item:last-child { border: none; }
 .bp-icon { font-size: 1.1rem; margin-top: 1px; flex-shrink: 0; }
 .bp-text h4 {
-  font-size: 0.97rem; color: rgba(255,255,255,0.75); font-weight: 400; margin-bottom: 3px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.97rem; color: rgba(255,255,255,0.75); font-weight: 400; margin-bottom: 3px;
 }
-.bp-text p { font-size: 0.87rem; color: rgba(255,255,255,0.35); font-weight: 300; line-height: 1.6; }
+.bp-text p { font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.87rem; color: rgba(255,255,255,0.66); font-weight: 300; line-height: 1.6; }
 
 /* ─── BLOG ─── */
 .blog-bg { background: var(--cream); }
@@ -648,7 +657,7 @@ select.f-input option { background: #1c2333; }
 .blog-small:last-child { border-bottom: none; }
 .blog-small:hover { background: var(--warm); }
 .blog-cat {
-  font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--gold); font-weight: 500; margin-bottom: 14px;
   display: flex; align-items: center; gap: 8px;
 }
@@ -660,12 +669,12 @@ select.f-input option { background: #1c2333; }
 }
 .blog-small .blog-h { font-size: 1.1rem; }
 .blog-excerpt {
-  font-size: 0.96rem; line-height: 1.8; color: var(--muted);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.96rem; line-height: 1.8; color: var(--muted);
   font-weight: 300; margin-bottom: 28px;
 }
 .blog-meta {
   display: flex; align-items: center; gap: 16px;
-  font-size: 0.79rem; color: var(--muted);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.79rem; color: var(--muted);
 }
 .blog-meta-sep { width: 3px; height: 3px; background: var(--muted); border-radius: 50%; }
 
@@ -687,7 +696,7 @@ select.f-input option { background: #1c2333; }
   border: 1px solid var(--border);
 }
 .ci-label {
-  font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
   color: var(--muted); margin-bottom: 4px;
 }
 .ci-val { font-size: 1.01rem; color: var(--ink); font-weight: 400; }
@@ -698,7 +707,7 @@ select.f-input option { background: #1c2333; }
   border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
   flex-direction: column; gap: 10px;
-  margin-top: 28px; color: var(--muted); font-size: 0.9rem;
+  margin-top: 28px; color: var(--muted); font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem;
   text-decoration: none;
 }
 .map-embed:hover { border-color: var(--cobalt); }
@@ -712,7 +721,7 @@ select.f-input option { background: #1c2333; }
   margin-bottom: 6px; letter-spacing: -0.02em;
 }
 .contact-form-wrap .sub {
-  font-size: 0.9rem; color: var(--muted); margin-bottom: 36px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; color: var(--muted); margin-bottom: 36px;
   font-weight: 300;
 }
 .f-input-light {
@@ -727,7 +736,7 @@ select.f-input option { background: #1c2333; }
 .f-input-light::placeholder { color: var(--muted); }
 .f-input-light:focus { border-color: var(--cobalt); }
 .f-label-dark {
-  font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
   color: var(--muted); font-weight: 400;
 }
 .f-btn-dark {
@@ -758,8 +767,8 @@ footer {
 }
 .footer-brand-word em { font-style: italic; color: var(--gold); }
 .footer-desc {
-  font-size: 0.91rem; line-height: 1.8;
-  color: rgba(255,255,255,0.3); font-weight: 300; max-width: 300px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.91rem; line-height: 1.8;
+  color: rgba(255,255,255,0.62); font-weight: 300; max-width: 300px;
   margin-bottom: 32px;
 }
 .socials { display: flex; gap: 10px; }
@@ -767,30 +776,30 @@ footer {
   width: 38px; height: 38px;
   border: 1px solid rgba(255,255,255,0.08);
   display: flex; align-items: center; justify-content: center;
-  font-size: 0.83rem; color: rgba(255,255,255,0.4);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.83rem; color: rgba(255,255,255,0.7);
   text-decoration: none; transition: border-color 0.2s, color 0.2s;
 }
 .soc:hover { border-color: var(--gold); color: var(--gold); }
 .footer-col h5 {
-  font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
-  color: rgba(255,255,255,0.25); margin-bottom: 20px; font-weight: 400;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.6); margin-bottom: 20px; font-weight: 400;
 }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-col ul li a {
-  font-size: 0.92rem; color: rgba(255,255,255,0.38);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.92rem; color: rgba(255,255,255,0.68);
   text-decoration: none; font-weight: 300;
   transition: color 0.2s;
 }
 .footer-col ul li a:hover { color: rgba(255,255,255,0.75); }
 .footer-bottom {
   display: flex; align-items: center; justify-content: space-between;
-  font-size: 0.8rem; color: rgba(255,255,255,0.2);
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.58);
 }
 .footer-legal { display: flex; gap: 24px; }
 .footer-legal a {
-  color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.2s;
+  color: rgba(255,255,255,0.58); text-decoration: none; transition: color 0.2s;
 }
-.footer-legal a:hover { color: rgba(255,255,255,0.5); }
+.footer-legal a:hover { color: rgba(255,255,255,0.75); }
 
 /* ─── WA BUTTON ─── */
 .wa-btn {
@@ -799,7 +808,7 @@ footer {
   background: #128c7e; color: white;
   text-decoration: none; padding: 12px 20px 12px 16px;
   border-radius: 2px;
-  font-size: 0.86rem; font-weight: 500; letter-spacing: 0.5px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.86rem; font-weight: 500; letter-spacing: 0.5px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   transition: transform 0.2s, background 0.2s;
 }
@@ -816,8 +825,8 @@ footer {
   transition: transform 0.45s var(--ease), opacity 0.45s;
 }
 .toast.show { transform: none; opacity: 1; }
-.toast-title { font-size: 0.97rem; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
-.toast-body { font-size: 0.86rem; color: var(--muted); font-weight: 300; }
+.toast-title { font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.97rem; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+.toast-body { font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.86rem; color: var(--muted); font-weight: 300; }
 
 /* ─── MOBILE NAV DRAWER ─── */
 .drawer {
@@ -844,7 +853,7 @@ footer {
   margin-top: 40px;
   display: inline-flex; align-items: center; gap: 10px;
   background: var(--gold); color: #ffffff;
-  font-size: 0.88rem; font-weight: 600; letter-spacing: 2px;
+  font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; font-weight: 600; letter-spacing: 2px;
   text-transform: uppercase; text-decoration: none;
   padding: 16px 32px; width: fit-content;
 }
