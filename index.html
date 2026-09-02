@@ -771,7 +771,7 @@ nav:not(.scrolled) .logo-sub { color: #ffffff; }
 }
 .doctors-link:hover { color: var(--slate); gap: 12px; }
 .docs-grid {
-  display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
+  display: grid; grid-template-columns: repeat(5,1fr); gap: 24px;
 }
 .doc-card { position: relative; }
 .doc-photo {
@@ -1153,10 +1153,11 @@ footer {
 .rw-d1 { transition-delay: 0.1s; }
 .rw-d2 { transition-delay: 0.2s; }
 .rw-d3 { transition-delay: 0.3s; }
+.rw-d4 { transition-delay: 0.4s; }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1100px) {
-  .docs-grid { grid-template-columns: repeat(2,1fr); }
+  .docs-grid { grid-template-columns: repeat(3,1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 900px) {
@@ -1542,6 +1543,23 @@ footer {
         </div>
         <div class="doc-name">Dr. Moza Keta</div>
         <div class="doc-title">Gjinekologe</div>
+        <div class="doc-tags">
+          
+        </div>
+      </div>
+      <div class="doc-card rw rw-d4">
+        <div class="doc-photo">
+          <div class="doc-photo-inner">
+            <img class="doc-photo-img" src="Dr.Teuta Neli.jpeg" alt="Dr. Teuta Neli" title="Dr. Teuta Neli">
+            <div class="doc-silhouette" style="background:linear-gradient(170deg,#022964,#0a1628);">
+              <div class="doc-initial">T</div>
+            </div>
+          </div>
+          <div class="doc-photo-overlay"></div>
+          <div class="doc-spec-tag">Pediatre</div>
+        </div>
+        <div class="doc-name">Dr. Teuta Neli</div>
+        <div class="doc-title">Pediatre</div>
         <div class="doc-tags">
           
         </div>
