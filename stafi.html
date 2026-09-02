@@ -128,8 +128,9 @@
     nav.scrolled .nav-menu a { color:var(--teal); }
     nav.scrolled .nav-menu a::after { background:var(--teal); }
     /* Logo e bardhe ne krye, kthehet normale pas scroll-it */
-    nav .logo img { transition: filter 0.4s; }
-    nav:not(.scrolled) .logo img { filter: brightness(0) invert(1); }
+    .logo-mark { position: relative; display: block; }
+    .logo-mark-white { position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s; }
+    nav:not(.scrolled) .logo-mark-white { opacity: 1; }
     nav:not(.scrolled) .logo-sep { background: #ffffff; }
     nav:not(.scrolled) .logo-sub { color: #ffffff; }
     .nav-book { display:flex; align-items:center; gap:8px; -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size:0.88rem; font-weight:500; letter-spacing:1.2px; text-transform:uppercase; color:var(--white); text-decoration:none; background:var(--teal); padding:11px 24px; border-radius:2px; transition:background 0.25s,transform 0.2s; }
@@ -234,7 +235,10 @@
   <nav id="nav">
     <div class="nav-inner">
       <a href="index.html" class="logo">
-        <img src="logo-virhov.png" alt="Klinika Vera Virhov" style="height:30px;width:auto;display:block;">
+        <span class="logo-mark">
+          <img src="logo-virhov.png" alt="Klinika Vera Virhov" style="height:30px;width:auto;display:block;">
+          <img class="logo-mark-white" src="logo-virhov-white.png" alt="" aria-hidden="true" style="height:30px;width:auto;display:block;">
+        </span>
         <span class="logo-sep"></span>
         <span class="logo-sub">Tirane</span>
       </a>
