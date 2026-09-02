@@ -95,7 +95,7 @@
   --slate:    #2d3a4f;
   --cobalt:   #1b3a6b;
   --cobalt-l: #245492;
-  --sky:      #4c82c4;
+  --sky:      #0452c8;
   --cream:    #f7f4ef;
   --warm:     #ede9e1;
   --gold:     #2e3092;
@@ -156,12 +156,12 @@ nav {
 .nav-menu { display: flex; align-items: center; gap: 36px; list-style: none; }
 .nav-menu a {
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.8px;
-  text-transform: uppercase; color: #0797b0;
+  text-transform: uppercase; color: #033d93;
   text-decoration: none; position: relative; transition: color 0.2s;
 }
 .nav-menu a::after {
   content: ''; position: absolute; bottom: -3px; left: 0; right: 100%;
-  height: 1px; background: #0797b0; transition: right 0.3s var(--ease);
+  height: 1px; background: #033d93; transition: right 0.3s var(--ease);
 }
 .nav-menu a:hover::after { right: 0; }
 .nav-menu a.active { color: var(--accent); }
@@ -170,7 +170,7 @@ nav {
   display: flex; align-items: center; gap: 8px;
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.88rem; font-weight: 500; letter-spacing: 1.2px;
   text-transform: uppercase; color: var(--white); text-decoration: none;
-  background: #0797b0; padding: 11px 24px; border-radius: 2px;
+  background: #033d93; padding: 11px 24px; border-radius: 2px;
   transition: background 0.25s, transform 0.2s;
 }
 .nav-book:hover { background: var(--cobalt-l); transform: translateY(-1px); }
@@ -179,7 +179,7 @@ nav {
 
 /* DRAWER */
 .drawer {
-  position: fixed; inset: 0; z-index: 490; background: #0797b0;
+  position: fixed; inset: 0; z-index: 490; background: #033d93;
   display: flex; flex-direction: column; padding: 100px 8% 60px;
   transform: translateX(100%); transition: transform 0.5s var(--ease);
 }
@@ -203,7 +203,7 @@ nav {
 
 /* PAGE HERO */
 .page-hero {
-  background: #0797b0;
+  background: #033d93;
   padding: 140px 5% 80px;
   position: relative; overflow: hidden;
 }
@@ -254,7 +254,7 @@ nav {
   transition: color 0.2s, border-color 0.2s;
 }
 .filter-btn:hover { color: var(--ink); }
-.filter-btn.active { color: #0797b0; border-bottom-color: #0797b0; font-weight: 500; }
+.filter-btn.active { color: #033d93; border-bottom-color: #033d93; font-weight: 500; }
 
 /* SECTION */
 .section { padding: 80px 5%; }
@@ -271,7 +271,7 @@ nav {
 .feat-article:hover { box-shadow: 0 20px 60px rgba(14,17,23,0.08); }
 .feat-art-body { padding: 52px 56px; background: var(--white); }
 .feat-art-visual {
-  background: linear-gradient(150deg, #1fa1b7 0%, #0e6070 50%, #0a4a58 100%);
+  background: linear-gradient(150deg, #0346aa 0%, #022964 50%, #022150 100%);
   position: relative; overflow: hidden;
   display: flex; align-items: center; justify-content: center; min-height: 340px;
 }
@@ -312,7 +312,7 @@ nav {
 .blog-read-more {
   display: inline-flex; align-items: center; gap: 8px;
   -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.79rem; font-weight: 500; letter-spacing: 1.5px;
-  text-transform: uppercase; color: #0797b0;
+  text-transform: uppercase; color: #033d93;
   margin-top: 28px; transition: gap 0.2s;
 }
 .feat-article:hover .blog-read-more,
@@ -426,7 +426,7 @@ nav {
 }
 .pop-item:hover .pop-num { color: var(--accent); }
 .pop-title { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.94rem; color: var(--ink); line-height: 1.5; font-weight: 400; }
-.pop-item:hover .pop-title { color: #0797b0; }
+.pop-item:hover .pop-title { color: #033d93; }
 .pop-cat { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
 
 .cat-list { display: flex; flex-direction: column; gap: 8px; }
@@ -436,7 +436,7 @@ nav {
   font-size: 0.88rem; color: var(--slate); transition: background 0.2s, color 0.2s;
   border: none; font-family: 'Jost', sans-serif; text-align: left; width: 100%;
 }
-.cat-pill:hover, .cat-pill.active { background: #0797b0; color: white; }
+.cat-pill:hover, .cat-pill.active { background: #033d93; color: white; }
 .cat-count { -webkit-text-stroke: var(--aceh-bold) currentColor; font-family: 'Aceh', 'Jost', sans-serif; font-size: 0.77rem; opacity: 0.6; }
 
 /* PAGINATION */
@@ -448,8 +448,8 @@ nav {
   font-family: 'Jost', sans-serif; transition: background 0.2s, color 0.2s, border-color 0.2s;
   text-decoration: none;
 }
-.page-btn:hover { border-color: #0797b0; color: #0797b0; }
-.page-btn.active { background: #0797b0; border-color: #0797b0; color: white; }
+.page-btn:hover { border-color: #033d93; color: #033d93; }
+.page-btn.active { background: #033d93; border-color: #033d93; color: white; }
 .page-btn.wide { width: auto; padding: 0 16px; }
 
 /* REVEAL */
@@ -475,7 +475,7 @@ nav {
 .wa-icon { font-size: 1.2rem; }
 
 /* FOOTER */
-footer { background: #0797b0; padding: 80px 5% 40px; }
+footer { background: #033d93; padding: 80px 5% 40px; }
 .footer-top {
   display: grid; grid-template-columns: 3fr 1.5fr 1.5fr 1.5fr;
   gap: 60px; margin-bottom: 60px; padding-bottom: 60px;
@@ -741,7 +741,7 @@ footer { background: #0797b0; padding: 80px 5% 40px; }
 
         
 
-        <div class="sidebar-block rw rw-d2" style="background:#0797b0;border-color:transparent;">
+        <div class="sidebar-block rw rw-d2" style="background:#033d93;border-color:transparent;">
           <h4 style="color:rgba(255,255,255,0.62);">Rezervo Vizitë</h4>
           <p style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;color:white;line-height:1.3;margin-bottom:16px;">Keni pyetje pas leximit të artikullit?</p>
           <p style="font-size:0.9rem;color:rgba(255,255,255,0.72);font-weight:300;margin-bottom:24px;line-height:1.7;">Mjekët tanë janë këtu për konsultë. Rezervoni vizitën tuaj online, pa pritje.</p>
