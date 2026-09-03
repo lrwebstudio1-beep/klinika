@@ -166,11 +166,11 @@
     .staff-card:hover .card-overlay { opacity:1; }
 
     /* PHOTO PLACEHOLDER — img + silhouette */
-    .card-photo-placeholder { width:240px; min-width:240px; height:auto; min-height:280px; position:relative; overflow:hidden; background:#053aaa; flex-shrink:0; }
+    .card-photo-placeholder { width:240px; min-width:240px; height:auto; min-height:324px; position:relative; overflow:hidden; background:#053aaa; flex-shrink:0; }
     .card-silhouette { display:none; position:absolute; inset:0; align-items:flex-end; justify-content:center; }
     .card-silhouette-inner { width:70%; height:88%; background:linear-gradient(170deg,rgba(255,255,255,0.12) 0%,rgba(255,255,255,0.04) 100%); border-radius:60% 60% 0 0; display:flex; align-items:center; justify-content:center; padding-top:30%; }
     .card-initial { font-family:'Playfair Display',serif; font-size:3.5rem; font-weight:400; font-style:italic; color:rgba(255,255,255,0.6); }
-    .card-img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; display:block; z-index:2; }
+    .card-img { position:absolute; top:50%; left:0; transform:translateY(-50%); width:240px; height:324px; object-fit:contain; object-position:center; display:block; z-index:2; }
     .card-img[src=""] { display:none; }
 
     .card-overlay { position:absolute; inset:0; background:rgba(3,61,147,0.85); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; z-index:3; }
@@ -223,6 +223,7 @@
       .staff-grid { grid-template-columns:1fr; }
       .staff-card { flex-direction:column; }
       .card-photo-placeholder { width:100%; min-width:unset; height:auto; aspect-ratio:3/4; min-height:unset; }
+      .card-img { top:0; transform:none; width:100%; height:100%; }
     }
   </style>
 </head>
@@ -283,7 +284,7 @@
       <div class="staff-card">
         <div class="card-photo-placeholder">
           <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">A</span></div></div>
-          <img class="card-img" src="Dr. Genta.jpeg" alt="Dr. Genta Dedej">
+          <img class="card-img" src="dr-genta-dedej.jpg" alt="Dr. Genta Dedej">
         </div>
         <div class="card-body">
           <div class="card-overlay"><span class="card-overlay-text">Drejtuese e klinikës</span></div>
@@ -308,7 +309,7 @@
       <div class="staff-card">
         <div class="card-photo-placeholder">
           <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">R</span></div></div>
-          <img class="card-img" src="Dr. Moza Keta.jpeg" alt="Dr. Moza Keta">
+          <img class="card-img" src="dr-moza-keta.jpg" alt="Dr. Moza Keta">
         </div>
         <div class="card-overlay"><span class="card-overlay-text">Gjinekologji</span></div>
         <div class="card-body">
@@ -326,7 +327,7 @@
       <div class="staff-card">
         <div class="card-photo-placeholder">
           <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">B</span></div></div>
-          <img class="card-img" src="Dr. Teuta Neli.png" alt="Dr. Teuta Neli">
+          <img class="card-img" src="dr-teuta-neli.png" alt="Dr. Teuta Neli">
         </div>
         <div class="card-overlay"><span class="card-overlay-text">Pediatri</span></div>
         <div class="card-body">
@@ -363,7 +364,7 @@
       <div class="staff-card">
         <div class="card-photo-placeholder">
           <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">F</span></div></div>
-          <img class="card-img" src="Dr. Fatbardha Myslimaj Xhani.jpeg" alt="Dr. Fatbardha Myslimaj Xhani">
+          <img class="card-img" src="dr-fatbardha-myslimaj-xhani.jpg" alt="Dr. Fatbardha Myslimaj Xhani">
         </div>
         <div class="card-overlay"><span class="card-overlay-text">Psikiatri</span></div>
         <div class="card-body">
@@ -382,7 +383,7 @@
       <div class="staff-card">
         <div class="card-photo-placeholder">
           <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">M</span></div></div>
-          <img class="card-img" src="Dr. Meri Papajani.jpeg" alt="Dr. Meri Papajani">
+          <img class="card-img" src="dr-meri-papajani.jpg" alt="Dr. Meri Papajani">
         </div>
         <div class="card-overlay"><span class="card-overlay-text">Neurologji</span></div>
         <div class="card-body">
@@ -401,7 +402,7 @@
       <div class="staff-card">
         <div class="card-photo-placeholder">
           <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">G</span></div></div>
-          <img class="card-img" src="Dr. Gentian Caco.jpeg" alt="Dr. Gentian Caco">
+          <img class="card-img" src="dr-gentian-caco.jpg" alt="Dr. Gentian Caco">
         </div>
         <div class="card-overlay"><span class="card-overlay-text">Kirurgji Vaskulare</span></div>
         <div class="card-body">
@@ -419,7 +420,7 @@
       <div class="staff-card">
         <div class="card-photo-placeholder">
           <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">E</span></div></div>
-          <img class="card-img" src="Dr. Elton Qeli.png" alt="Dr. Elton Qeli">
+          <img class="card-img" src="dr-elton-qeli.png" alt="Dr. Elton Qeli">
         </div>
         <div class="card-overlay"><span class="card-overlay-text">Kardiologji</span></div>
         <div class="card-body">
@@ -438,7 +439,7 @@
       <div class="staff-card">
         <div class="card-photo-placeholder">
           <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">F</span></div></div>
-          <img class="card-img" src="Dr.Ermira Goxha.jpeg" alt="Dr. Ermira Goxha">
+          <img class="card-img" src="dr-ermira-goxha.jpg" alt="Dr. Ermira Goxha">
         </div>
         <div class="card-overlay"><span class="card-overlay-text">Pediatri</span></div>
         <div class="card-body">
