@@ -166,11 +166,11 @@
     .staff-card:hover .card-overlay { opacity:1; }
 
     /* PHOTO PLACEHOLDER — img + silhouette */
-    .card-photo-placeholder { width:240px; min-width:240px; height:auto; min-height:280px; position:relative; overflow:hidden; background:linear-gradient(135deg,var(--teal-l) 0%,var(--teal-d) 100%); flex-shrink:0; }
-    .card-silhouette { position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:center; }
+    .card-photo-placeholder { width:240px; min-width:240px; height:auto; min-height:280px; position:relative; overflow:hidden; background:#053aaa; flex-shrink:0; }
+    .card-silhouette { display:none; position:absolute; inset:0; align-items:flex-end; justify-content:center; }
     .card-silhouette-inner { width:70%; height:88%; background:linear-gradient(170deg,rgba(255,255,255,0.12) 0%,rgba(255,255,255,0.04) 100%); border-radius:60% 60% 0 0; display:flex; align-items:center; justify-content:center; padding-top:30%; }
     .card-initial { font-family:'Playfair Display',serif; font-size:3.5rem; font-weight:400; font-style:italic; color:rgba(255,255,255,0.6); }
-    .card-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; display:block; z-index:2; }
+    .card-img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; display:block; z-index:2; }
     .card-img[src=""] { display:none; }
 
     .card-overlay { position:absolute; inset:0; background:rgba(3,61,147,0.85); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; z-index:3; }
@@ -222,7 +222,7 @@
       .section { padding:60px 24px; }
       .staff-grid { grid-template-columns:1fr; }
       .staff-card { flex-direction:column; }
-      .card-photo-placeholder { width:100%; min-width:unset; height:260px; min-height:unset; }
+      .card-photo-placeholder { width:100%; min-width:unset; height:auto; aspect-ratio:3/4; min-height:unset; }
     }
   </style>
 </head>
@@ -307,17 +307,16 @@
 
       <div class="staff-card">
         <div class="card-photo-placeholder">
-          <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">E</span></div></div>
-          <img class="card-img" src="Dr. Elton Qeli.jpeg" alt="Dr. Elton Qeli">
+          <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">R</span></div></div>
+          <img class="card-img" src="Dr. Moza Keta.jpeg" alt="Dr. Moza Keta">
         </div>
-        <div class="card-overlay"><span class="card-overlay-text">Kardiologji</span></div>
+        <div class="card-overlay"><span class="card-overlay-text">Gjinekologji</span></div>
         <div class="card-body">
-          <p class="card-spec">Kardiolog</p>
-          <h3 class="card-name">Dr. Elton Qeli</h3>
+          <p class="card-spec">Gjinekologe</p>
+          <h3 class="card-name">Dr. Moza Keta</h3>
           <div class="card-line"></div>
-          <p class="card-bio">Kardiolog dr. Elton Qeli është një nga kardiologët e mirënjohur për problematikat e sëmundjeve të zemrës si:
-            Hipertensioni arterial, Aritmitë, ishemia , infarkti etj.
-            Dr. Elton Qeli ofron konsulta çdo ditë pranë klinikës Vera-VIRHOV</p>
+          <p class="card-bio">Gjinekologe dr. Mimoza Keta eshte nje nga specialistet e mirenjohura ne fushen e obstetrike- gjinekologjise ne Shqiperi, ajo i takon plejades se mjekeve te nderuar qe i kane sherbyer grave per problematikat qe lidhen me shendetin riprodhues. Dr. Mimoza Keta eshte ekperte ne problematikat qe lidhen me infeksionet seksualisht te transmetueshme, crregullimet hormonale, ovari polikistik etj.
+            Dr. Mimoza ofron sherbim cdo dite prane klinikes Vera-VIRHOV.</p>
           <div class="card-tags">
             
           </div>
@@ -327,7 +326,7 @@
       <div class="staff-card">
         <div class="card-photo-placeholder">
           <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">B</span></div></div>
-          <img class="card-img" src="Dr.Teuta Neli.jpeg" alt="Dr. Edi Tushe">
+          <img class="card-img" src="Dr. Teuta Neli.png" alt="Dr. Teuta Neli">
         </div>
         <div class="card-overlay"><span class="card-overlay-text">Pediatri</span></div>
         <div class="card-body">
@@ -363,16 +362,73 @@
 
       <div class="staff-card">
         <div class="card-photo-placeholder">
-          <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">R</span></div></div>
-          <img class="card-img" src="Dr. Moza Keta.jpeg" alt="Dr. Moza Keta">
+          <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">F</span></div></div>
+          <img class="card-img" src="Dr. Fatbardha Myslimaj Xhani.jpeg" alt="Dr. Fatbardha Myslimaj Xhani">
         </div>
-        <div class="card-overlay"><span class="card-overlay-text">Gjinekologji</span></div>
+        <div class="card-overlay"><span class="card-overlay-text">Psikiatri</span></div>
         <div class="card-body">
-          <p class="card-spec">Gjinekologe</p>
-          <h3 class="card-name">Dr. Moza Keta</h3>
+          <p class="card-spec">Mjeke Psikiatre</p>
+          <h3 class="card-name">Dr. Fatbardha Myslimaj Xhani</h3>
           <div class="card-line"></div>
-          <p class="card-bio">Gjinekologe dr. Mimoza Keta eshte nje nga specialistet e mirenjohura ne fushen e obstetrike- gjinekologjise ne Shqiperi, ajo i takon plejades se mjekeve te nderuar qe i kane sherbyer grave per problematikat qe lidhen me shendetin riprodhues. Dr. Mimoza Keta eshte ekperte ne problematikat qe lidhen me infeksionet seksualisht te transmetueshme, crregullimet hormonale, ovari polikistik etj.
-            Dr. Mimoza ofron sherbim cdo dite prane klinikes Vera-VIRHOV.</p>
+          <p class="card-bio">Dr. Fatbardha Myslimaj Xhani është mjeke psikiatre me eksperiencë të gjatë profesionale, e përkushtuar në vlerësimin, diagnostikimin dhe trajtimin e problematikave të shëndetit mendor.</p>
+          <p class="card-bio" style="margin-top:12px;">Pranë Klinikës VIRHOV, ajo ofron konsulta për ankthin, depresionin, çrregullimet e gjumit, krizat e panikut, stresin, çrregullimet e humorit, si edhe problematika emocionale që mund të shfaqen në periudha të ndryshme të jetës.</p>
+          <p class="card-bio" style="margin-top:12px;">Me profesionalizëm, empati dhe respekt për individualitetin e çdo pacienti, Dr. Xhani krijon një hapësirë të sigurt për të folur, për t’u kuptuar dhe për të marrë ndihmën e duhur.</p>
+          <div class="card-tags">
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="card-photo-placeholder">
+          <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">M</span></div></div>
+          <img class="card-img" src="Dr. Meri Papajani.jpeg" alt="Dr. Meri Papajani">
+        </div>
+        <div class="card-overlay"><span class="card-overlay-text">Neurologji</span></div>
+        <div class="card-body">
+          <p class="card-spec">Neurologe</p>
+          <h3 class="card-name">Dr. Meri Papajani</h3>
+          <div class="card-line"></div>
+          <p class="card-bio">Dr. Meri Papajani është mjeke neurologe, e përkushtuar në diagnostikimin, trajtimin dhe ndjekjen e pacientëve me problematika të sistemit nervor.</p>
+          <p class="card-bio" style="margin-top:12px;">Pranë Klinikës VIRHOV, Dr. Papajani ofron konsulta neurologjike për pacientë që paraqesin dhimbje koke dhe migrenë, marramendje, çrregullime të ekuilibrit, mpirje dhe dobësi të gjymtyrëve, tremor, çrregullime të kujtesës, neuropati, si edhe problematika të tjera neurologjike.</p>
+          <p class="card-bio" style="margin-top:12px;">Me një komunikim të kujdesshëm dhe qasje profesionale ndaj çdo pacienti, vlerësimi neurologjik synon jo vetëm trajtimin e simptomave, por edhe identifikimin sa më të saktë të shkakut të tyre.</p>
+          <div class="card-tags">
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="card-photo-placeholder">
+          <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">G</span></div></div>
+          <img class="card-img" src="Dr. Gentian Caco.jpeg" alt="Dr. Gentian Caco">
+        </div>
+        <div class="card-overlay"><span class="card-overlay-text">Kirurgji Vaskulare</span></div>
+        <div class="card-body">
+          <p class="card-spec">Kirurg Vaskular</p>
+          <h3 class="card-name">Dr. Gentian Caco</h3>
+          <div class="card-line"></div>
+          <p class="card-bio">Dr. Gentian Caco është mjek specialist kirurg vaskular, me eksperiencë në diagnostikimin, trajtimin dhe ndjekjen e sëmundjeve të sistemit venoz dhe arterial. Ai ofron konsulta të specializuara për problematika si variçet, insuficienca venoze, trombozat, çrregullimet e qarkullimit të gjakut dhe patologjitë vaskulare, duke orientuar pacientin drejt trajtimit më të përshtatshëm.</p>
+          <p class="card-bio" style="margin-top:12px;">Pranë Klinikës VIRHOV, Dr. Gentian Caco ofron konsultë dhe vlerësim të specializuar vaskular.</p>
+          <div class="card-tags">
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="staff-card">
+        <div class="card-photo-placeholder">
+          <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">E</span></div></div>
+          <img class="card-img" src="Dr. Elton Qeli.png" alt="Dr. Elton Qeli">
+        </div>
+        <div class="card-overlay"><span class="card-overlay-text">Kardiologji</span></div>
+        <div class="card-body">
+          <p class="card-spec">Kardiolog</p>
+          <h3 class="card-name">Dr. Elton Qeli</h3>
+          <div class="card-line"></div>
+          <p class="card-bio">Kardiolog dr. Elton Qeli është një nga kardiologët e mirënjohur për problematikat e sëmundjeve të zemrës si:
+            Hipertensioni arterial, Aritmitë, ishemia , infarkti etj.
+            Dr. Elton Qeli ofron konsulta çdo ditë pranë klinikës Vera-VIRHOV</p>
           <div class="card-tags">
             
           </div>
@@ -382,7 +438,7 @@
       <div class="staff-card">
         <div class="card-photo-placeholder">
           <div class="card-silhouette"><div class="card-silhouette-inner"><span class="card-initial">F</span></div></div>
-          <img class="card-img" src="Dr.Ermira Goxha.jpeg" alt="Dr. Teuta Neli">
+          <img class="card-img" src="Dr.Ermira Goxha.jpeg" alt="Dr. Ermira Goxha">
         </div>
         <div class="card-overlay"><span class="card-overlay-text">Pediatri</span></div>
         <div class="card-body">
@@ -415,16 +471,16 @@
       <div class="footer-col">
         <h5>Sherbimet</h5>
         <ul>
-          <li><a href="sherbimi.html">Analiza Laboratorike</a></li>
-          <li><a href="sherbimi.html">Ekografi</a></li>
-          <li><a href="sherbimi.html">Encefalograme (EEG)</a></li>
-          <li><a href="sherbimi.html">Kujdes Fëmijë &amp; të Rritur</a></li>
-          <li><a href="sherbimi.html">Monitorim Parametrave</a></li>
-          <li><a href="sherbimi.html">Konsulta me Specialistë</a></li>
-          <li><a href="sherbimi.html">Fizioterapi</a></li>
-          <li><a href="sherbimi.html">Logopedi</a></li>
-          <li><a href="sherbimi.html">Shërbim Infermieristik</a></li>
-          <li><a href="sherbimi.html">Haloterapi</a></li>
+          <li><a href="sherbimi.html#analiza-laboratorike">Analiza Laboratorike</a></li>
+          <li><a href="sherbimi.html#ekografi">Ekografi</a></li>
+          <li><a href="sherbimi.html#eeg">Encefalograme (EEG)</a></li>
+          <li><a href="sherbimi.html#kujdes-femije-te-rritur">Kujdes Fëmijë &amp; të Rritur</a></li>
+          <li><a href="sherbimi.html#monitorim-parametrave">Monitorim Parametrave</a></li>
+          <li><a href="sherbimi.html#konsulta-specialiste">Konsulta me Specialistë</a></li>
+          <li><a href="sherbimi.html#fizioterapi">Fizioterapi</a></li>
+          <li><a href="sherbimi.html#logopedi">Logopedi</a></li>
+          <li><a href="sherbimi.html#sherbim-infermieristik">Shërbim Infermieristik</a></li>
+          <li><a href="sherbimi.html#haloterapi">Haloterapi</a></li>
         </ul>
       </div>
       <div class="footer-col">

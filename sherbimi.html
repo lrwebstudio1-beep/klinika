@@ -632,16 +632,16 @@ footer{background:#033d93;padding:80px 5% 40px;}
 
     <!-- TAB NAV -->
     <div class="tabs-nav" role="tablist">
-      <button class="tab-btn active" onclick="switchTab(0)" role="tab"><span class="tb-num">01</span><span class="tb-icon"></span> Analiza Laboratorike</button>
-      <button class="tab-btn" onclick="switchTab(1)" role="tab"><span class="tb-num">02</span><span class="tb-icon"></span> Ekografi</button>
-      <button class="tab-btn" onclick="switchTab(2)" role="tab"><span class="tb-num">03</span><span class="tb-icon"></span> Encefalogramë (EEG)</button>
-      <button class="tab-btn" onclick="switchTab(3)" role="tab"><span class="tb-num">04</span><span class="tb-icon"></span> Kujdes Fëmije &amp; të Rritur</button>
-      <button class="tab-btn" onclick="switchTab(4)" role="tab"><span class="tb-num">05</span><span class="tb-icon"></span> Monitorim Parametrave</button>
-      <button class="tab-btn" onclick="switchTab(5)" role="tab"><span class="tb-num">06</span><span class="tb-icon"></span> Konsulta Specialiste</button>
-      <button class="tab-btn" onclick="switchTab(6)" role="tab"><span class="tb-num">07</span><span class="tb-icon"></span> Fizioterapi</button>
-      <button class="tab-btn" onclick="switchTab(7)" role="tab"><span class="tb-num">08</span><span class="tb-icon"></span> Logopedi</button>
-      <button class="tab-btn" onclick="switchTab(8)" role="tab"><span class="tb-num">09</span><span class="tb-icon"></span> Shërbim Infermieristik</button>
-      <button class="tab-btn" onclick="switchTab(9)" role="tab"><span class="tb-num">10</span><span class="tb-icon"></span> Haloterapi</button>
+      <button id="analiza-laboratorike" class="tab-btn active" onclick="switchTab(0)" role="tab"><span class="tb-num">01</span><span class="tb-icon"></span> Analiza Laboratorike</button>
+      <button id="ekografi" class="tab-btn" onclick="switchTab(1)" role="tab"><span class="tb-num">02</span><span class="tb-icon"></span> Ekografi</button>
+      <button id="eeg" class="tab-btn" onclick="switchTab(2)" role="tab"><span class="tb-num">03</span><span class="tb-icon"></span> Encefalogramë (EEG)</button>
+      <button id="kujdes-femije-te-rritur" class="tab-btn" onclick="switchTab(3)" role="tab"><span class="tb-num">04</span><span class="tb-icon"></span> Kujdes Fëmije &amp; të Rritur</button>
+      <button id="monitorim-parametrave" class="tab-btn" onclick="switchTab(4)" role="tab"><span class="tb-num">05</span><span class="tb-icon"></span> Monitorim Parametrave</button>
+      <button id="konsulta-specialiste" class="tab-btn" onclick="switchTab(5)" role="tab"><span class="tb-num">06</span><span class="tb-icon"></span> Konsulta Specialiste</button>
+      <button id="fizioterapi" class="tab-btn" onclick="switchTab(6)" role="tab"><span class="tb-num">07</span><span class="tb-icon"></span> Fizioterapi</button>
+      <button id="logopedi" class="tab-btn" onclick="switchTab(7)" role="tab"><span class="tb-num">08</span><span class="tb-icon"></span> Logopedi</button>
+      <button id="sherbim-infermieristik" class="tab-btn" onclick="switchTab(8)" role="tab"><span class="tb-num">09</span><span class="tb-icon"></span> Shërbim Infermieristik</button>
+      <button id="haloterapi" class="tab-btn" onclick="switchTab(9)" role="tab"><span class="tb-num">10</span><span class="tb-icon"></span> Haloterapi</button>
     </div>
 
     <!-- PANELS -->
@@ -879,16 +879,16 @@ footer{background:#033d93;padding:80px 5% 40px;}
     <div class="footer-col">
       <h5>Sherbimet</h5>
       <ul>
-        <li><a href="sherbimi.html">Analiza Laboratorike</a></li>
-        <li><a href="sherbimi.html">Ekografi</a></li>
-        <li><a href="sherbimi.html">Encefalograme (EEG)</a></li>
-        <li><a href="sherbimi.html">Kujdes Fëmijë &amp; të Rritur</a></li>
-        <li><a href="sherbimi.html">Monitorim Parametrave</a></li>
-        <li><a href="sherbimi.html">Konsulta me Specialistë</a></li>
-        <li><a href="sherbimi.html">Fizioterapi</a></li>
-        <li><a href="sherbimi.html">Logopedi</a></li>
-        <li><a href="sherbimi.html">Shërbim Infermieristik</a></li>
-        <li><a href="sherbimi.html">Haloterapi</a></li>
+        <li><a href="sherbimi.html#analiza-laboratorike">Analiza Laboratorike</a></li>
+        <li><a href="sherbimi.html#ekografi">Ekografi</a></li>
+        <li><a href="sherbimi.html#eeg">Encefalograme (EEG)</a></li>
+        <li><a href="sherbimi.html#kujdes-femije-te-rritur">Kujdes Fëmijë &amp; të Rritur</a></li>
+        <li><a href="sherbimi.html#monitorim-parametrave">Monitorim Parametrave</a></li>
+        <li><a href="sherbimi.html#konsulta-specialiste">Konsulta me Specialistë</a></li>
+        <li><a href="sherbimi.html#fizioterapi">Fizioterapi</a></li>
+        <li><a href="sherbimi.html#logopedi">Logopedi</a></li>
+        <li><a href="sherbimi.html#sherbim-infermieristik">Shërbim Infermieristik</a></li>
+        <li><a href="sherbimi.html#haloterapi">Haloterapi</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -933,6 +933,18 @@ function switchTab(i){
   // scroll tab btn into view
   document.querySelectorAll('.tab-btn')[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
 }
+
+// Hap tabin e duhur kur faqja hapet me hash (p.sh. sherbimi.html#ekografi)
+function tabFromHash(){
+  const el=document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if(!el||!el.classList.contains('tab-btn')) return;
+  const btns=Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));
+  switchTab(btns.indexOf(el));
+  const nav=document.querySelector('.tabs-nav');
+  setTimeout(()=>window.scrollTo({top:nav.getBoundingClientRect().top+window.scrollY-110,behavior:'smooth'}),60);
+}
+window.addEventListener('load',tabFromHash);
+window.addEventListener('hashchange',tabFromHash);
 
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:0.08});
 document.querySelectorAll('.rw').forEach(r=>obs.observe(r));

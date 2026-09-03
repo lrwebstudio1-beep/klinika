@@ -777,7 +777,7 @@ nav:not(.scrolled) .logo-sub { color: #ffffff; }
 .doc-card { position: relative; }
 .doc-photo {
   aspect-ratio: 3/4;
-  position: relative; overflow: hidden; background: var(--warm);
+  position: relative; overflow: hidden; background: #053aaa;
   margin-bottom: 20px;
 }
 .doc-photo-inner {
@@ -786,6 +786,7 @@ nav:not(.scrolled) .logo-sub { color: #ffffff; }
   padding-bottom: 0;
 }
 .doc-silhouette {
+  display: none;
   width: 75%; height: 90%;
   background: linear-gradient(170deg, var(--slate) 0%, var(--cobalt) 60%, var(--ink) 100%);
   border-radius: 60% 60% 0 0;
@@ -823,7 +824,7 @@ nav:not(.scrolled) .logo-sub { color: #ffffff; }
 .doc-photo-img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
+  object-fit: contain; object-position: center;
   display: block; z-index: 2;
 }
 .doc-photo-img[src=""] { display: none; }
@@ -1486,7 +1487,7 @@ footer {
       <div class="doc-card rw">
         <div class="doc-photo">
           <div class="doc-photo-inner">
-            <img class="doc-photo-img" src="Dr. Genta.jpeg" alt="Dr. Genta" title="Vendosni foton e Dr. Genta">
+            <img class="doc-photo-img" src="Dr. Genta.jpeg" alt="Dr. Genta Dedej">
             <div class="doc-silhouette" style="background:linear-gradient(170deg,#1b3a6b,#0a1628);">
               <div class="doc-initial">A</div>
             </div>
@@ -1503,7 +1504,7 @@ footer {
       <div class="doc-card rw rw-d1">
         <div class="doc-photo">
           <div class="doc-photo-inner">
-            <img class="doc-photo-img" src="Dr.Ermira Goxha.jpeg" alt="Dr. Edi Tushe" title="Vendosni foton e Dr. Edi Tushe">
+            <img class="doc-photo-img" src="Dr.Ermira Goxha.jpeg" alt="Dr. Ermira Goxha">
             <div class="doc-silhouette" style="background:linear-gradient(170deg,#4a1942,#1a0a1a);">
               <div class="doc-initial">B</div>
             </div>
@@ -1520,7 +1521,7 @@ footer {
       <div class="doc-card rw rw-d2">
         <div class="doc-photo">
           <div class="doc-photo-inner">
-            <img class="doc-photo-img" src="Dr. Elton Qeli.jpeg" alt="Dr. Elton Qeli" title="Vendosni foton e Dr. Erion Çela">
+            <img class="doc-photo-img" src="Dr. Elton Qeli.png" alt="Dr. Elton Qeli">
             <div class="doc-silhouette" style="background:linear-gradient(170deg,#0f3d2b,#051a10);">
               <div class="doc-initial">E</div>
             </div>
@@ -1537,7 +1538,7 @@ footer {
       <div class="doc-card rw rw-d3">
         <div class="doc-photo">
           <div class="doc-photo-inner">
-            <img class="doc-photo-img" src="Dr. Moza Keta.jpeg" alt="Dr. Moza Keta" title="Vendosni foton e Dr. Moza Keta">
+            <img class="doc-photo-img" src="Dr. Moza Keta.jpeg" alt="Dr. Moza Keta">
             <div class="doc-silhouette" style="background:linear-gradient(170deg,#4a3000,#1a1000);">
               <div class="doc-initial">L</div>
             </div>
@@ -1554,7 +1555,7 @@ footer {
       <div class="doc-card rw rw-d4">
         <div class="doc-photo">
           <div class="doc-photo-inner">
-            <img class="doc-photo-img" src="Dr.Teuta Neli.jpeg" alt="Dr. Teuta Neli" title="Dr. Teuta Neli">
+            <img class="doc-photo-img" src="Dr. Teuta Neli.png" alt="Dr. Teuta Neli">
             <div class="doc-silhouette" style="background:linear-gradient(170deg,#022964,#0a1628);">
               <div class="doc-initial">T</div>
             </div>
@@ -1850,16 +1851,16 @@ footer {
         <div class="footer-col">
       <h5>Shërbimet</h5>
       <ul>
-        <li><a href="sherbimi.html">Analiza Laboratorike</a></li>
-        <li><a href="sherbimi.html">Ekografi</a></li>
-        <li><a href="sherbimi.html">Encefalograme (EEG)</a></li>
-        <li><a href="sherbimi.html">Kujdes Fëmijë &amp; të Rritur</a></li>
-        <li><a href="sherbimi.html">Monitorim Parametrave</a></li>
-        <li><a href="sherbimi.html">Konsulta me Specialistë</a></li>
-        <li><a href="sherbimi.html">Fizioterapi</a></li>
-        <li><a href="sherbimi.html">Logopedi</a></li>
-        <li><a href="sherbimi.html">Shërbim Infermieristik</a></li>
-        <li><a href="sherbimi.html">Haloterapi</a></li>
+        <li><a href="sherbimi.html#analiza-laboratorike">Analiza Laboratorike</a></li>
+        <li><a href="sherbimi.html#ekografi">Ekografi</a></li>
+        <li><a href="sherbimi.html#eeg">Encefalograme (EEG)</a></li>
+        <li><a href="sherbimi.html#kujdes-femije-te-rritur">Kujdes Fëmijë &amp; të Rritur</a></li>
+        <li><a href="sherbimi.html#monitorim-parametrave">Monitorim Parametrave</a></li>
+        <li><a href="sherbimi.html#konsulta-specialiste">Konsulta me Specialistë</a></li>
+        <li><a href="sherbimi.html#fizioterapi">Fizioterapi</a></li>
+        <li><a href="sherbimi.html#logopedi">Logopedi</a></li>
+        <li><a href="sherbimi.html#sherbim-infermieristik">Shërbim Infermieristik</a></li>
+        <li><a href="sherbimi.html#haloterapi">Haloterapi</a></li>
       </ul>
     </div>
     
